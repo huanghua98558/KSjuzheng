@@ -1,0 +1,146 @@
+# ══════════════════════════════════════════════════════════
+# 2026-04-25 上传 GitHub (只上传后端代码)
+# ══════════════════════════════════════════════════════════
+
+# ★★★ 1. 敏感凭证 — 绝不上传 ★★★
+.secrets.json
+.env
+.env.local
+.mcn_token.json
+.mcn_token.json.backup
+.real_pipeline.log
+*.pem
+*.key
+credentials.json
+
+# ★★★ 2. 本次明确排除的大目录 ★★★
+web/
+tools/
+KSJIANJI/
+KS184_*.md
+YK_PROBE_RESUME.md
+J_FRIDA_USER_GUIDE.md
+AGENTS.md
+CLAUDE.md
+
+# 反编译/破解资料 (涉及商业秘密)
+docs/KS184_Q_X64_DECOMPILE.md
+
+# Chrome / Browser 配置目录 (含 Cookie, 绝不上传)
+.claude/
+profiles/
+Browser/
+Account/
+Account-journal
+Browsing
+Cache
+Cookies
+Cookies-journal
+Data
+Data-journal
+Database
+Database-journal
+Deny
+Dictionary
+Icons
+NEL
+NEL-journal
+Network
+Platform
+Predictor
+Predictor-journal
+Preferences
+Resources
+Rules
+Scripts
+Service
+Sessions
+Sessions-journal
+Sites
+Sites-journal
+State
+Storage
+Store
+Tokens
+Tokens-journal
+Tracker
+Version
+Worker
+
+# 本地数据 (大文件 + 敏感)
+data/
+database/
+assets/
+config/
+libs/
+reports/
+strategies/
+cxt_auth_submission/
+_e2e_test_output/
+_samples_compare/
+
+# 视频/图片 (大)
+short_drama_videos/
+drama_mode2_videos/
+qitian_samples/
+qitian_samples_video/
+short_drama/
+*.mp4
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ttf
+
+# ★★★ 3. Python 通用 ★★★
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.venv_mitm/
+.pytest_cache/
+.mypy_cache/
+
+# ★★★ 4. 日志 + 临时 ★★★
+logs/
+*.log
+*.tmp
+*.bak
+*~
+tmp_*.py
+copy.png
+
+# ★★★ 5. 数据库 ★★★
+*.db
+*.db-wal
+*.db-shm
+*.dump
+*.xlsx
+*.csv
+
+# ★★★ 6. IDE + OS ★★★
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
+
+# ★★★ 7. 破解工具 / 敏感研究代码 (不上传) ★★★
+core/yk_codec.py
+core/yk_multipad_analyze.py
+scripts/yk_*.py
+scripts/crack_*.py
+scripts/probe_mcn_*.py
+scripts/_probe_*.py
+scripts/verify_mcn_*.py
+scripts/analyze_mcn_relay_*.py
+scripts/verify_kww_*.py
+
+# ★★★ 8. Streamlit 私有 ★★★
+~/.streamlit/credentials.toml
+.streamlit/
+**/.streamlit/
+**/node_modules/

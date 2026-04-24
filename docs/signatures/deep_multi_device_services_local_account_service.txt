@@ -1,0 +1,119 @@
+# Deep inspection: multi_device.services.local_account_service
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\services\local_account_service.py
+
+
+CLASS LocalAccountService:
+  DEF __init__(self)  # line 16
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _ensure_tables(self)  # line 23
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_account_statistics(self, device_serial, kuaishou_uid, success)  # line 468
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (True,)
+  DEF check_and_save_account(self, device_serial, kuaishou_uid, kuaishou_name)  # line 889
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF clear_device_accounts(self, device_serial)  # line 970
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_device_account(self, device_serial, kuaishou_uid)  # line 222
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_account_statistics(self, kuaishou_uid)  # line 510
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_account_today_stats_by_type(self, device_serial, kuaishou_uid, kuaishou_name)  # line 724
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+  DEF get_all_device_accounts(self, device_serial)  # line 199
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_account(self, device_serial, kuaishou_uid)  # line 153
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_device_account_by_name(self, device_serial, account_name)  # line 946
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_account_statistics(self, device_serial, kuaishou_uid)  # line 563
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_device_current_account(self, device_serial)  # line 187
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_statistics_by_task_type(self, device_serial, task_type)  # line 598
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_device_today_drama_stats(self, device_serial, task_type)  # line 645
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_other_device_accounts(self, device_serial, current_uid)  # line 922
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_recent_tasks(self, device_serial, kuaishou_uid, limit)  # line 815
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None, 20)
+  DEF mark_running_tasks_as_failed(self, error_message)  # line 409
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('程序关闭，任务被中断',)
+  DEF record_task_failure(self, task_id, error_message, duration)  # line 364
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('', 0)
+  DEF record_task_start(self, device_serial, kuaishou_uid, kuaishou_name, task_type, drama_name, drama_link, task_config)  # line 273
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('短剧', '', '', None)
+  DEF record_task_success(self, task_id, duration)  # line 322
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0,)
+  DEF save_device_account(self, device_serial, kuaishou_uid, kuaishou_name)  # line 109
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF update_device_account_name(self, device_serial, kuaishou_uid, new_name)  # line 246
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_device_kuaishou_info(self, device_serial, kuaishou_uid, kuaishou_name)  # line 857
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+CLASS datetime:
+VAR db_manager = <multi_device.database.db_manager.DatabaseManager object at 0x000001512F4D0E00>
+VAR local_account_service = <multi_device.services.local_account_service.LocalAccountService object at 0x000001512F931490>
+VAR logging = <module 'logging' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\logging\__init__.py)>

@@ -1,0 +1,191 @@
+# Deep inspection: multi_device.database.db_manager
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\database\db_manager.py
+
+
+CLASS Any:
+VAR DB_CONFIG = {'database': 'C:\\Users\\Administrator\\AppData\\Local\\KuaishouControl\\data\\kuaishou_control.db', 'check_same_thread': False, 'timeout': 30.0, 'isolation_level': None}
+VAR DB_PATH = 'C:\\Users\\Administrator\\AppData\\Local\\KuaishouControl\\data\\kuaishou_control.db'
+
+CLASS DatabaseManager:
+  DEF __init__(self)  # line 31
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _auto_init_tables(self)  # line 110
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_cxt_mount_links_table(self)  # line 750
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_device_kuaishou_accounts_table(self, cursor, conn)  # line 685
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_local_task_records_table(self)  # line 714
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _init_database_connection(self)  # line 91
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_collected_videos_table(self)  # line 309
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_device_accounts_table(self, cursor, conn)  # line 646
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_devices_table(self)  # line 135
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_drama_collections_table(self, cursor, conn)  # line 582
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_drama_links_table(self)  # line 170
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_mode2_tables(self)  # line 388
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _migrate_video_processing_cache_table(self)  # line 1191
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF check_table_exists(self, table_name)  # line 1023
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF cleanup_expired_data(self)  # line 1055
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF clear_all_video_cache(self)  # line 1456
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF close(self)  # line 1584
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_video_cache(self, cache_id)  # line 1434
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_video_cache_batch(self, cache_ids)  # line 1407
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF execute_many(self, query, data)  # line 888
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF execute_query(self, query, params)  # line 837
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF execute_script(self, script)  # line 934
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF execute_transaction(self, operations)  # line 955
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF execute_update(self, query, params)  # line 865
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_all_video_cache(self)  # line 1370
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_connection()  # line 299
+    co_names: ('_GeneratorContextManager',)
+    co_consts: (None,)
+    co_freevars: ('func',)
+  DEF get_current_db_path(self)  # line 87
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_database_info(self)  # line 1149
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_database_status(self)  # line 1104
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_download_cache(self, drama_url, cache_type)  # line 1482
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('video',)
+  DEF get_table_info(self, table_name)  # line 1042
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_video_cache(self, drama_url, processing_method)  # line 1261
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF init_database(self, sql_file_path)  # line 988
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF insert_and_get_id(self, query, params)  # line 911
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF reload_database(self, new_db_path)  # line 48
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF save_download_cache(self, drama_url, cache_type, file_path, file_size)  # line 1523
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0,)
+  DEF save_video_cache(self, drama_url, processing_method, processed_video_path, original_video_path, video_size, video_duration, drama_name)  # line 1302
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, 0, 0, '')
+  DEF test_connection(self)  # line 818
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_download_cache_usage(self, cache_id)  # line 1558
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_video_cache_usage(self, cache_id)  # line 1344
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF vacuum_database(self)  # line 1092
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+VAR SQLITE_PRAGMAS = {'journal_mode': 'WAL', 'cache_size': -64000, 'foreign_keys': 1, 'synchronous': 'NORMAL', 'temp_store': 'MEMORY', 'mmap_size': 30000000000, 'page_size': 4096}
+
+DEF contextmanager(func)  # line 272
+  co_names: ('wraps',)
+  co_consts: ('@contextmanager decorator.\n\n    Typical usage:\n\n        @contextmanager\n        def some_generator(<arguments>):\n            <setup>\n            try:\n                yield <value>\n            finally:\n                <cleanup>\n\n    This makes this:\n\n        with some_generator(<arguments>) as <variable>:\n            <body>\n\n    equivalent to this:\n\n        <setup>\n        try:\n            <variable> = <value>\n            <body>\n        finally:\n            <cleanup>\n  
+VAR db_manager = <multi_device.database.db_manager.DatabaseManager object at 0x000001512F4D0E00>
+VAR logger = <Logger multi_device.database.db_manager (INFO)>
+VAR logging = <module 'logging' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\logging\__init__.py)>
+VAR os = <module 'os' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\os\os.py)>
+VAR sqlite3 = <module 'sqlite3' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\sqlite3\__init__.py)>

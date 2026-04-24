@@ -1,0 +1,5102 @@
+{
+  "small_tables_full": [
+    {
+      "table": "drama_execution_logs",
+      "row_count": 0,
+      "columns": [
+        "id",
+        "uid",
+        "device_serial",
+        "drama_name",
+        "episode_number",
+        "status",
+        "duration",
+        "error_message",
+        "created_at",
+        "config_data"
+      ],
+      "rows": []
+    },
+    {
+      "table": "operator_quota",
+      "row_count": 0,
+      "columns": [
+        "id",
+        "operator_account",
+        "max_accounts",
+        "created_time",
+        "updated_time"
+      ],
+      "rows": []
+    },
+    {
+      "table": "spark_photos",
+      "row_count": 0,
+      "columns": [
+        "id",
+        "photo_id",
+        "member_id",
+        "member_name",
+        "title",
+        "view_count",
+        "like_count",
+        "comment_count",
+        "duration",
+        "publish_time",
+        "publish_date",
+        "cover_url",
+        "play_url",
+        "avatar_url",
+        "org_id",
+        "created_at",
+        "updated_at"
+      ],
+      "rows": []
+    },
+    {
+      "table": "kuaishou_account_bindings",
+      "row_count": 2,
+      "columns": [
+        "id",
+        "kuaishou_id",
+        "machine_id",
+        "operator_account",
+        "bind_time",
+        "last_used_time",
+        "status",
+        "remark"
+      ],
+      "rows": [
+        {
+          "id": 10,
+          "kuaishou_id": "5245022408",
+          "machine_id": "1EF2304D-279E-4C21-A944-026791F487DE",
+          "operator_account": "team22",
+          "bind_time": "2026-01-24T12:53:42",
+          "last_used_time": "2026-01-24T12:53:42",
+          "status": "disabled",
+          "remark": null
+        },
+        {
+          "id": 17,
+          "kuaishou_id": "3078950457",
+          "machine_id": "5CA7C4E8-9AA5-438F-9EB7-C3F73DE1FD45",
+          "operator_account": "team22",
+          "bind_time": "2026-01-24T18:29:01",
+          "last_used_time": "2026-01-24T18:29:01",
+          "status": "active",
+          "remark": null
+        }
+      ]
+    },
+    {
+      "table": "system_announcements",
+      "row_count": 4,
+      "columns": [
+        "id",
+        "title",
+        "content",
+        "link_url",
+        "link_text",
+        "is_enabled",
+        "priority",
+        "created_at",
+        "updated_at",
+        "target_roles",
+        "target_users",
+        "attachments",
+        "platform"
+      ],
+      "rows": [
+        {
+          "id": 11,
+          "title": "结算规则公告",
+          "content": "星火计划结算流程：\n例：12.26-1.25期间产生的收益，平台2.5出对账单，机构开票提交给平台进入财务审核，3月5日前完成审核，审核通过后进入打款流程，4.5-4.15直接平台打款完成，整个结算流程跨度3个月左右 。\n\n荧光计划结算流程：\n例：1.1-1.31期间产生的收益，平台2.5日出对账单，机构开票提交给平台进入打款流程，通常4.5-4.15之间会到账，整个结算流程跨度3个月左右 。\n\n结算时间，大家根据自己的参与时间，以此类推！",
+          "link_url": null,
+          "link_text": null,
+          "is_enabled": 1,
+          "priority": 0,
+          "created_at": "2026-03-09T16:50:28",
+          "updated_at": "2026-04-16T13:37:45",
+          "target_roles": null,
+          "target_users": null,
+          "attachments": null,
+          "platform": "web"
+        },
+        {
+          "id": 12,
+          "title": "星火计划12月26日-1月25日收益结算",
+          "content": "@所有人，星火计划12月26日-1月25日收益均已经结算完毕， 支付宝查询后台查收，还没结算到收益的，请联系团长结算！",
+          "link_url": null,
+          "link_text": null,
+          "is_enabled": 1,
+          "priority": 1,
+          "created_at": "2026-03-22T21:21:44",
+          "updated_at": "2026-03-22T21:21:44",
+          "target_roles": null,
+          "target_users": null,
+          "attachments": null,
+          "platform": "web"
+        },
+        {
+          "id": 13,
+          "title": "版本更新",
+          "content": "快手短剧精灵多线程版本更新了  更新地址点击下方链接进行进入更新。目前最新版本是1.8.6",
+          "link_url": "https://share.feijipan.com/s/6Z1klYpb",
+          "link_text": "快手短剧精灵多线程版本更新地址",
+          "is_enabled": 1,
+          "priority": 2,
+          "created_at": "2026-04-12T20:50:16",
+          "updated_at": "2026-04-15T12:12:09",
+          "target_roles": null,
+          "target_users": "[2]",
+          "attachments": null,
+          "platform": "client"
+        },
+        {
+          "id": 14,
+          "title": "测试2",
+          "content": "测试2",
+          "link_url": null,
+          "link_text": "测试2",
+          "is_enabled": 1,
+          "priority": 0,
+          "created_at": "2026-04-13T12:24:33",
+          "updated_at": "2026-04-13T12:24:33",
+          "target_roles": null,
+          "target_users": "[2]",
+          "attachments": null,
+          "platform": "both"
+        }
+      ]
+    },
+    {
+      "table": "tv_publish_record",
+      "row_count": 6,
+      "columns": [
+        "id",
+        "drama_id",
+        "uid",
+        "collection_id",
+        "episode_number",
+        "photo_id"
+      ],
+      "rows": [
+        {
+          "id": 3,
+          "drama_id": 11,
+          "uid": 783076297,
+          "collection_id": "5xrna3hbd97hmbq",
+          "episode_number": 1,
+          "photo_id": "190663589203"
+        },
+        {
+          "id": 4,
+          "drama_id": 11,
+          "uid": 783076297,
+          "collection_id": "5xrna3hbd97hmbq",
+          "episode_number": 2,
+          "photo_id": "190663671693"
+        },
+        {
+          "id": 5,
+          "drama_id": 11,
+          "uid": 783076297,
+          "collection_id": "5xrna3hbd97hmbq",
+          "episode_number": 4,
+          "photo_id": "190667677082"
+        },
+        {
+          "id": 6,
+          "drama_id": 11,
+          "uid": 783076297,
+          "collection_id": "5xrna3hbd97hmbq",
+          "episode_number": 5,
+          "photo_id": "190668134698"
+        },
+        {
+          "id": 7,
+          "drama_id": 11,
+          "uid": 783076297,
+          "collection_id": "5xrna3hbd97hmbq",
+          "episode_number": 6,
+          "photo_id": "190714751166"
+        },
+        {
+          "id": 8,
+          "drama_id": 11,
+          "uid": 783076297,
+          "collection_id": "5xrna3hbd97hmbq",
+          "episode_number": 7,
+          "photo_id": "190716450285"
+        }
+      ]
+    },
+    {
+      "table": "card_keys",
+      "row_count": 8,
+      "columns": [
+        "id",
+        "card_code",
+        "card_type",
+        "status",
+        "created_by",
+        "created_at",
+        "used_at",
+        "used_by_auth_code",
+        "expires_at"
+      ],
+      "rows": [
+        {
+          "id": 13,
+          "card_code": "90ttotqlyngpz81f",
+          "card_type": "monthly",
+          "status": "active",
+          "created_by": 1,
+          "created_at": "2026-02-12T15:44:35",
+          "used_at": "2026-02-12T15:44:58",
+          "used_by_auth_code": "cpkj888",
+          "expires_at": "2026-03-12T15:44:58"
+        },
+        {
+          "id": 14,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "card_type": "monthly",
+          "status": "active",
+          "created_by": 1,
+          "created_at": "2026-02-12T18:07:33",
+          "used_at": "2026-02-12T19:36:23",
+          "used_by_auth_code": "cpkj888",
+          "expires_at": "2026-03-12T19:36:24"
+        },
+        {
+          "id": 15,
+          "card_code": "77ipvgz1uc84z37h",
+          "card_type": "monthly",
+          "status": "active",
+          "created_by": 1,
+          "created_at": "2026-02-12T21:00:41",
+          "used_at": "2026-02-13T22:48:29",
+          "used_by_auth_code": "hdw888666",
+          "expires_at": "2026-03-13T22:48:30"
+        },
+        {
+          "id": 16,
+          "card_code": "ea5d0gqjzf2uzk40",
+          "card_type": "monthly",
+          "status": "active",
+          "created_by": 1,
+          "created_at": "2026-02-12T21:00:41",
+          "used_at": "2026-02-13T18:23:20",
+          "used_by_auth_code": "hdw888666",
+          "expires_at": "2026-03-13T18:23:20"
+        },
+        {
+          "id": 17,
+          "card_code": "tuflqv65eopwojni",
+          "card_type": "monthly",
+          "status": "unused",
+          "created_by": 1,
+          "created_at": "2026-02-12T21:00:41",
+          "used_at": null,
+          "used_by_auth_code": null,
+          "expires_at": null
+        },
+        {
+          "id": 18,
+          "card_code": "tkdt1kvt7swne6e8",
+          "card_type": "monthly",
+          "status": "unused",
+          "created_by": 1,
+          "created_at": "2026-02-12T21:00:41",
+          "used_at": null,
+          "used_by_auth_code": null,
+          "expires_at": null
+        },
+        {
+          "id": 19,
+          "card_code": "rgs0v3ngj4oshjtp",
+          "card_type": "monthly",
+          "status": "unused",
+          "created_by": 1,
+          "created_at": "2026-02-12T21:00:41",
+          "used_at": null,
+          "used_by_auth_code": null,
+          "expires_at": null
+        },
+        {
+          "id": 20,
+          "card_code": "i86jmmvzre6t0vl6",
+          "card_type": "quarterly",
+          "status": "active",
+          "created_by": 1,
+          "created_at": "2026-02-12T22:06:39",
+          "used_at": "2026-02-12T22:09:36",
+          "used_by_auth_code": "cpkj888",
+          "expires_at": "2026-05-12T22:09:37"
+        }
+      ]
+    },
+    {
+      "table": "mcm_organizations",
+      "row_count": 17,
+      "columns": [
+        "id",
+        "org_name",
+        "org_code",
+        "description",
+        "is_active",
+        "include_video_collaboration",
+        "created_at",
+        "updated_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "org_name": "赤磐众享娱乐",
+          "org_code": "",
+          "description": null,
+          "is_active": 1,
+          "include_video_collaboration": 1,
+          "created_at": "2026-02-28T13:31:50",
+          "updated_at": "2026-02-28T15:18:08"
+        },
+        {
+          "id": 2,
+          "org_name": "测试机构",
+          "org_code": null,
+          "description": null,
+          "is_active": 1,
+          "include_video_collaboration": 1,
+          "created_at": "2026-02-28T15:42:51",
+          "updated_at": "2026-02-28T15:42:51"
+        },
+        {
+          "id": 4,
+          "org_name": "福州鑫河传媒",
+          "org_code": "weblogger_did=web_29494917611E81F5; _did=web_9860526719D0D865; did=web_86487e35c84add1ff7b749f5563ac070; kwpsecproductname=PCLive; kwfv1=PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+Sw/ZFGfzY+eGlGf+f+e4SGfbYP0QfGnLFwBLU80mYG9PUG9pSP/PEPAqU+0pSGfcE+080w/DFPB+D+0bj+eD7P08DP9HFG/WAG9HEP0Z7PAzYPePhPeSSG0Hl+ebjPeG=; bUserId=1000325454558; userId=4447693824; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABcg_WzmGVOAdYcaWTv74pnG6W37qDQPkEePoopmNhGqiqaV1XmU-kQd4l_jJLeHbFCs3BdeCZMmB7aVNrI89fUJvLIvPYFk-vncIq3bp857yKD7wR2srztzkxp5n1ZUatxkcZQcFE3RbagCkf5vBgT0uoI1J0ZkgNxDFa924hfOTVXjr1MCXZkhSQvsLgFUN18ygGcUFo2DVpQztspSK3JnBCgOaNDMDQ3wpa6QXTP2saEj-u21RYwGKywypGfg3OLLYHmiIg9IsgNZU7kF6g2ed6phaKj7j0coW6evH5y9gaAaDytxooBTAB; kuaishou.web.cp.api_ph=3b75f1b248727f52066f8f03e1c157760153",
+          "description": "福州鑫河传媒",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-03-05T17:42:22",
+          "updated_at": "2026-03-06T17:29:59"
+        },
+        {
+          "id": 5,
+          "org_name": "荣昌科技",
+          "org_code": "weblogger_did=web_538762496DD849A3; _did=web_1559909592841EE8; did=web_c5859949d354b5ca5a8a70d1436b32298b5c; bUserId=1000014573625; userId=4087376084; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABjKXrpv5Q7wS4orEqoMmY-Kl73e5SoJP934RWDTa4hluJk0puUvQ4OPs2Atok1_r0Po2csSFdQGEoAARQf0eCgZbuaxs1Vh6Yx_0tDBQxEiWtVBWFj73kXR_KF8TVo0ml8950v--aszC_9_Aeycw1b45RpyKUJJRv7ExAim8c2HhsvhdUlLAJPmkooh8czw8AvGQKhgnU4m3FXtVNO1hCSef7NtNlds4Gs37MaLK1HA8aEjXDFoga_Fxpw8r2Z4xly4zAfyIgAf5ekVrO7jdq9H1MhKcOhgI0bbnsJ5S3thVVxYZQVw8oBTAB; kuaishou.web.cp.api_ph=c76c8335e29914a885150418e6bbefe960a9",
+          "description": "荣昌科技",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-03-10T14:20:21",
+          "updated_at": "2026-03-25T15:03:17"
+        },
+        {
+          "id": 6,
+          "org_name": "骁恒剧场",
+          "org_code": "did=web_9df5265ca7a04786aabfe05b741a349e; didv=1767600308000; bUserId=1000567066891; userId=5281186272; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABtcuCqV4JCofEujkFLmqQl_W2bxktSLlj5SM7CLAld3xnTxljcrVXSldNMrpLZlj8mjWjDx4JD9tjTQdJX_1vFmnBQoAsoXFDue8rQw8_GzbVuKC0JJJ7zxnK_DmFJyEjZz8a9Ba2i499iFG8PFTzlDXdbNy5le_YQlQ_crivVtRpb4WFc61DU_c8MvzKgNJ5wDmIMue_MiiNGGf9Kzgg42YHdcL1QSHzumXp9QrVVXEaEj0UbxrV8kl-xJ2rnwcv_7i8PyIgphjEpN8UcynHQep8Gv-f1BrAcejcT1HDVb_gz8Ep9WQoBTAB; kuaishou.web.cp.api_ph=252fc13066a46394dad7c0ee804b31303da8; kwfv1=PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+Sw/ZFGfzY+eGlGf+f+e4SGfbYP0QfGnLFwBLU80mYGA4jG/+D+0GF+/G9G9PIw/L9GfLM8/YjwBLU+AH9Gfb0+ADU8/p0+B8D8nHM+eYSPfLFG9PhP08DG0qF+eYYwnr=",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 1,
+          "created_at": "2026-03-10T16:28:38",
+          "updated_at": "2026-03-10T16:28:38"
+        },
+        {
+          "id": 8,
+          "org_name": "道道传媒",
+          "org_code": "_did=web_22116119486DC538; did=web_a3de43ce366cb09ff603e8d76b94b82901bd; bUserId=1000355661049; userId=4375078020; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABIopBJwQxn9ZoUntCZIRZjoQ2xT70yYO8O5U1KjSSlE-C34O8pttdrkrwFzYr7GbX1_pxkTjqs_pnd_BINYcfV3UszQcl60LzeW6sLQnVj7c-zMxFq1D8p0H_jH1VfyWoEMRVdjHsEV6HF-AyvxOjT8_rzAJ77gautu7ENkV7WZ4YpElhrY3aedbb6MAZ-3VHIrogZ-yKURNc8EkWC0DyUz4mAIQggKihI02uScjrzcUaEscXTFBpRY1UWhLE96WVHHe_CiIglnnJ_X4x5KNhw8WV5WZuDuGmjcKzOmqOjEhcIIz_ZasoBTAB; kuaishou.web.cp.api_ph=e2ae2324ab7ab17a6377ddd12336c4c3e4f6",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-03-21T12:48:47",
+          "updated_at": "2026-03-24T12:50:09"
+        },
+        {
+          "id": 9,
+          "org_name": "书亦文化",
+          "org_code": "_did=web_359820161E65CFD0; bUserId=1000459929875; userId=4811693525; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABtIrUuCySw4w8nQng8vt4o5JvR0UaOLQulUtcs4q5JIMKkI1lZbiBnvas3GdEt6FF-jgtPIdfuOcHYira35UdIJSQE8KtYKOkjF8skAnT41NLso_ZQHWfRiXq23UOxzrX-omwt94Ka7MwIDfdR007fWh_IIqnJYnNOHaQ_uMEILCGuxBFZY_c1Ol_WzftMRqIILLrCt3CwQ6ohqJnWIngoKyvTbDnWFtKNZ3fgB5XktgaEj0UbxrV8kl-xJ2rnwcv_7i8PyIgu-oMreKpc1PWD-MRSBtmv9dLGRomZe1yFjN4_9jnPkwoBTAB; kuaishou.web.cp.api_ph=f7a5fac086975b038b330d88de40d70d403e; did=web_2328b80a1721bf0a20ca3b4d9b42b9e2; kwfv1=PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+Sw/ZFGfzY+eGlGf+f+e4SGfbYP0QfGnLFwBLU80mYG9L7+98S+B8YwnQY8BrF+frIP9zj+AZl8eGFwBHAw/Zh8/GF8e+fGAz08nrU+AZMGfQDPecU+BLAP9PhP/ZU8/c=",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-03-21T22:17:00",
+          "updated_at": "2026-03-22T13:56:53"
+        },
+        {
+          "id": 10,
+          "org_name": "火视界短剧",
+          "org_code": "11",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-01T16:05:52",
+          "updated_at": "2026-04-01T16:05:59"
+        },
+        {
+          "id": 11,
+          "org_name": "播播基",
+          "org_code": "_did=web_343254512F22576B; did=web_09536892d036d97836b208dd7c9ca9cf16cd; bUserId=1000486256020; userId=1840255532; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABpGp4iLaHCAdHXKkcSoahWWhluD5lsxXcSYfsgPThFWMQIQjndWy74-LRAb1gXXvSPe8F4WJElQNOHcgzgN0RSJhxMp19gfjyqh49R7yiNcKxuvxXml4JkgknHg0JMcoZ8nhMiBb76OqZqsn-Dtpm4OcB0mbUrmq290XYd9BJ3w_vfTn6_wTygvL7TdHJxUDu2kn1UQLxSs-hFPPYHfWa_wl0EMVe2wHwDSKMzpTmAUEaEppc51S34NvUHT2VV1uDvSbmiyIg26DBGTQ3oRnQtMVewzs65jRdVkbpXm5I2erwS7fIO6YoBTAB; kuaishou.web.cp.api_ph=d0fdbeb19c46c52e357ba18431ff72b6d03d",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-02T18:54:11",
+          "updated_at": "2026-04-02T18:54:17"
+        },
+        {
+          "id": 12,
+          "org_name": "君寒",
+          "org_code": "_did=web_249232782D37FD4F; did=web_814de79f2c85c09c1e4c06c69931bcea0b3a; bUserId=1000255801477; userId=3814720337; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABTFhyANGrgpi_-61KEDQsKPFsuppvGTCXuseAQC9udvsh_1PYzJicJML1iov_X30CXIRABETlt_H9sKTL5VDX8IFxDjv5ysGo2oubdfdKczdMNp501SiIf0Jyqc82w6EzGrqcS058ytVUIwRByMssOEv3WnH4Y-lwxtlnjDTLxH77mNpC4WJl7KVWqXVE49QIBpDrBzeKtK-XMXkAB7_Oowf5KtfzI8C9DW-Jp3pIQu4aEuXIUUFukqmT5FUCtP9ZkYSdVyIg3B2OS6vU-8hYxz6qbWV6FqK_KRLiTE9r9knmIYcpyUUoBTAB; kuaishou.web.cp.api_ph=bd933f24cb8e134a357ec941d196f2ab1588",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-03T10:50:49",
+          "updated_at": "2026-04-03T10:50:54"
+        },
+        {
+          "id": 13,
+          "org_name": "宸耀助手",
+          "org_code": "1",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-04T13:50:05",
+          "updated_at": "2026-04-04T13:50:12"
+        },
+        {
+          "id": 14,
+          "org_name": "斯塔克文化传媒",
+          "org_code": "_did=web_8579774834796C37; did=web_31e9f994baf75bbea2e430e7254e3033ab10; bUserId=1000564000280; didv=1774849983944; kwpsecproductname=PCLive; kwfv1=PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+Sw/ZFGfzY+eGlGf+f+e4SGfbYP0QfGnLFwBLU80mYGADFw/ZA+9Ll8BPI8040GA8jG/q7G0DE+0mfPfHE+9pf+AZAG0rAP0cA+AYDPeGlG0DE+9P9GnLMPfpjPeQ0PBc=; userId=4322397946; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErABALvuTX4nPO8CraaTzGixQDzfMguSIlEx93yXRgwXHi_hbIBTjpT_utTNN3NcIuadmgdzYpZch2VqubtX1OcfnPikkspcNuV594PC9xYCP34fTtSZwbrOaUJq04rxyd8oqb3OFEw-f5lhrnxdbmnFo1cSLYJk9JmxfCv78cD3o3vyOPOiq3WepzsCCKgqWth1LmVlmEV-Ue3N6qGyqx6ePbn1JWsXpRsXjrxsMvzR-fgaEh7Kteo6024TI8Igpb9lFJnv3CIgx4XBYc4Wkv_gc7wq3OrMV7j8V_M6higOQBLNnyZg-9goBTAB; kuaishou.web.cp.api_ph=fa528758218e5db7da250411e9f95bcad5a8",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-05T16:51:31",
+          "updated_at": "2026-04-05T16:51:37"
+        },
+        {
+          "id": 15,
+          "org_name": "可易短剧",
+          "org_code": "1",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-06T20:46:27",
+          "updated_at": "2026-04-06T20:46:32"
+        },
+        {
+          "id": 16,
+          "org_name": "启明星短剧",
+          "org_code": "_did=web_968976329BE6FA7E; did=web_f48534d49f4a141c76881b4a4dbaa8cc7802; bUserId=1000552269792; userId=4806006478; kuaishou.web.cp.api_st=ChZrdWFpc2hvdS53ZWIuY3AuYXBpLnN0ErAB3zDXEAsLYUTYs-qUtelPogKeB4uO9JqpqZ9JVgQbiHZtfuQ_lUoF2XhHTUwxuuRkRKtO9lh57XKQs4wkso9WJAjGj2M0ISKPVWqCKs9AnKMCPQ3vGtc4MzaCoF-XboicU9RLLm_b0Jvug7xAtnYUaNhw_UungiKpYme0_0ObiRNwRNtj0y7YiRh4Kw7Anz5NJsgm0D9xBfbbForM3A6nm2eNrdy3tKcgcIgUJbDMdUUaEonX9Cez0-PuNGEQ1dhbSKRhryIg7msnRPCPHkkDVkGc_CkZIcICGme4Xw5v-vpSVoH9QxYoBTAB; kuaishou.web.cp.api_ph=ecc1b86f2d922f1204a1b149c0f222ecbb5c",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-09T19:55:23",
+          "updated_at": "2026-04-09T19:55:29"
+        },
+        {
+          "id": 17,
+          "org_name": "探界传媒",
+          "org_code": "1",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-09T21:21:35",
+          "updated_at": "2026-04-09T21:21:38"
+        },
+        {
+          "id": 18,
+          "org_name": "数智精灵",
+          "org_code": "1",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-10T16:35:00",
+          "updated_at": "2026-04-10T16:35:05"
+        },
+        {
+          "id": 19,
+          "org_name": "爱佳文化",
+          "org_code": "1",
+          "description": "",
+          "is_active": 1,
+          "include_video_collaboration": 0,
+          "created_at": "2026-04-18T13:36:12",
+          "updated_at": "2026-04-18T13:36:19"
+        }
+      ]
+    },
+    {
+      "table": "card_usage_logs",
+      "row_count": 54,
+      "columns": [
+        "id",
+        "card_code",
+        "auth_code",
+        "action",
+        "created_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "card_code": "90ttotqlyngpz81f",
+          "auth_code": "cpkj888",
+          "action": "activated",
+          "created_at": "2026-02-12T15:44:58"
+        },
+        {
+          "id": 2,
+          "card_code": "90ttotqlyngpz81f",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T16:46:53"
+        },
+        {
+          "id": 3,
+          "card_code": "90ttotqlyngpz81f",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T17:06:59"
+        },
+        {
+          "id": 4,
+          "card_code": "90ttotqlyngpz81f",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T17:09:55"
+        },
+        {
+          "id": 5,
+          "card_code": "90ttotqlyngpz81f",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T17:21:31"
+        },
+        {
+          "id": 6,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "activated",
+          "created_at": "2026-02-12T19:36:23"
+        },
+        {
+          "id": 7,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T19:40:00"
+        },
+        {
+          "id": 8,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T19:56:48"
+        },
+        {
+          "id": 9,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T20:04:31"
+        },
+        {
+          "id": 10,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T20:23:27"
+        },
+        {
+          "id": 11,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T20:25:45"
+        },
+        {
+          "id": 12,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T20:31:22"
+        },
+        {
+          "id": 13,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T20:35:50"
+        },
+        {
+          "id": 14,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "activated",
+          "created_at": "2026-02-12T22:09:36"
+        },
+        {
+          "id": 15,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:20:45"
+        },
+        {
+          "id": 16,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:22:24"
+        },
+        {
+          "id": 17,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:23:30"
+        },
+        {
+          "id": 18,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:24:32"
+        },
+        {
+          "id": 19,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:25:34"
+        },
+        {
+          "id": 20,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:39:37"
+        },
+        {
+          "id": 21,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:40:50"
+        },
+        {
+          "id": 22,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:42:04"
+        },
+        {
+          "id": 23,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:43:12"
+        },
+        {
+          "id": 24,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:44:22"
+        },
+        {
+          "id": 25,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T22:45:30"
+        },
+        {
+          "id": 26,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-12T23:08:26"
+        },
+        {
+          "id": 27,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T00:10:19"
+        },
+        {
+          "id": 28,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T00:49:36"
+        },
+        {
+          "id": 29,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T00:58:50"
+        },
+        {
+          "id": 30,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T01:08:07"
+        },
+        {
+          "id": 31,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T01:11:31"
+        },
+        {
+          "id": 32,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T01:14:26"
+        },
+        {
+          "id": 33,
+          "card_code": "ea5d0gqjzf2uzk40",
+          "auth_code": "hdw888666",
+          "action": "activated",
+          "created_at": "2026-02-13T18:23:20"
+        },
+        {
+          "id": 34,
+          "card_code": "ea5d0gqjzf2uzk40",
+          "auth_code": "hdw888666",
+          "action": "verified",
+          "created_at": "2026-02-13T18:24:13"
+        },
+        {
+          "id": 35,
+          "card_code": "ea5d0gqjzf2uzk40",
+          "auth_code": "hdw888666",
+          "action": "verified",
+          "created_at": "2026-02-13T18:26:44"
+        },
+        {
+          "id": 36,
+          "card_code": "ea5d0gqjzf2uzk40",
+          "auth_code": "hdw888666",
+          "action": "verified",
+          "created_at": "2026-02-13T18:27:43"
+        },
+        {
+          "id": 37,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T19:37:23"
+        },
+        {
+          "id": 38,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T22:44:39"
+        },
+        {
+          "id": 39,
+          "card_code": "77ipvgz1uc84z37h",
+          "auth_code": "hdw888666",
+          "action": "activated",
+          "created_at": "2026-02-13T22:48:29"
+        },
+        {
+          "id": 40,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-13T22:49:12"
+        },
+        {
+          "id": 41,
+          "card_code": "77ipvgz1uc84z37h",
+          "auth_code": "hdw888666",
+          "action": "verified",
+          "created_at": "2026-02-13T22:49:16"
+        },
+        {
+          "id": 42,
+          "card_code": "77ipvgz1uc84z37h",
+          "auth_code": "hdw888666",
+          "action": "verified",
+          "created_at": "2026-02-13T22:58:49"
+        },
+        {
+          "id": 43,
+          "card_code": "77ipvgz1uc84z37h",
+          "auth_code": "hdw888666",
+          "action": "verified",
+          "created_at": "2026-02-13T23:08:25"
+        },
+        {
+          "id": 44,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-14T10:49:43"
+        },
+        {
+          "id": 45,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-14T19:11:16"
+        },
+        {
+          "id": 46,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-14T20:05:52"
+        },
+        {
+          "id": 47,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-14T20:12:23"
+        },
+        {
+          "id": 48,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-14T20:14:03"
+        },
+        {
+          "id": 49,
+          "card_code": "q4fq9fn5m3jxmj9h",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-14T20:23:03"
+        },
+        {
+          "id": 50,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-19T17:25:04"
+        },
+        {
+          "id": 51,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-02-19T17:26:11"
+        },
+        {
+          "id": 52,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-03-02T20:18:35"
+        },
+        {
+          "id": 53,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-03-24T10:35:11"
+        },
+        {
+          "id": 54,
+          "card_code": "i86jmmvzre6t0vl6",
+          "auth_code": "cpkj888",
+          "action": "verified",
+          "created_at": "2026-04-11T14:23:23"
+        }
+      ]
+    },
+    {
+      "table": "spark_income",
+      "row_count": 80,
+      "columns": [
+        "id",
+        "member_id",
+        "member_name",
+        "task_id",
+        "task_name",
+        "task_period",
+        "income",
+        "start_date",
+        "end_date",
+        "org_id",
+        "created_at",
+        "updated_at"
+      ],
+      "rows": [
+        {
+          "id": 111331,
+          "member_id": 4702767516,
+          "member_name": "梦洋看剧",
+          "task_id": "3895307",
+          "task_name": "见龙之挽天倾",
+          "task_period": "2025.07.08 ~ 2026.09.30",
+          "income": 0.11,
+          "start_date": "2025-07-08",
+          "end_date": "2026-09-30",
+          "org_id": 1,
+          "created_at": "2026-02-15T21:11:41",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 111705,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "4225296",
+          "task_name": "陆总忙追妻，喜提四萌娃",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.06,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 1,
+          "created_at": "2026-02-16T18:41:18",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 111706,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3843000",
+          "task_name": "萌宝助攻：爹地妈咪",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.02,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-16T18:41:18",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 111707,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "4224471",
+          "task_name": "天若有情天亦老1",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 1.31,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 1,
+          "created_at": "2026-02-16T18:41:18",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 111708,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3933857",
+          "task_name": "少年叶飞鸿",
+          "task_period": "2025.06.19 ~ 2026.08.31",
+          "income": 0.06,
+          "start_date": "2025-06-19",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-16T18:41:18",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113658,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "4705568",
+          "task_name": "逆世神医龍翔九天",
+          "task_period": "2026.02.10 ~ 2027.02.28",
+          "income": 7.62,
+          "start_date": "2026-02-10",
+          "end_date": "2027-02-28",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:13",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113659,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3935973",
+          "task_name": "借出的车，泼天的责",
+          "task_period": "2025.08.27 ~ 2026.08.31",
+          "income": 10.37,
+          "start_date": "2025-08-27",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:13",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113660,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3845936",
+          "task_name": "我只是球神，你别惊讶",
+          "task_period": "2025.07.28 ~ 2026.09.30",
+          "income": 0.06,
+          "start_date": "2025-07-28",
+          "end_date": "2026-09-30",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:13",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113661,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3932262",
+          "task_name": "夫人又在外面野了",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.24,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:13",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113662,
+          "member_id": 1677118851,
+          "member_name": "欢喜追剧",
+          "task_id": "3935658",
+          "task_name": "报销风波",
+          "task_period": "2025.08.19 ~ 2026.10.31",
+          "income": 0.03,
+          "start_date": "2025-08-19",
+          "end_date": "2026-10-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:14",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113663,
+          "member_id": 1677118851,
+          "member_name": "欢喜追剧",
+          "task_id": "3856197",
+          "task_name": "反千1",
+          "task_period": "2025.08.04 ~ 2026.10.31",
+          "income": 0.02,
+          "start_date": "2025-08-04",
+          "end_date": "2026-10-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:14",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113669,
+          "member_id": 1551328475,
+          "member_name": "梦洋剧场",
+          "task_id": "4285046",
+          "task_name": "他选择白月光，我转身离开",
+          "task_period": "2025.12.23 ~ 2026.12.31",
+          "income": 0.98,
+          "start_date": "2025-12-23",
+          "end_date": "2026-12-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:19",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113671,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3932252",
+          "task_name": "混世魔童",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.05,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:21",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113674,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3843022",
+          "task_name": "我真不是神医",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.06,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:21",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113675,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3853166",
+          "task_name": "订婚宴上的真相",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.03,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:21",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 113676,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3935658",
+          "task_name": "报销风波",
+          "task_period": "2025.08.19 ~ 2026.10.31",
+          "income": 0.81,
+          "start_date": "2025-08-19",
+          "end_date": "2026-10-31",
+          "org_id": 1,
+          "created_at": "2026-02-19T20:49:21",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114545,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "4348642",
+          "task_name": "你若无情我便休",
+          "task_period": "2026.01.09 ~ 2027.01.31",
+          "income": 0.18,
+          "start_date": "2026-01-09",
+          "end_date": "2027-01-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114546,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "4195587",
+          "task_name": "逃出深渊",
+          "task_period": "2025.12.13 ~ 2026.12.13",
+          "income": 0.31,
+          "start_date": "2025-12-13",
+          "end_date": "2026-12-13",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114547,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3883176",
+          "task_name": "晚婚难成",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 5.83,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114548,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "4192571",
+          "task_name": "好梦由来最易醒",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.14,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114550,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3896130",
+          "task_name": "捡破烂开启致富大门1",
+          "task_period": "2025.08.08 ~ 2026.10.31",
+          "income": 0.57,
+          "start_date": "2025-08-08",
+          "end_date": "2026-10-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114554,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3892944",
+          "task_name": "前任请自重",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 2.07,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114555,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3852998",
+          "task_name": "星星闪耀时",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.34,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114556,
+          "member_id": 1390481919,
+          "member_name": "跃跃追剧",
+          "task_id": "3912948",
+          "task_name": "追妻心动攻略",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.01,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:53",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114557,
+          "member_id": 1677118851,
+          "member_name": "欢喜追剧",
+          "task_id": "4303989",
+          "task_name": "闪婚甜妻有点野11",
+          "task_period": "2025.12.22 ~ 2026.12.31",
+          "income": 0.02,
+          "start_date": "2025-12-22",
+          "end_date": "2026-12-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:54",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114559,
+          "member_id": 1677118851,
+          "member_name": "欢喜追剧",
+          "task_id": "3852998",
+          "task_name": "星星闪耀时",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.07,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:14:54",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114578,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "4743356",
+          "task_name": "星辰与你皆可期",
+          "task_period": "2026.02.17 ~ 2027.02.17",
+          "income": 0.01,
+          "start_date": "2026-02-17",
+          "end_date": "2027-02-17",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:15:01",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114579,
+          "member_id": 702733960,
+          "member_name": "萌萌追剧",
+          "task_id": "3895519",
+          "task_name": "女婿回乡全村风光",
+          "task_period": "2025.07.11 ~ 2026.09.30",
+          "income": 0.03,
+          "start_date": "2025-07-11",
+          "end_date": "2026-09-30",
+          "org_id": 1,
+          "created_at": "2026-02-20T20:15:01",
+          "updated_at": "2026-02-28T13:50:53"
+        },
+        {
+          "id": 114580,
+          "member_id": 3686550962,
+          "member_name": "小锦鲤剧场",
+          "task_id": "4480145",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.13 ~ 2027.01.31",
+          "income": 6.22,
+          "start_date": "2026-01-13",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:44",
+          "updated_at": "2026-04-09T16:02:44"
+        },
+        {
+          "id": 114581,
+          "member_id": 5330930549,
+          "member_name": "兮兮爱追剧",
+          "task_id": "4683767",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.02.09 ~ 2027.02.28",
+          "income": 0.52,
+          "start_date": "2026-02-09",
+          "end_date": "2027-02-28",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:45",
+          "updated_at": "2026-04-09T16:02:45"
+        },
+        {
+          "id": 114582,
+          "member_id": 5330930549,
+          "member_name": "兮兮爱追剧",
+          "task_id": "4696273",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.02.10 ~ 2027.02.28",
+          "income": 2.0,
+          "start_date": "2026-02-10",
+          "end_date": "2027-02-28",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:45",
+          "updated_at": "2026-04-09T16:02:45"
+        },
+        {
+          "id": 114583,
+          "member_id": 4848249255,
+          "member_name": "青春剧场",
+          "task_id": "4572421",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.28 ~ 2027.01.31",
+          "income": 6.9,
+          "start_date": "2026-01-28",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:47",
+          "updated_at": "2026-04-09T16:02:47"
+        },
+        {
+          "id": 114584,
+          "member_id": 4848249255,
+          "member_name": "青春剧场",
+          "task_id": "4215475",
+          "task_name": "第二次心动",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.01,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:47",
+          "updated_at": "2026-04-09T16:02:47"
+        },
+        {
+          "id": 114585,
+          "member_id": 2705447256,
+          "member_name": "欣欣剧场",
+          "task_id": "4480145",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.13 ~ 2027.01.31",
+          "income": 3.19,
+          "start_date": "2026-01-13",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:50",
+          "updated_at": "2026-04-09T16:02:50"
+        },
+        {
+          "id": 114586,
+          "member_id": 4848227956,
+          "member_name": "七七爱追剧",
+          "task_id": "4683767",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.02.09 ~ 2027.02.28",
+          "income": 0.07,
+          "start_date": "2026-02-09",
+          "end_date": "2027-02-28",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:51",
+          "updated_at": "2026-04-09T16:02:51"
+        },
+        {
+          "id": 114587,
+          "member_id": 4848227956,
+          "member_name": "七七爱追剧",
+          "task_id": "4572421",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.28 ~ 2027.01.31",
+          "income": 2.25,
+          "start_date": "2026-01-28",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:51",
+          "updated_at": "2026-04-09T16:02:51"
+        },
+        {
+          "id": 114588,
+          "member_id": 5281226827,
+          "member_name": "见微短剧",
+          "task_id": "3934604",
+          "task_name": "年三十，我悟了",
+          "task_period": "2025.07.08 ~ 2026.09.30",
+          "income": 0.07,
+          "start_date": "2025-07-08",
+          "end_date": "2026-09-30",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:02:53",
+          "updated_at": "2026-04-09T16:02:53"
+        },
+        {
+          "id": 114589,
+          "member_id": 387981457,
+          "member_name": "蛋蛋追剧",
+          "task_id": "4182860",
+          "task_name": "一代宗师之武神归来",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.04,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114590,
+          "member_id": 387981457,
+          "member_name": "蛋蛋追剧",
+          "task_id": "4285046",
+          "task_name": "他选择白月光，我转身离开",
+          "task_period": "2025.12.23 ~ 2026.12.31",
+          "income": 0.01,
+          "start_date": "2025-12-23",
+          "end_date": "2026-12-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114591,
+          "member_id": 387981457,
+          "member_name": "蛋蛋追剧",
+          "task_id": "3883025",
+          "task_name": "龙妈",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.03,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114592,
+          "member_id": 387981457,
+          "member_name": "蛋蛋追剧",
+          "task_id": "3853136",
+          "task_name": "闪婚夫人稳拿好运剧本",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.06,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114593,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "4890266",
+          "task_name": "捡回萌娃后，盛爷以身相许2",
+          "task_period": "2026.02.27 ~ 2027.02.28",
+          "income": 0.1,
+          "start_date": "2026-02-27",
+          "end_date": "2027-02-28",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114594,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "4021529",
+          "task_name": "一切从无敌开始-高燃版",
+          "task_period": "2025.06.17 ~ 2026.08.31",
+          "income": 1.34,
+          "start_date": "2025-06-17",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114595,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "4060202",
+          "task_name": "你若无情我便休",
+          "task_period": "2025.08.01 ~ 2026.10.31",
+          "income": 0.05,
+          "start_date": "2025-08-01",
+          "end_date": "2026-10-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114596,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "3913042",
+          "task_name": "婚姻背后的真相",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.15,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114597,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "4422601",
+          "task_name": "我不是魔童",
+          "task_period": "2026.01.13 ~ 2027.01.31",
+          "income": 0.01,
+          "start_date": "2026-01-13",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114598,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "3843137",
+          "task_name": "他选择白月光，我转身离开",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 1.09,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114599,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "4021105",
+          "task_name": "明月曾照彩云归",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.01,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114600,
+          "member_id": 5265885493,
+          "member_name": "鱼丸短剧",
+          "task_id": "3882980",
+          "task_name": "大决堤之逆行救援",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 52.0,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:06",
+          "updated_at": "2026-04-09T16:03:06"
+        },
+        {
+          "id": 114601,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4184383",
+          "task_name": "十岁真少爷竟是老祖宗",
+          "task_period": "2025.12.12 ~ 2026.12.31",
+          "income": 0.2,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114602,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "3892873",
+          "task_name": "我的蛇君软又妖",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.03,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114603,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4021086",
+          "task_name": "天师归来在都市",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 1.66,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114604,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4741499",
+          "task_name": "麟婿",
+          "task_period": "2026.02.15 ~ 2027.02.28",
+          "income": 20.96,
+          "start_date": "2026-02-15",
+          "end_date": "2027-02-28",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114605,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4388342",
+          "task_name": "透视神瞳，弃女逆袭记2",
+          "task_period": "2026.01.09 ~ 2027.01.31",
+          "income": 0.01,
+          "start_date": "2026-01-09",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114606,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4563885",
+          "task_name": "真千金归来，她制霸全家",
+          "task_period": "2026.01.26 ~ 2027.01.31",
+          "income": 0.04,
+          "start_date": "2026-01-26",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114607,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4568188",
+          "task_name": "帝君",
+          "task_period": "2026.01.29 ~ 2027.01.31",
+          "income": 0.01,
+          "start_date": "2026-01-29",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114608,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4653659",
+          "task_name": "狂少归来",
+          "task_period": "2026.02.07 ~ 2027.02.07",
+          "income": 1.51,
+          "start_date": "2026-02-07",
+          "end_date": "2027-02-07",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114609,
+          "member_id": 5265878807,
+          "member_name": "峣青追剧",
+          "task_id": "4837894",
+          "task_name": "别惹大小姐，她爸是超级女儿奴",
+          "task_period": "2026.02.27 ~ 2027.02.28",
+          "income": 0.05,
+          "start_date": "2026-02-27",
+          "end_date": "2027-02-28",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:07",
+          "updated_at": "2026-04-09T16:03:07"
+        },
+        {
+          "id": 114610,
+          "member_id": 30904951,
+          "member_name": "A真真追剧",
+          "task_id": "4572421",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.28 ~ 2027.01.31",
+          "income": 6.46,
+          "start_date": "2026-01-28",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:08",
+          "updated_at": "2026-04-09T16:03:08"
+        },
+        {
+          "id": 114611,
+          "member_id": 30904951,
+          "member_name": "A真真追剧",
+          "task_id": "4480145",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.13 ~ 2027.01.31",
+          "income": 1.05,
+          "start_date": "2026-01-13",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:08",
+          "updated_at": "2026-04-09T16:03:08"
+        },
+        {
+          "id": 114612,
+          "member_id": 30904951,
+          "member_name": "A真真追剧",
+          "task_id": "3897554",
+          "task_name": "陆总今天要离婚",
+          "task_period": "2025.09.16 ~ 2026.09.30",
+          "income": 0.75,
+          "start_date": "2025-09-16",
+          "end_date": "2026-09-30",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:08",
+          "updated_at": "2026-04-09T16:03:08"
+        },
+        {
+          "id": 114613,
+          "member_id": 5089012664,
+          "member_name": "龙小小追剧",
+          "task_id": "4222722",
+          "task_name": "夜幕低垂",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 143.72,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114614,
+          "member_id": 5089012664,
+          "member_name": "龙小小追剧",
+          "task_id": "4021086",
+          "task_name": "天师归来在都市",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.38,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114615,
+          "member_id": 5089012664,
+          "member_name": "龙小小追剧",
+          "task_id": "4725408",
+          "task_name": "重生倒爷走南闯北",
+          "task_period": "2026.02.12 ~ 2027.02.12",
+          "income": 0.01,
+          "start_date": "2026-02-12",
+          "end_date": "2027-02-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114616,
+          "member_id": 5089012664,
+          "member_name": "龙小小追剧",
+          "task_id": "3856161",
+          "task_name": "零落期如许",
+          "task_period": "2025.08.01 ~ 2026.10.31",
+          "income": 0.02,
+          "start_date": "2025-08-01",
+          "end_date": "2026-10-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114617,
+          "member_id": 5089012664,
+          "member_name": "龙小小追剧",
+          "task_id": "3852950",
+          "task_name": "纵使相逢应不识",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 1.3,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114618,
+          "member_id": 5228513711,
+          "member_name": "慕薯短剧",
+          "task_id": "4323669",
+          "task_name": "女儿的巨额来电",
+          "task_period": "2025.12.24 ~ 2026.12.31",
+          "income": 0.01,
+          "start_date": "2025-12-24",
+          "end_date": "2026-12-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114619,
+          "member_id": 5228513711,
+          "member_name": "慕薯短剧",
+          "task_id": "4030521",
+          "task_name": "超能萌娃找爹地",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 0.01,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114620,
+          "member_id": 5228513711,
+          "member_name": "慕薯短剧",
+          "task_id": "4182967",
+          "task_name": "女霸王真千金在线整顿窝囊废家族",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 5.56,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114621,
+          "member_id": 5228513711,
+          "member_name": "慕薯短剧",
+          "task_id": "4182727",
+          "task_name": "江月照还空",
+          "task_period": "2025.12.12 ~ 2026.12.31",
+          "income": 0.05,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114622,
+          "member_id": 5228513711,
+          "member_name": "慕薯短剧",
+          "task_id": "3882980",
+          "task_name": "大决堤之逆行救援",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 101.63,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:09",
+          "updated_at": "2026-04-09T16:03:09"
+        },
+        {
+          "id": 114623,
+          "member_id": 1562446392,
+          "member_name": "龙小小短剧",
+          "task_id": "3932281",
+          "task_name": "雾起时请爱上我",
+          "task_period": "2025.06.16 ~ 2026.08.31",
+          "income": 24.98,
+          "start_date": "2025-06-16",
+          "end_date": "2026-08-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:10",
+          "updated_at": "2026-04-09T16:03:10"
+        },
+        {
+          "id": 114624,
+          "member_id": 1562446392,
+          "member_name": "龙小小短剧",
+          "task_id": "4234534",
+          "task_name": "福星驾到：督军爹爹请认领",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.05,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:10",
+          "updated_at": "2026-04-09T16:03:10"
+        },
+        {
+          "id": 114625,
+          "member_id": 1562446392,
+          "member_name": "龙小小短剧",
+          "task_id": "4620285",
+          "task_name": "我的老婆是蛇女1",
+          "task_period": "2026.01.29 ~ 2027.01.31",
+          "income": 1.05,
+          "start_date": "2026-01-29",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:10",
+          "updated_at": "2026-04-09T16:03:10"
+        },
+        {
+          "id": 114628,
+          "member_id": 244893678,
+          "member_name": "小帅短剧",
+          "task_id": "4572421",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.28 ~ 2027.01.31",
+          "income": 0.05,
+          "start_date": "2026-01-28",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:12",
+          "updated_at": "2026-04-09T16:03:12"
+        },
+        {
+          "id": 114629,
+          "member_id": 244893678,
+          "member_name": "小帅短剧",
+          "task_id": "4243098",
+          "task_name": "越界招惹",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.06,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:12",
+          "updated_at": "2026-04-09T16:03:12"
+        },
+        {
+          "id": 114630,
+          "member_id": 244893678,
+          "member_name": "小帅短剧",
+          "task_id": "4539326",
+          "task_name": "穿越古代，我摊牌了21",
+          "task_period": "2026.01.28 ~ 2027.01.31",
+          "income": 0.01,
+          "start_date": "2026-01-28",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:12",
+          "updated_at": "2026-04-09T16:03:12"
+        },
+        {
+          "id": 114631,
+          "member_id": 4619807639,
+          "member_name": "瑶瑶追剧",
+          "task_id": "4572421",
+          "task_name": "麻雀怎能同雁飞",
+          "task_period": "2026.01.28 ~ 2027.01.31",
+          "income": 0.16,
+          "start_date": "2026-01-28",
+          "end_date": "2027-01-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:13",
+          "updated_at": "2026-04-09T16:03:13"
+        },
+        {
+          "id": 114632,
+          "member_id": 4619807639,
+          "member_name": "瑶瑶追剧",
+          "task_id": "4242825",
+          "task_name": "落花村隐秘",
+          "task_period": "2025.12.12 ~ 2026.12.12",
+          "income": 0.03,
+          "start_date": "2025-12-12",
+          "end_date": "2026-12-12",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:13",
+          "updated_at": "2026-04-09T16:03:13"
+        },
+        {
+          "id": 114633,
+          "member_id": 475213298,
+          "member_name": "刚刚短剧",
+          "task_id": "3963528",
+          "task_name": "青山难越风掠去",
+          "task_period": "2025.10.20 ~ 2026.10.31",
+          "income": 0.4,
+          "start_date": "2025-10-20",
+          "end_date": "2026-10-31",
+          "org_id": 14,
+          "created_at": "2026-04-09T16:03:15",
+          "updated_at": "2026-04-09T16:03:15"
+        }
+      ]
+    }
+  ],
+  "field_value_profile": {
+    "admin_operation_logs": {
+      "action": [
+        [
+          "login",
+          14286
+        ],
+        [
+          "create",
+          11098
+        ],
+        [
+          "update",
+          1850
+        ],
+        [
+          "reset_password",
+          45
+        ],
+        [
+          "update_oem",
+          43
+        ],
+        [
+          "delete",
+          35
+        ]
+      ],
+      "status": [
+        [
+          "success",
+          27357
+        ]
+      ]
+    },
+    "admin_users": {
+      "role": [
+        [
+          "normal_user",
+          1164
+        ],
+        [
+          "captain",
+          149
+        ],
+        [
+          "operator",
+          104
+        ],
+        [
+          "super_admin",
+          2
+        ]
+      ],
+      "is_active": [
+        [
+          1,
+          1369
+        ],
+        [
+          0,
+          50
+        ]
+      ],
+      "user_level": [
+        [
+          "enterprise",
+          1397
+        ],
+        [
+          "normal",
+          22
+        ]
+      ],
+      "cooperation_type": [
+        [
+          "cooperative",
+          1419
+        ]
+      ],
+      "is_oem": [
+        [
+          0,
+          1375
+        ],
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    "auto_devices": {
+      "is_online": [
+        [
+          0,
+          472
+        ]
+      ]
+    },
+    "auto_task_history": {
+      "task_type": [
+        [
+          "KUAISHOU_COLLECT_BATCH",
+          17044
+        ],
+        [
+          "KUAISHOU_GET_ACCOUNTS",
+          2425
+        ],
+        [
+          "process-video",
+          114
+        ]
+      ],
+      "plan_type": [
+        [
+          null,
+          17493
+        ],
+        [
+          "spark",
+          1743
+        ],
+        [
+          "fluorescent",
+          347
+        ]
+      ],
+      "status": [
+        [
+          "COMPLETED",
+          15029
+        ],
+        [
+          "PENDING",
+          2933
+        ],
+        [
+          "FAILED",
+          1349
+        ],
+        [
+          "RUNNING",
+          228
+        ],
+        [
+          "DISPATCHED",
+          44
+        ]
+      ]
+    },
+    "card_keys": {
+      "card_type": [
+        [
+          "monthly",
+          7
+        ],
+        [
+          "quarterly",
+          1
+        ]
+      ],
+      "status": [
+        [
+          "active",
+          5
+        ],
+        [
+          "unused",
+          3
+        ]
+      ]
+    },
+    "card_usage_logs": {
+      "action": [
+        [
+          "verified",
+          49
+        ],
+        [
+          "activated",
+          5
+        ]
+      ]
+    },
+    "cloud_cookie_accounts": {
+      "login_status": [
+        [
+          "logged_in",
+          875
+        ],
+        [
+          "not_logged_in",
+          1
+        ]
+      ]
+    },
+    "collect_pool_auth_codes": {
+      "is_active": [
+        [
+          1,
+          1423
+        ]
+      ]
+    },
+    "cxt_author": {
+      "type": [
+        [
+          1,
+          251
+        ],
+        [
+          0,
+          47
+        ]
+      ]
+    },
+    "cxt_titles": {
+      "type": [
+        [
+          1,
+          4477
+        ],
+        [
+          0,
+          1619
+        ]
+      ]
+    },
+    "cxt_user": {
+      "status": [
+        [
+          1,
+          147
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "drama_execution_logs": {
+      "status": []
+    },
+    "firefly_income": {
+      "monetize_type": [
+        [
+          "IAA",
+          3364
+        ],
+        [
+          "IAP",
+          194
+        ]
+      ],
+      "settlement_status": [
+        [
+          "unsettled",
+          3558
+        ]
+      ]
+    },
+    "fluorescent_income": {
+      "settlement_status": [
+        [
+          "unsettled",
+          29422
+        ],
+        [
+          "settled",
+          1
+        ]
+      ]
+    },
+    "fluorescent_income_archive": {
+      "settlement_status": [
+        [
+          "unsettled",
+          12535
+        ],
+        [
+          "settled",
+          500
+        ]
+      ]
+    },
+    "iqiyi_videos": {
+      "status_mark": [
+        [
+          "base_surface_mianfei",
+          3051
+        ],
+        [
+          "",
+          3042
+        ],
+        [
+          "1",
+          986
+        ],
+        [
+          "2",
+          212
+        ],
+        [
+          "base_surface_xianmianzhong",
+          10
+        ],
+        [
+          "base_surface_dolby_atmos_vip_tag",
+          8
+        ],
+        [
+          "base_surface_gaoqingjingdian_icon",
+          4
+        ]
+      ]
+    },
+    "kuaishou_account_bindings": {
+      "status": [
+        [
+          "active",
+          1
+        ],
+        [
+          "disabled",
+          1
+        ]
+      ]
+    },
+    "kuaishou_accounts": {
+      "is_mcm_member": [
+        [
+          0,
+          19837
+        ],
+        [
+          1,
+          4256
+        ]
+      ],
+      "is_blacklisted": [
+        [
+          0,
+          23887
+        ],
+        [
+          1,
+          206
+        ]
+      ],
+      "account_status": [
+        [
+          "normal",
+          24093
+        ]
+      ],
+      "status_note": [
+        [
+          null,
+          24093
+        ]
+      ],
+      "contract_status": [
+        [
+          "签约成功，未开通星火",
+          17820
+        ],
+        [
+          null,
+          4696
+        ],
+        [
+          "全部签约",
+          1195
+        ],
+        [
+          "邀约发送等待接受",
+          199
+        ],
+        [
+          "移除成员",
+          147
+        ],
+        [
+          "待用户确认星火签约",
+          36
+        ]
+      ]
+    },
+    "mcm_organizations": {
+      "is_active": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    "mcn_verification_logs": {
+      "status": [
+        [
+          "SUCCESS",
+          494637
+        ]
+      ],
+      "is_mcn_member": [
+        [
+          1,
+          490667
+        ],
+        [
+          0,
+          3970
+        ]
+      ]
+    },
+    "page_permissions": {
+      "is_allowed": [
+        [
+          1,
+          14022
+        ],
+        [
+          0,
+          7288
+        ]
+      ]
+    },
+    "role_default_permissions": {
+      "role": [
+        [
+          "operator",
+          82
+        ],
+        [
+          "normal_user",
+          82
+        ],
+        [
+          "captain",
+          82
+        ]
+      ],
+      "perm_type": [
+        [
+          "web_page",
+          75
+        ],
+        [
+          "account_button",
+          69
+        ],
+        [
+          "user_mgmt_button",
+          54
+        ],
+        [
+          "client_page",
+          48
+        ]
+      ],
+      "is_allowed": [
+        [
+          1,
+          128
+        ],
+        [
+          0,
+          118
+        ]
+      ]
+    },
+    "spark_drama_info": {
+      "business_type": [
+        [
+          null,
+          128750
+        ],
+        [
+          2,
+          5270
+        ]
+      ],
+      "promotion_type": [
+        [
+          null,
+          128750
+        ],
+        [
+          7,
+          5270
+        ]
+      ],
+      "promotion_type_desc": [
+        [
+          null,
+          128750
+        ],
+        [
+          "效果计费",
+          5270
+        ]
+      ],
+      "view_status": [
+        [
+          null,
+          128750
+        ],
+        [
+          1,
+          5270
+        ]
+      ]
+    },
+    "spark_income_archive": {
+      "settlement_status": [
+        [
+          "unsettled",
+          2475
+        ],
+        [
+          "settled",
+          840
+        ]
+      ]
+    },
+    "spark_org_members": {
+      "agreement_types": [
+        [
+          "4,14",
+          2090
+        ],
+        [
+          "14",
+          1997
+        ],
+        [
+          "14,4",
+          686
+        ],
+        [
+          "4,14,13",
+          674
+        ],
+        [
+          "14,4,13",
+          492
+        ],
+        [
+          "14,13",
+          42
+        ],
+        [
+          "4,13,14",
+          33
+        ],
+        [
+          "4,13",
+          8
+        ],
+        [
+          "4",
+          7
+        ]
+      ],
+      "broker_type": [
+        [
+          -1,
+          6029
+        ]
+      ],
+      "contract_renew_status": [
+        [
+          8,
+          5962
+        ],
+        [
+          1,
+          67
+        ]
+      ]
+    },
+    "spark_violation_dramas": {
+      "status_desc": [
+        [
+          "不可申诉",
+          2039
+        ],
+        [
+          "可申诉",
+          395
+        ]
+      ],
+      "is_blacklisted": [
+        [
+          0,
+          2434
+        ]
+      ]
+    },
+    "spark_violation_photos": {
+      "status": [
+        [
+          3,
+          24359
+        ],
+        [
+          1,
+          7706
+        ],
+        [
+          5,
+          3321
+        ],
+        [
+          2,
+          69
+        ]
+      ],
+      "status_desc": [
+        [
+          "不可申诉",
+          27749
+        ],
+        [
+          "可申诉",
+          7706
+        ]
+      ],
+      "appeal_status": [
+        [
+          3,
+          24359
+        ],
+        [
+          1,
+          7706
+        ],
+        [
+          5,
+          3321
+        ],
+        [
+          2,
+          69
+        ]
+      ],
+      "appeal_status_desc": [
+        [
+          "不可申诉",
+          27749
+        ],
+        [
+          "可申诉",
+          7706
+        ]
+      ]
+    },
+    "system_announcements": {
+      "is_enabled": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    "task_statistics": {
+      "task_type": [
+        [
+          "网页短剧",
+          80478
+        ],
+        [
+          "短剧",
+          6543
+        ],
+        [
+          "api_video_collection",
+          1672
+        ],
+        [
+          "drama_mode2",
+          877
+        ],
+        [
+          "video_collection",
+          323
+        ],
+        [
+          "drama_favorite",
+          218
+        ],
+        [
+          "api_profile_collection",
+          4
+        ]
+      ],
+      "status": [
+        [
+          "success",
+          65428
+        ],
+        [
+          "pending",
+          16729
+        ],
+        [
+          "failed",
+          7958
+        ]
+      ]
+    },
+    "user_button_permissions": {
+      "is_allowed": [
+        [
+          0,
+          30545
+        ],
+        [
+          1,
+          24951
+        ]
+      ]
+    },
+    "user_page_permissions": {
+      "is_allowed": [
+        [
+          0,
+          19490
+        ],
+        [
+          1,
+          14495
+        ]
+      ]
+    }
+  },
+  "our_footprint": {
+    "captain_uid": [
+      {
+        "table": "account_summary",
+        "column": "uid",
+        "count": 4
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "username",
+        "count": 87
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "target",
+        "count": 134
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "detail",
+        "count": 191
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "user_agent",
+        "count": 24
+      },
+      {
+        "table": "admin_users",
+        "column": "username",
+        "count": 1
+      },
+      {
+        "table": "admin_users",
+        "column": "password_hash",
+        "count": 14
+      },
+      {
+        "table": "admin_users",
+        "column": "password_salt",
+        "count": 11
+      },
+      {
+        "table": "admin_users",
+        "column": "alipay_info",
+        "count": 3
+      },
+      {
+        "table": "auto_device_accounts",
+        "column": "device_id",
+        "count": 5
+      },
+      {
+        "table": "auto_device_accounts",
+        "column": "kwai_id",
+        "count": 1
+      },
+      {
+        "table": "auto_devices",
+        "column": "device_id",
+        "count": 3
+      },
+      {
+        "table": "auto_devices",
+        "column": "token",
+        "count": 2
+      },
+      {
+        "table": "auto_task_history",
+        "column": "task_id",
+        "count": 155
+      },
+      {
+        "table": "auto_task_history",
+        "column": "device_id",
+        "count": 43
+      },
+      {
+        "table": "cloud_cookie_accounts",
+        "column": "cookies",
+        "count": 47
+      },
+      {
+        "table": "collect_pool_auth_codes",
+        "column": "auth_code",
+        "count": 1
+      },
+      {
+        "table": "cxt_videos",
+        "column": "aweme_id",
+        "count": 3
+      },
+      {
+        "table": "cxt_videos",
+        "column": "video_url",
+        "count": 29
+      },
+      {
+        "table": "cxt_videos",
+        "column": "cover_url",
+        "count": 15
+      },
+      {
+        "table": "drama_collections",
+        "column": "kuaishou_uid",
+        "count": 457
+      },
+      {
+        "table": "firefly_income",
+        "column": "video_id",
+        "count": 16
+      },
+      {
+        "table": "firefly_income",
+        "column": "video_url",
+        "count": 1
+      },
+      {
+        "table": "firefly_income",
+        "column": "author_id",
+        "count": 22
+      },
+      {
+        "table": "firefly_members",
+        "column": "author_id",
+        "count": 2
+      },
+      {
+        "table": "fluorescent_income",
+        "column": "task_id",
+        "count": 91
+      },
+      {
+        "table": "fluorescent_income_archive",
+        "column": "member_name",
+        "count": 2
+      },
+      {
+        "table": "fluorescent_members",
+        "column": "member_name",
+        "count": 1
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "block_id",
+        "count": 31
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "cover_url",
+        "count": 18
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "album_id",
+        "count": 30
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "tv_id",
+        "count": 38
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "s_target",
+        "count": 22
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "share_url",
+        "count": 1
+      },
+      {
+        "table": "iqiyi_videos",
+        "column": "raw_data",
+        "count": 121
+      },
+      {
+        "table": "ks_account",
+        "column": "username",
+        "count": 3
+      },
+      {
+        "table": "ks_account",
+        "column": "uid",
+        "count": 163
+      },
+      {
+        "table": "ks_account",
+        "column": "device_num",
+        "count": 124
+      },
+      {
+        "table": "ks_account",
+        "column": "uid_real",
+        "count": 163
+      },
+      {
+        "table": "ks_episodes",
+        "column": "photo_id",
+        "count": 16
+      },
+      {
+        "table": "ks_episodes",
+        "column": "video_url",
+        "count": 11
+      },
+      {
+        "table": "ks_episodes",
+        "column": "cover_url",
+        "count": 6
+      },
+      {
+        "table": "ks_episodes",
+        "column": "share_photo_id",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "uid",
+        "count": 188
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "nickname",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "org_note",
+        "count": 58
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "phone_number",
+        "count": 123
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "uid_real",
+        "count": 188
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "real_name",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_urls",
+        "column": "url",
+        "count": 26
+      },
+      {
+        "table": "kuaishou_urls",
+        "column": "uid",
+        "count": 9140
+      },
+      {
+        "table": "kuaishou_urls",
+        "column": "nickname",
+        "count": 6
+      },
+      {
+        "table": "mcm_organizations",
+        "column": "org_code",
+        "count": 1
+      },
+      {
+        "table": "mcn_verification_logs",
+        "column": "uid",
+        "count": 5058
+      },
+      {
+        "table": "spark_drama_info",
+        "column": "icon",
+        "count": 585
+      },
+      {
+        "table": "spark_drama_info",
+        "column": "redirect_url",
+        "count": 306
+      },
+      {
+        "table": "spark_drama_info",
+        "column": "income_desc",
+        "count": 7
+      },
+      {
+        "table": "spark_drama_info",
+        "column": "jump_url",
+        "count": 41
+      },
+      {
+        "table": "spark_drama_info",
+        "column": "serial_id",
+        "count": 41
+      },
+      {
+        "table": "spark_income_archive",
+        "column": "member_name",
+        "count": 1
+      },
+      {
+        "table": "spark_violation_dramas",
+        "column": "source_photo_id",
+        "count": 1
+      },
+      {
+        "table": "spark_violation_dramas",
+        "column": "media_url",
+        "count": 15
+      },
+      {
+        "table": "spark_violation_dramas",
+        "column": "thumb_url",
+        "count": 21
+      },
+      {
+        "table": "spark_violation_photos",
+        "column": "photo_id",
+        "count": 8
+      },
+      {
+        "table": "spark_violation_photos",
+        "column": "media_url",
+        "count": 240
+      },
+      {
+        "table": "spark_violation_photos",
+        "column": "thumb_url",
+        "count": 310
+      },
+      {
+        "table": "task_statistics",
+        "column": "uid",
+        "count": 736
+      },
+      {
+        "table": "task_statistics",
+        "column": "drama_name",
+        "count": 4
+      },
+      {
+        "table": "tv_episodes",
+        "column": "photo_id",
+        "count": 133
+      },
+      {
+        "table": "tv_episodes",
+        "column": "collection_id",
+        "count": 47
+      },
+      {
+        "table": "tv_episodes",
+        "column": "share_photo_id",
+        "count": 1
+      },
+      {
+        "table": "wait_collect_videos",
+        "column": "url",
+        "count": 354
+      },
+      {
+        "table": "wait_collect_videos",
+        "column": "cover_url",
+        "count": 205
+      }
+    ],
+    "captain_phone": [
+      {
+        "table": "admin_operation_logs",
+        "column": "username",
+        "count": 152
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "target",
+        "count": 136
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "detail",
+        "count": 15
+      },
+      {
+        "table": "admin_users",
+        "column": "username",
+        "count": 1
+      },
+      {
+        "table": "collect_pool_auth_codes",
+        "column": "auth_code",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "org_note",
+        "count": 12
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "phone_number",
+        "count": 2
+      },
+      {
+        "table": "wait_collect_videos",
+        "column": "username",
+        "count": 17
+      }
+    ],
+    "captain_owner": [
+      {
+        "table": "admin_operation_logs",
+        "column": "detail",
+        "count": 3
+      },
+      {
+        "table": "cloud_cookie_accounts",
+        "column": "owner_code",
+        "count": 13
+      },
+      {
+        "table": "ks_account",
+        "column": "username",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "org_note",
+        "count": 5
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "real_name",
+        "count": 5
+      },
+      {
+        "table": "spark_org_members",
+        "column": "comment",
+        "count": 2
+      }
+    ],
+    "kuaishou_uid_num": [
+      {
+        "table": "admin_operation_logs",
+        "column": "target",
+        "count": 1
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "detail",
+        "count": 1
+      },
+      {
+        "table": "cloud_cookie_accounts",
+        "column": "cookies",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "uid",
+        "count": 1
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "uid_real",
+        "count": 1
+      },
+      {
+        "table": "mcn_verification_logs",
+        "column": "uid",
+        "count": 23
+      }
+    ],
+    "auth_code": [
+      {
+        "table": "admin_operation_logs",
+        "column": "username",
+        "count": 266
+      },
+      {
+        "table": "admin_operation_logs",
+        "column": "target",
+        "count": 42
+      },
+      {
+        "table": "admin_users",
+        "column": "username",
+        "count": 1
+      },
+      {
+        "table": "admin_users",
+        "column": "default_auth_code",
+        "count": 1
+      },
+      {
+        "table": "auto_devices",
+        "column": "auth_code",
+        "count": 41
+      },
+      {
+        "table": "card_keys",
+        "column": "used_by_auth_code",
+        "count": 3
+      },
+      {
+        "table": "card_usage_logs",
+        "column": "auth_code",
+        "count": 46
+      },
+      {
+        "table": "collect_pool_auth_codes",
+        "column": "auth_code",
+        "count": 1
+      },
+      {
+        "table": "cxt_user",
+        "column": "auth_code",
+        "count": 65
+      },
+      {
+        "table": "wait_collect_videos",
+        "column": "username",
+        "count": 908
+      }
+    ],
+    "our_org_id": [
+      {
+        "table": "admin_users",
+        "column": "organization_access",
+        "count": 37
+      },
+      {
+        "table": "fluorescent_income",
+        "column": "org_id",
+        "count": 9
+      },
+      {
+        "table": "fluorescent_income_archive",
+        "column": "org_task_num",
+        "count": 137
+      },
+      {
+        "table": "fluorescent_members",
+        "column": "org_task_num",
+        "count": 234
+      },
+      {
+        "table": "fluorescent_members",
+        "column": "org_id",
+        "count": 630
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "organization_id",
+        "count": 702
+      },
+      {
+        "table": "spark_income_archive",
+        "column": "org_task_num",
+        "count": 76
+      }
+    ],
+    "spark_org_id": [
+      {
+        "table": "admin_users",
+        "column": "organization_access",
+        "count": 8
+      },
+      {
+        "table": "fluorescent_income_archive",
+        "column": "org_task_num",
+        "count": 81
+      },
+      {
+        "table": "fluorescent_members",
+        "column": "org_task_num",
+        "count": 97
+      },
+      {
+        "table": "fluorescent_members",
+        "column": "org_id",
+        "count": 112
+      },
+      {
+        "table": "kuaishou_accounts",
+        "column": "organization_id",
+        "count": 118
+      },
+      {
+        "table": "spark_income",
+        "column": "org_id",
+        "count": 52
+      },
+      {
+        "table": "spark_income_archive",
+        "column": "org_task_num",
+        "count": 53
+      }
+    ],
+    "kuaishou_uid_str": [
+      {
+        "table": "cloud_cookie_accounts",
+        "column": "kuaishou_uid",
+        "count": 1
+      }
+    ]
+  },
+  "implicit_relations": {
+    "description": [
+      "account_groups",
+      "cxt_videos",
+      "mcm_organizations",
+      "spark_drama_info"
+    ],
+    "owner_id": [
+      "account_groups",
+      "kuaishou_accounts"
+    ],
+    "uid": [
+      "account_summary",
+      "cxt_user",
+      "drama_execution_logs",
+      "ks_account",
+      "kuaishou_accounts",
+      "kuaishou_urls",
+      "mcn_verification_logs",
+      "task_statistics",
+      "tv_publish_record"
+    ],
+    "user_id": [
+      "admin_operation_logs",
+      "page_permissions",
+      "spark_org_members",
+      "spark_violation_dramas",
+      "spark_violation_photos",
+      "user_button_permissions",
+      "user_page_permissions"
+    ],
+    "username": [
+      "admin_operation_logs",
+      "admin_users",
+      "ks_account",
+      "spark_violation_dramas",
+      "spark_violation_photos",
+      "wait_collect_videos"
+    ],
+    "action": [
+      "admin_operation_logs",
+      "card_usage_logs"
+    ],
+    "nickname": [
+      "admin_users",
+      "auto_device_accounts",
+      "kuaishou_accounts",
+      "kuaishou_urls"
+    ],
+    "role": [
+      "admin_users",
+      "role_default_permissions"
+    ],
+    "commission_rate": [
+      "admin_users",
+      "firefly_income",
+      "kuaishou_accounts",
+      "spark_drama_info",
+      "spark_income_archive"
+    ],
+    "device_id": [
+      "auto_device_accounts",
+      "auto_devices",
+      "auto_task_history"
+    ],
+    "device_number": [
+      "auto_devices",
+      "auto_task_history"
+    ],
+    "auth_code": [
+      "auto_devices",
+      "card_usage_logs",
+      "collect_pool_auth_codes",
+      "cxt_user"
+    ],
+    "task_id": [
+      "auto_task_history",
+      "fluorescent_income",
+      "spark_income"
+    ],
+    "task_type": [
+      "auto_task_history",
+      "task_statistics"
+    ],
+    "card_code": [
+      "card_keys",
+      "card_usage_logs"
+    ],
+    "created_by": [
+      "card_keys",
+      "collect_pool_auth_codes"
+    ],
+    "device_serial": [
+      "cloud_cookie_accounts",
+      "drama_collections",
+      "drama_execution_logs",
+      "kuaishou_accounts",
+      "task_statistics"
+    ],
+    "kuaishou_uid": [
+      "cloud_cookie_accounts",
+      "drama_collections"
+    ],
+    "kuaishou_name": [
+      "cloud_cookie_accounts",
+      "drama_collections"
+    ],
+    "name": [
+      "collect_pool_auth_codes",
+      "cxt_author",
+      "kuaishou_urls",
+      "wait_collect_videos"
+    ],
+    "author_id": [
+      "cxt_author",
+      "firefly_income",
+      "firefly_members"
+    ],
+    "platform": [
+      "cxt_author",
+      "cxt_videos",
+      "iqiyi_videos",
+      "kuaishou_accounts",
+      "spark_drama_info",
+      "system_announcements",
+      "tv_dramas",
+      "wait_collect_videos"
+    ],
+    "type": [
+      "cxt_author",
+      "cxt_titles"
+    ],
+    "title": [
+      "cxt_titles",
+      "cxt_videos",
+      "iqiyi_videos",
+      "spark_drama_info",
+      "spark_highincome_dramas",
+      "spark_photos",
+      "system_announcements"
+    ],
+    "video_url": [
+      "cxt_videos",
+      "firefly_income",
+      "ks_episodes"
+    ],
+    "cover_url": [
+      "cxt_videos",
+      "iqiyi_videos",
+      "ks_episodes",
+      "spark_photos",
+      "wait_collect_videos"
+    ],
+    "duration": [
+      "cxt_videos",
+      "drama_execution_logs",
+      "spark_photos",
+      "task_statistics"
+    ],
+    "comment_count": [
+      "cxt_videos",
+      "ks_episodes",
+      "spark_photos",
+      "spark_violation_photos",
+      "tv_episodes"
+    ],
+    "collect_count": [
+      "cxt_videos",
+      "tv_episodes"
+    ],
+    "share_count": [
+      "cxt_videos",
+      "tv_episodes"
+    ],
+    "drama_name": [
+      "drama_collections",
+      "drama_execution_logs",
+      "task_statistics",
+      "tv_dramas"
+    ],
+    "episode_number": [
+      "drama_execution_logs",
+      "ks_episodes",
+      "tv_episodes",
+      "tv_publish_record"
+    ],
+    "error_message": [
+      "drama_execution_logs",
+      "mcn_verification_logs",
+      "task_statistics"
+    ],
+    "task_name": [
+      "firefly_income",
+      "fluorescent_income",
+      "spark_income"
+    ],
+    "settlement_status": [
+      "firefly_income",
+      "fluorescent_income",
+      "fluorescent_income_archive",
+      "spark_income_archive"
+    ],
+    "commission_amount": [
+      "firefly_income",
+      "spark_income_archive"
+    ],
+    "member_id": [
+      "fluorescent_income",
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income",
+      "spark_income_archive",
+      "spark_members",
+      "spark_org_members",
+      "spark_photos"
+    ],
+    "member_name": [
+      "fluorescent_income",
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income",
+      "spark_income_archive",
+      "spark_members",
+      "spark_org_members",
+      "spark_photos"
+    ],
+    "income": [
+      "fluorescent_income",
+      "spark_income"
+    ],
+    "org_id": [
+      "fluorescent_income",
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income",
+      "spark_income_archive",
+      "spark_members",
+      "spark_org_members",
+      "spark_photos",
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "member_head": [
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income_archive",
+      "spark_members",
+      "spark_org_members"
+    ],
+    "fans_count": [
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income_archive",
+      "spark_members",
+      "spark_org_members",
+      "spark_violation_photos"
+    ],
+    "in_limit": [
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income_archive",
+      "spark_members"
+    ],
+    "broker_name": [
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income_archive",
+      "spark_members",
+      "spark_org_members",
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "org_task_num": [
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income_archive",
+      "spark_members"
+    ],
+    "total_amount": [
+      "fluorescent_income_archive",
+      "fluorescent_members",
+      "spark_income_archive",
+      "spark_members"
+    ],
+    "archive_month": [
+      "fluorescent_income_archive",
+      "spark_income_archive"
+    ],
+    "archive_year": [
+      "fluorescent_income_archive",
+      "spark_income_archive"
+    ],
+    "start_time": [
+      "fluorescent_income_archive",
+      "spark_drama_info",
+      "spark_income_archive",
+      "task_statistics"
+    ],
+    "end_time": [
+      "fluorescent_income_archive",
+      "spark_drama_info",
+      "spark_income_archive",
+      "task_statistics"
+    ],
+    "archived_at": [
+      "fluorescent_income_archive",
+      "spark_income_archive"
+    ],
+    "category": [
+      "iqiyi_videos",
+      "tv_dramas"
+    ],
+    "raw_data": [
+      "iqiyi_videos",
+      "spark_drama_info"
+    ],
+    "uid_real": [
+      "ks_account",
+      "kuaishou_accounts"
+    ],
+    "photo_id": [
+      "ks_episodes",
+      "spark_photos",
+      "spark_violation_photos",
+      "tv_episodes",
+      "tv_publish_record"
+    ],
+    "serial_id": [
+      "ks_episodes",
+      "spark_drama_info"
+    ],
+    "episode_name": [
+      "ks_episodes",
+      "tv_episodes"
+    ],
+    "caption": [
+      "ks_episodes",
+      "spark_violation_photos",
+      "tv_episodes"
+    ],
+    "duration_ms": [
+      "ks_episodes",
+      "tv_episodes"
+    ],
+    "like_count": [
+      "ks_episodes",
+      "spark_photos",
+      "spark_violation_photos",
+      "tv_episodes"
+    ],
+    "view_count": [
+      "ks_episodes",
+      "spark_photos",
+      "spark_violation_photos",
+      "tv_episodes"
+    ],
+    "forward_count": [
+      "ks_episodes",
+      "spark_violation_photos",
+      "tv_episodes"
+    ],
+    "author_user_id": [
+      "ks_episodes",
+      "tv_episodes"
+    ],
+    "author_user_name": [
+      "ks_episodes",
+      "tv_episodes"
+    ],
+    "share_user_id": [
+      "ks_episodes",
+      "tv_episodes"
+    ],
+    "share_photo_id": [
+      "ks_episodes",
+      "tv_episodes"
+    ],
+    "operator_account": [
+      "kuaishou_account_bindings",
+      "operator_quota"
+    ],
+    "is_blacklisted": [
+      "kuaishou_accounts",
+      "spark_violation_dramas"
+    ],
+    "blacklisted_at": [
+      "kuaishou_accounts",
+      "spark_violation_dramas"
+    ],
+    "url": [
+      "kuaishou_urls",
+      "wait_collect_videos"
+    ],
+    "page_key": [
+      "page_permissions",
+      "user_page_permissions"
+    ],
+    "is_allowed": [
+      "page_permissions",
+      "role_default_permissions",
+      "user_button_permissions",
+      "user_page_permissions"
+    ],
+    "broker_id": [
+      "spark_org_members",
+      "spark_violation_photos"
+    ],
+    "publish_time": [
+      "spark_photos",
+      "spark_violation_photos"
+    ],
+    "publish_date": [
+      "spark_photos",
+      "spark_violation_photos"
+    ],
+    "avatar_url": [
+      "spark_photos",
+      "spark_violation_photos"
+    ],
+    "sub_biz": [
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "status_desc": [
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "reason": [
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "media_url": [
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "thumb_url": [
+      "spark_violation_dramas",
+      "spark_violation_photos"
+    ],
+    "collection_id": [
+      "tv_episodes",
+      "tv_publish_record"
+    ],
+    "drama_id": [
+      "tv_episodes",
+      "tv_publish_record"
+    ]
+  },
+  "activity": {
+    "account_groups": {
+      "col": "created_at",
+      "earliest": "2025-12-02T13:57:27",
+      "latest": "2026-04-19T22:31:14",
+      "rows_24h": 38,
+      "rows_7d": 376,
+      "rows_30d": 1049
+    },
+    "admin_operation_logs": {
+      "col": "created_at",
+      "earliest": "2026-04-01T13:23:11",
+      "latest": "2026-04-20T06:45:18",
+      "rows_24h": 1826,
+      "rows_7d": 12687,
+      "rows_30d": 27357
+    },
+    "admin_users": {
+      "col": "created_at",
+      "earliest": "2025-12-02T13:57:26",
+      "latest": "2026-04-19T22:31:14",
+      "rows_24h": 36,
+      "rows_7d": 363,
+      "rows_30d": 913
+    },
+    "auto_device_accounts": {
+      "col": "created_at",
+      "earliest": "2026-01-30T14:23:32",
+      "latest": "2026-04-07T14:24:35",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 3
+    },
+    "auto_devices": {
+      "col": "created_at",
+      "earliest": "2026-01-30T14:12:16",
+      "latest": "2026-04-07T14:23:32",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 1
+    },
+    "auto_task_history": {
+      "col": "created_at",
+      "earliest": "2026-01-30T14:23:18",
+      "latest": "2026-04-14T08:19:16",
+      "rows_24h": 0,
+      "rows_7d": 1,
+      "rows_30d": 657
+    },
+    "card_keys": {
+      "col": "created_at",
+      "earliest": "2026-02-12T15:44:35",
+      "latest": "2026-02-12T22:06:39",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 0
+    },
+    "card_usage_logs": {
+      "col": "created_at",
+      "earliest": "2026-02-12T15:44:58",
+      "latest": "2026-04-11T14:23:23",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 2
+    },
+    "cloud_cookie_accounts": {
+      "col": "created_at",
+      "earliest": "2025-12-26T15:53:41",
+      "latest": "2026-04-19T00:13:40",
+      "rows_24h": 0,
+      "rows_7d": 65,
+      "rows_30d": 772
+    },
+    "collect_pool_auth_codes": {
+      "col": "created_at",
+      "earliest": "2025-12-21T16:53:47",
+      "latest": "2026-04-19T22:31:14",
+      "rows_24h": 36,
+      "rows_7d": 365,
+      "rows_30d": 915
+    },
+    "cxt_videos": {
+      "col": "created_at",
+      "earliest": "2026-04-04T13:02:05",
+      "latest": "2026-04-18T18:58:47",
+      "rows_24h": 0,
+      "rows_7d": 1,
+      "rows_30d": 1503
+    },
+    "firefly_income": {
+      "col": "created_at",
+      "earliest": "2026-02-03T15:23:32",
+      "latest": "2026-02-26T12:35:56",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 0
+    },
+    "firefly_members": {
+      "col": "created_at",
+      "earliest": "2026-02-05T12:43:23",
+      "latest": "2026-02-26T12:35:56",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 0
+    },
+    "fluorescent_income": {
+      "col": "created_at",
+      "earliest": "2026-02-28T15:25:40",
+      "latest": "2026-04-13T16:49:18",
+      "rows_24h": 0,
+      "rows_7d": 5504,
+      "rows_30d": 16930
+    },
+    "fluorescent_members": {
+      "col": "created_at",
+      "earliest": "2026-03-10T16:32:59",
+      "latest": "2026-04-19T18:22:35",
+      "rows_24h": 1304,
+      "rows_7d": 12232,
+      "rows_30d": 18477
+    },
+    "ks_episodes": {
+      "col": "created_at",
+      "earliest": "2026-03-20T20:01:16",
+      "latest": "2026-03-20T20:11:35",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 0
+    },
+    "kuaishou_accounts": {
+      "col": "created_at",
+      "earliest": "2025-11-22T15:53:49",
+      "latest": "2026-04-20T01:23:53",
+      "rows_24h": 861,
+      "rows_7d": 5477,
+      "rows_30d": 16320
+    },
+    "mcm_organizations": {
+      "col": "created_at",
+      "earliest": "2026-02-28T13:31:50",
+      "latest": "2026-04-18T13:36:12",
+      "rows_24h": 0,
+      "rows_7d": 1,
+      "rows_30d": 12
+    },
+    "mcn_verification_logs": {
+      "col": "created_at",
+      "earliest": "2025-11-23T12:14:43",
+      "latest": "2026-04-20T06:45:58",
+      "rows_24h": 18949,
+      "rows_7d": 145283,
+      "rows_30d": 352126
+    },
+    "page_permissions": {
+      "col": "created_at",
+      "earliest": "2026-03-14T16:55:14",
+      "latest": "2026-04-19T22:31:14",
+      "rows_24h": 621,
+      "rows_7d": 7258,
+      "rows_30d": 21226
+    },
+    "role_default_permissions": {
+      "col": "created_at",
+      "earliest": "2026-03-30T12:52:43",
+      "latest": "2026-04-18T18:44:36",
+      "rows_24h": 0,
+      "rows_7d": 6,
+      "rows_30d": 246
+    },
+    "spark_drama_info": {
+      "col": "created_at",
+      "earliest": "2026-01-11T16:58:24",
+      "latest": "2026-04-17T16:13:21",
+      "rows_24h": 0,
+      "rows_7d": 40059,
+      "rows_30d": 67791
+    },
+    "spark_highincome_dramas": {
+      "col": "created_at",
+      "earliest": "2026-03-25T20:21:32",
+      "latest": "2026-04-14T17:22:42",
+      "rows_24h": 0,
+      "rows_7d": 240,
+      "rows_30d": 432
+    },
+    "spark_income": {
+      "col": "created_at",
+      "earliest": "2026-02-15T21:11:41",
+      "latest": "2026-04-09T16:03:15",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 52
+    },
+    "spark_members": {
+      "col": "created_at",
+      "earliest": "2026-02-08T18:57:12",
+      "latest": "2026-04-19T13:18:26",
+      "rows_24h": 4,
+      "rows_7d": 4,
+      "rows_30d": 1178
+    },
+    "spark_org_members": {
+      "col": "created_at",
+      "earliest": "2026-01-03T13:03:27",
+      "latest": "2026-04-10T17:00:36",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 1308
+    },
+    "spark_violation_dramas": {
+      "col": "created_at",
+      "earliest": "2025-12-29T15:24:19",
+      "latest": "2026-04-19T20:28:28",
+      "rows_24h": 162,
+      "rows_7d": 162,
+      "rows_30d": 1501
+    },
+    "spark_violation_photos": {
+      "col": "created_at",
+      "earliest": "2025-12-29T15:24:19",
+      "latest": "2026-04-19T20:28:32",
+      "rows_24h": 9991,
+      "rows_7d": 9991,
+      "rows_30d": 28889
+    },
+    "system_announcements": {
+      "col": "created_at",
+      "earliest": "2026-03-09T16:50:28",
+      "latest": "2026-04-13T12:24:33",
+      "rows_24h": 0,
+      "rows_7d": 1,
+      "rows_30d": 3
+    },
+    "task_statistics": {
+      "col": "created_at",
+      "earliest": "2025-11-22T16:14:54",
+      "latest": "2026-04-20T01:06:07",
+      "rows_24h": 20,
+      "rows_7d": 313,
+      "rows_30d": 4204
+    },
+    "tv_episodes": {
+      "col": "created_at",
+      "earliest": "2026-03-17T17:07:41",
+      "latest": "2026-03-18T20:01:20",
+      "rows_24h": 0,
+      "rows_7d": 0,
+      "rows_30d": 0
+    },
+    "user_button_permissions": {
+      "col": "created_at",
+      "earliest": "2026-01-04T20:01:56",
+      "latest": "2026-04-19T22:31:14",
+      "rows_24h": 1474,
+      "rows_7d": 15004,
+      "rows_30d": 37253
+    },
+    "user_page_permissions": {
+      "col": "created_at",
+      "earliest": "2026-01-05T12:15:01",
+      "latest": "2026-04-19T22:31:14",
+      "rows_24h": 900,
+      "rows_7d": 9138,
+      "rows_30d": 22595
+    },
+    "wait_collect_videos": {
+      "col": "created_at",
+      "earliest": "2026-03-24T00:48:17",
+      "latest": "2026-04-20T06:27:17",
+      "rows_24h": 681,
+      "rows_7d": 9212,
+      "rows_30d": 21534
+    }
+  },
+  "deep_field_stats": {
+    "kuaishou_urls": {
+      "row_count": 1734828,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1745095
+        },
+        "url": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 514022
+        },
+        "name": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 14581
+        },
+        "uid": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 15636
+        },
+        "nickname": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 14497
+        }
+      }
+    },
+    "mcn_verification_logs": {
+      "row_count": 493742,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 494637
+        },
+        "uid": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 4398
+        },
+        "client_ip": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 677
+        },
+        "status": {
+          "type": "varchar(20)",
+          "null_pct": 0.0,
+          "distinct": 1
+        },
+        "is_mcn_member": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "error_message": {
+          "type": "text",
+          "null_pct": 100.0,
+          "distinct": 0
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 368843
+        }
+      }
+    },
+    "spark_drama_info": {
+      "row_count": 126296,
+      "fields": {
+        "id": {
+          "type": "bigint(20) unsigned",
+          "null_pct": 0.0,
+          "distinct": 134020
+        },
+        "biz_id": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 134020
+        },
+        "business_type": {
+          "type": "int(11)",
+          "null_pct": 96.1,
+          "distinct": 1
+        },
+        "ref_business_id": {
+          "type": "bigint(20)",
+          "null_pct": 96.1,
+          "distinct": 5270
+        },
+        "title": {
+          "type": "varchar(500)",
+          "null_pct": 0.0,
+          "distinct": 48688
+        },
+        "icon": {
+          "type": "varchar(1000)",
+          "null_pct": 57.8,
+          "distinct": 52198
+        },
+        "start_time": {
+          "type": "bigint(20)",
+          "null_pct": 96.1,
+          "distinct": 137
+        },
+        "end_time": {
+          "type": "bigint(20)",
+          "null_pct": 96.1,
+          "distinct": 14
+        },
+        "promotion_type": {
+          "type": "int(11)",
+          "null_pct": 96.1,
+          "distinct": 1
+        },
+        "promotion_type_desc": {
+          "type": "varchar(100)",
+          "null_pct": 96.1,
+          "distinct": 1
+        },
+        "redirect_url": {
+          "type": "varchar(1000)",
+          "null_pct": 5.3,
+          "distinct": 126968
+        },
+        "tags": {
+          "type": "json",
+          "null_pct": 5.3,
+          "distinct": 2267
+        },
+        "classifications": {
+          "type": "json",
+          "null_pct": 96.1,
+          "distinct": 3
+        },
+        "label": {
+          "type": "varchar(500)",
+          "null_pct": 96.1,
+          "distinct": 1
+        },
+        "description": {
+          "type": "text",
+          "null_pct": 96.1,
+          "distinct": 13
+        },
+        "income_desc": {
+          "type": "varchar(100)",
+          "null_pct": 57.8,
+          "distinct": 5145
+        },
+        "joined": {
+          "type": "tinyint(4)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "view_status": {
+          "type": "int(11)",
+          "null_pct": 96.1,
+          "distinct": 1
+        },
+        "commission_rate": {
+          "type": "decimal(5,2)",
+          "null_pct": 0.0,
+          "distinct": 3
+        },
+        "raw_data": {
+          "type": "json",
+          "null_pct": 57.8,
+          "distinct": 56586
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 59261
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 60960
+        },
+        "platform": {
+          "type": "tinyint(3) unsigned",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "jump_url": {
+          "type": "varchar(1000)",
+          "null_pct": 0.0,
+          "distinct": 12344
+        },
+        "serial_id": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 12344
+        }
+      }
+    },
+    "drama_collections": {
+      "row_count": 113257,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 135392
+        },
+        "kuaishou_uid": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 689
+        },
+        "kuaishou_name": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 729
+        },
+        "device_serial": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 348
+        },
+        "drama_name": {
+          "type": "varchar(200)",
+          "null_pct": 0.0,
+          "distinct": 5362
+        },
+        "drama_url": {
+          "type": "varchar(500)",
+          "null_pct": 0.0,
+          "distinct": 17425
+        },
+        "plan_mode": {
+          "type": "varchar(20)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "actual_drama_name": {
+          "type": "varchar(200)",
+          "null_pct": 0.0,
+          "distinct": 120
+        },
+        "collected_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 113049
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 107357
+        }
+      }
+    },
+    "task_statistics": {
+      "row_count": 84212,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 90115
+        },
+        "uid": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 1359
+        },
+        "device_serial": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 330
+        },
+        "drama_link": {
+          "type": "varchar(500)",
+          "null_pct": 0.0,
+          "distinct": 22182
+        },
+        "drama_name": {
+          "type": "varchar(200)",
+          "null_pct": 0.0,
+          "distinct": 7127
+        },
+        "task_type": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 7
+        },
+        "task_config": {
+          "type": "json",
+          "null_pct": 0.0,
+          "distinct": 32182
+        },
+        "status": {
+          "type": "varchar(20)",
+          "null_pct": 0.0,
+          "distinct": 3
+        },
+        "error_message": {
+          "type": "text",
+          "null_pct": 91.2,
+          "distinct": 17
+        },
+        "start_time": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 69965
+        },
+        "end_time": {
+          "type": "datetime",
+          "null_pct": 18.6,
+          "distinct": 70784
+        },
+        "duration": {
+          "type": "int(11)",
+          "null_pct": 18.6,
+          "distinct": 4464
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 69965
+        }
+      }
+    },
+    "user_button_permissions": {
+      "row_count": 57042,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 55496
+        },
+        "user_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1430
+        },
+        "button_key": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 43
+        },
+        "is_allowed": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 1678
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 1680
+        }
+      }
+    },
+    "user_page_permissions": {
+      "row_count": 33564,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 33985
+        },
+        "user_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1428
+        },
+        "page_key": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 25
+        },
+        "is_allowed": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 1518
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 1522
+        }
+      }
+    },
+    "spark_violation_photos": {
+      "row_count": 32497,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 35455
+        },
+        "photo_id": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 35455
+        },
+        "user_id": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 5091
+        },
+        "username": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 4860
+        },
+        "caption": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 9507
+        },
+        "like_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 334
+        },
+        "view_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 2431
+        },
+        "forward_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1
+        },
+        "comment_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 71
+        },
+        "media_url": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 19475
+        },
+        "thumb_url": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 35455
+        },
+        "avatar_url": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 9131
+        },
+        "publish_time": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 31884
+        },
+        "publish_date": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 31252
+        },
+        "fans_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 2316
+        },
+        "broker_id": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 4
+        },
+        "broker_name": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 4
+        },
+        "sub_biz_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "sub_biz": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "status": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 4
+        },
+        "status_desc": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "negative_audit_time": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 35448
+        },
+        "reason": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 12
+        },
+        "suggestion": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 15
+        },
+        "appeal_status": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 4
+        },
+        "appeal_status_desc": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "appeal_detail": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 4
+        },
+        "punish_time": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 35448
+        },
+        "org_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1
+        },
+        "created_at": {
+          "type": "timestamp",
+          "null_pct": 0.0,
+          "distinct": 540
+        },
+        "updated_at": {
+          "type": "timestamp",
+          "null_pct": 0.0,
+          "distinct": 333
+        }
+      }
+    },
+    "fluorescent_income": {
+      "row_count": 29472,
+      "fields": {
+        "id": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 29423
+        },
+        "member_id": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 6089
+        },
+        "member_name": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 5651
+        },
+        "task_id": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 3143
+        },
+        "task_name": {
+          "type": "varchar(200)",
+          "null_pct": 0.0,
+          "distinct": 2639
+        },
+        "task_start_time": {
+          "type": "varchar(20)",
+          "null_pct": 0.0,
+          "distinct": 132
+        },
+        "income": {
+          "type": "decimal(10,2)",
+          "null_pct": 0.0,
+          "distinct": 2480
+        },
+        "settlement_status": {
+          "type": "varchar(20)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "org_id": {
+          "type": "int(11) unsigned",
+          "null_pct": 0.0,
+          "distinct": 3
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 9561
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 7746
+        }
+      }
+    },
+    "admin_operation_logs": {
+      "row_count": 27466,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 27357
+        },
+        "user_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1030
+        },
+        "username": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 1029
+        },
+        "action": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 6
+        },
+        "module": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 14
+        },
+        "target": {
+          "type": "varchar(100)",
+          "null_pct": 1.7,
+          "distinct": 12609
+        },
+        "detail": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 12024
+        },
+        "ip": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 295
+        },
+        "user_agent": {
+          "type": "varchar(500)",
+          "null_pct": 0.0,
+          "distinct": 1242
+        },
+        "status": {
+          "type": "varchar(20)",
+          "null_pct": 0.0,
+          "distinct": 1
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 26948
+        }
+      }
+    },
+    "ks_account": {
+      "row_count": 23251,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 23306
+        },
+        "username": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 15828
+        },
+        "uid": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 17873
+        },
+        "device_num": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 2024
+        },
+        "uid_real": {
+          "type": "varchar(50)",
+          "null_pct": 8.2,
+          "distinct": 16640
+        }
+      }
+    },
+    "kuaishou_accounts": {
+      "row_count": 23075,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 24093
+        },
+        "uid": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 24093
+        },
+        "device_serial": {
+          "type": "varchar(50)",
+          "null_pct": 79.3,
+          "distinct": 311
+        },
+        "nickname": {
+          "type": "varchar(100)",
+          "null_pct": 27.8,
+          "distinct": 13931
+        },
+        "is_mcm_member": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "mcm_join_date": {
+          "type": "datetime",
+          "null_pct": 82.2,
+          "distinct": 1494
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 19852
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 16093
+        },
+        "group_id": {
+          "type": "int(11)",
+          "null_pct": 61.3,
+          "distinct": 353
+        },
+        "owner_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1005
+        },
+        "is_blacklisted": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "blacklist_reason": {
+          "type": "varchar(255)",
+          "null_pct": 99.1,
+          "distinct": 2
+        },
+        "blacklisted_at": {
+          "type": "datetime",
+          "null_pct": 99.1,
+          "distinct": 3
+        },
+        "blacklisted_by": {
+          "type": "int(11)",
+          "null_pct": 99.1,
+          "distinct": 1
+        },
+        "account_status": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 1
+        },
+        "status_note": {
+          "type": "varchar(255)",
+          "null_pct": 100.0,
+          "distinct": 0
+        },
+        "platform": {
+          "type": "tinyint(4)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "contract_status": {
+          "type": "varchar(50)",
+          "null_pct": 19.5,
+          "distinct": 5
+        },
+        "org_note": {
+          "type": "text",
+          "null_pct": 16.6,
+          "distinct": 14517
+        },
+        "phone_number": {
+          "type": "varchar(20)",
+          "null_pct": 19.3,
+          "distinct": 16734
+        },
+        "invite_time": {
+          "type": "datetime",
+          "null_pct": 19.3,
+          "distinct": 19376
+        },
+        "invitation_success_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 15
+        },
+        "uid_real": {
+          "type": "varchar(50)",
+          "null_pct": 0.9,
+          "distinct": 23866
+        },
+        "real_name": {
+          "type": "varchar(50)",
+          "null_pct": 19.7,
+          "distinct": 13114
+        },
+        "organization_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 16
+        },
+        "commission_rate": {
+          "type": "decimal(5,2)",
+          "null_pct": 0.0,
+          "distinct": 36
+        }
+      }
+    },
+    "page_permissions": {
+      "row_count": 21578,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 21310
+        },
+        "user_id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 1418
+        },
+        "page_key": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 16
+        },
+        "is_allowed": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 1484
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 1502
+        }
+      }
+    },
+    "wait_collect_videos": {
+      "row_count": 21170,
+      "fields": {
+        "id": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 21534
+        },
+        "name": {
+          "type": "varchar(255)",
+          "null_pct": 0.0,
+          "distinct": 2851
+        },
+        "username": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 167
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 4500
+        },
+        "url": {
+          "type": "text",
+          "null_pct": 0.0,
+          "distinct": 15433
+        },
+        "platform": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 2
+        },
+        "cover_url": {
+          "type": "text",
+          "null_pct": 35.1,
+          "distinct": 10224
+        }
+      }
+    },
+    "fluorescent_members": {
+      "row_count": 18812,
+      "fields": {
+        "member_id": {
+          "type": "bigint(20)",
+          "null_pct": 0.0,
+          "distinct": 18806
+        },
+        "member_name": {
+          "type": "varchar(100)",
+          "null_pct": 0.0,
+          "distinct": 15978
+        },
+        "member_head": {
+          "type": "varchar(500)",
+          "null_pct": 0.0,
+          "distinct": 17976
+        },
+        "fans_count": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 2846
+        },
+        "in_limit": {
+          "type": "tinyint(1)",
+          "null_pct": 0.0,
+          "distinct": 1
+        },
+        "broker_name": {
+          "type": "varchar(50)",
+          "null_pct": 0.0,
+          "distinct": 6
+        },
+        "org_task_num": {
+          "type": "int(11)",
+          "null_pct": 0.0,
+          "distinct": 36
+        },
+        "total_amount": {
+          "type": "decimal(10,2)",
+          "null_pct": 0.0,
+          "distinct": 3017
+        },
+        "org_id": {
+          "type": "int(11) unsigned",
+          "null_pct": 0.0,
+          "distinct": 15
+        },
+        "created_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 189
+        },
+        "updated_at": {
+          "type": "datetime",
+          "null_pct": 0.0,
+          "distinct": 73
+        }
+      }
+    }
+  }
+}

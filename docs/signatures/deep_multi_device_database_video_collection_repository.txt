@@ -1,0 +1,109 @@
+# Deep inspection: multi_device.database.video_collection_repository
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\database\video_collection_repository.py
+
+
+CLASS VideoCollectionRepository:
+  DEF __init__(self)  # line 16
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _init_tables(self)  # line 21
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF add_log(self, task_id, level, message, step_name)  # line 469
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF check_duplicate_by_content(self, video_title, video_description, drama_title, author_name, duration)  # line 287
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None, None, None, None)
+  DEF check_video_exists(self, share_link)  # line 266
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_task(self, target_uid, device_serial, target_count, target_name)  # line 28
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF delete_all_videos(self)  # line 432
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_video_by_link(self, share_link)  # line 414
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF export_videos_to_json(self, file_path, task_id)  # line 599
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_all_videos(self, limit)  # line 396
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (1000,)
+  DEF get_collection_summary(self)  # line 573
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_latest_task(self)  # line 362
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_logs(self, task_id, level, limit)  # line 497
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, 100)
+  DEF get_task(self, task_id)  # line 63
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_task_list(self, limit, status)  # line 155
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (50, None)
+  DEF get_task_statistics(self, task_id)  # line 531
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_videos_by_task(self, task_id)  # line 378
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_videos_by_uid(self, author_uid, limit)  # line 447
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (100,)
+  DEF import_videos_from_json(self, file_path, skip_duplicates)  # line 677
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (True,)
+  DEF save_video(self, task_id, video_data)  # line 186
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_collected_count(self, task_id, collected, duplicate)  # line 126
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0,)
+  DEF update_task_status(self, task_id, status, error_message)  # line 83
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+
+CLASS datetime:
+VAR db_manager = <multi_device.database.db_manager.DatabaseManager object at 0x000001512F4D0E00>
+VAR sqlite3 = <module 'sqlite3' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\sqlite3\__init__.py)>
+VAR video_collection_repo = <multi_device.database.video_collection_repository.VideoCollectionRepository object at 0x000001512F9609E0>

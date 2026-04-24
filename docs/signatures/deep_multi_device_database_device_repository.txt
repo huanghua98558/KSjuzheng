@@ -1,0 +1,175 @@
+# Deep inspection: multi_device.database.device_repository
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\database\device_repository.py
+
+
+CLASS DeviceRepository:
+  DEF __init__(self)  # line 14
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF auto_switch_account_by_name(self, device_serial, account_name)  # line 970
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF clear_device_accounts(self, device_serial)  # line 929
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF clear_local_kuaishou_info(self, device_serial)  # line 1152
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF clear_web_cookies(self, device_serial)  # line 459
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_account(self, device_serial, account_id, browser_port)  # line 685
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_account(self, device_serial, account_id)  # line 1045
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_device(self, device_serial)  # line 341
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF find_account_by_name(self, device_serial, account_name)  # line 947
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_account_cookies(self, device_serial, account_id)  # line 861
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_active_account(self, device_serial)  # line 658
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_all_accounts_with_cookies(self)  # line 1180
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_all_device_accounts(self)  # line 551
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_all_devices(self)  # line 187
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device(self, device_serial)  # line 167
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_accounts(self, device_serial)  # line 529
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_kuaishou_account(self, device_serial)  # line 484
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_statistics(self, device_serial)  # line 235
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_device_summary(self, device_serial)  # line 255
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_devices_by_group(self, group_name)  # line 202
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_local_kuaishou_info(self, device_serial)  # line 1087
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_online_devices(self)  # line 220
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_web_cookies(self, device_serial)  # line 390
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_web_login_status(self, device_serial)  # line 421
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF import_account_record(self, account_data)  # line 569
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF import_browser_accounts_from_directory(self, chrome_user_data_dir, connected_devices)  # line 1211
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF increment_device_statistics(self, device_serial, success)  # line 297
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (True,)
+  DEF init_device_statistics(self, device_serial)  # line 94
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF save_device(self, device_data)  # line 18
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF switch_account(self, device_serial, account_id)  # line 725
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_account_cookies(self, device_serial, account_id, cookies, account_name, kuaishou_uid)  # line 749
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+  DEF update_account_drama_tags(self, device_serial, account_id, drama_tags)  # line 901
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF update_account_info(self, device_serial, account_id, account_name, kuaishou_name)  # line 816
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+  DEF update_account_login_status(self, device_serial, account_id, login_status)  # line 1020
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_account_name(self, device_serial, account_id, account_name)  # line 791
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_device_alias(self, device_serial, alias)  # line 117
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_device_statistics(self, device_serial)  # line 279
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_device_status(self, device_serial, status)  # line 142
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF update_local_kuaishou_info(self, device_serial, kuaishou_uid, kuaishou_name)  # line 1125
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF update_web_cookies(self, device_serial, cookies_json)  # line 364
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+CLASS datetime:
+VAR db_manager = <multi_device.database.db_manager.DatabaseManager object at 0x000001512F4D0E00>

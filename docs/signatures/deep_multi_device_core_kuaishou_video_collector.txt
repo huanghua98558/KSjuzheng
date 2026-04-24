@@ -1,0 +1,134 @@
+# Deep inspection: multi_device.core.kuaishou_video_collector
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\core\kuaishou_video_collector.py
+
+
+CLASS KuaishouVideoCollector:
+  DEF __init__(self, device_serial)  # line 17
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_first_video(self)  # line 635
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_share_button(self)  # line 770
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _copy_share_link(self)  # line 799
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _ensure_in_playback_page(self, max_back_attempts)  # line 694
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (3,)
+  DEF _extract_video_info(self)  # line 747
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_final_drama_title(self, api_result)  # line 952
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_video_info_from_api(self, share_link)  # line 911
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _is_in_video_playback_page(self)  # line 684
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _should_stop(self)  # line 43
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _swipe_to_next_video(self)  # line 720
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF check_pause(self)  # line 890
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF click_featured(self)  # line 203
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF click_user_tab(self)  # line 366
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF click_works_tab(self)  # line 482
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF collect_video(self, video_index, is_first_video)  # line 521
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False,)
+  DEF enter_user_profile(self, target_uid)  # line 415
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF execute_search(self)  # line 311
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF initialize_device(self)  # line 67
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF is_in_kuaishou_app(self)  # line 123
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF log(self, message, level)  # line 49
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF open_kuaishou_app(self)  # line 97
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF pause_collecting(self)  # line 901
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF resume_collecting(self)  # line 906
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF return_to_home(self)  # line 148
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF scroll_works_list(self)  # line 879
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF search_and_input_uid(self, uid)  # line 245
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_log_callback(self, callback)  # line 35
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_stop_check_callback(self, callback)  # line 39
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF stop_collecting(self)  # line 896
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+CLASS datetime:
+VAR re = <module 're' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\re\__init__.py)>
+VAR time = <module 'time' (built-in)>
+VAR u2 = <module 'uiautomator2' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\uiautomator2\\__init__.py'>
+VAR video_info_service = <multi_device.services.video_info_service.VideoInfoService object at 0x000001512F747E60>

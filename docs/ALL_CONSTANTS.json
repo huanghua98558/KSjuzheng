@@ -1,0 +1,111 @@
+{
+  "KUAISHOU_WEB_URLS": {
+    "login_url": "https://cp.kuaishou.com/",
+    "passport_login_url": "https://passport.kuaishou.com/pc/account/login/?sid=kuaishou.web.cp.api&callback=https%3A%2F%2Fcp.kuaishou.com%2Frest%2Finfra%2Fsts%3FfollowUrl%3Dhttps%253A%252F%252Fcp.kuaishou.com%252Fprofile%26setRootDomain%3Dtrue",
+    "publish_url": "https://cp.kuaishou.com/article/publish/video",
+    "my_works_url": "https://cp.kuaishou.com/article/manage/video"
+  },
+  "WEB_SELECTORS": {
+    "user_avatar": ".user-avatar",
+    "user_name": ".user-name",
+    "login_button": ".login-btn",
+    "upload_input": "input[type=\"file\"]",
+    "upload_progress": ".upload-progress",
+    "title_input": "input[placeholder*=\"标题\"]",
+    "description_textarea": "textarea[placeholder*=\"描述\"]",
+    "tag_input": "input[placeholder*=\"标签\"]",
+    "publish_button": "button[class*=\"publish\"]",
+    "success_message": "//*[contains(text(), \"发布成功\")]",
+    "private_checkbox": "input[type=\"checkbox\"][name=\"private\"]",
+    "scheduled_checkbox": "input[type=\"checkbox\"][name=\"scheduled\"]"
+  },
+  "PUBLISH_CONFIG": {
+    "upload_timeout": 300,
+    "process_timeout": 600,
+    "publish_timeout": 30,
+    "verify_timeout": 30,
+    "error_retry_count": 1
+  },
+  "CHROME_CONFIG": {
+    "chrome_path": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome\\chrome-win64\\chrome-win64\\chrome.exe",
+    "driver_path": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe",
+    "user_data_base": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome_user_data",
+    "base_port": 9520
+  },
+  "BROWSER_OPTIONS": {
+    "headless": false,
+    "disable_gpu": true,
+    "no_sandbox": true,
+    "disable_dev_shm": true,
+    "window_size": "1920,1080"
+  },
+  "multi_device.config.mode2_config.BROWSER_OPTIONS": {
+    "headless": false,
+    "disable_gpu": true,
+    "no_sandbox": true,
+    "disable_dev_shm": true,
+    "window_size": "1920,1080"
+  },
+  "multi_device.config.mode2_config.CHROME_CONFIG": {
+    "chrome_path": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome\\chrome-win64\\chrome-win64\\chrome.exe",
+    "driver_path": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe",
+    "user_data_base": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome_user_data",
+    "base_port": 9520
+  },
+  "multi_device.config.mode2_config.COLLECTION_CONFIG": {
+    "wait_time": 3,
+    "max_retry_times": 3,
+    "verify_timeout": 5
+  },
+  "multi_device.config.mode2_config.COOKIE_CONFIG": {
+    "expire_days": 30,
+    "check_interval": 3600
+  },
+  "multi_device.config.mode2_config.KUAISHOU_WEB_URLS": {
+    "login_url": "https://cp.kuaishou.com/",
+    "passport_login_url": "https://passport.kuaishou.com/pc/account/login/?sid=kuaishou.web.cp.api&callback=https%3A%2F%2Fcp.kuaishou.com%2Frest%2Finfra%2Fsts%3FfollowUrl%3Dhttps%253A%252F%252Fcp.kuaishou.com%252Fprofile%26setRootDomain%3Dtrue",
+    "publish_url": "https://cp.kuaishou.com/article/publish/video",
+    "my_works_url": "https://cp.kuaishou.com/article/manage/video"
+  },
+  "multi_device.config.mode2_config.LOG_CONFIG": {
+    "enable_selenium_log": false,
+    "log_level": "INFO"
+  },
+  "multi_device.config.mode2_config.PUBLISH_CONFIG": {
+    "upload_timeout": 300,
+    "process_timeout": 600,
+    "publish_timeout": 30,
+    "verify_timeout": 30,
+    "error_retry_count": 1
+  },
+  "multi_device.config.mode2_config.RETRY_CONFIG": {
+    "max_retry": 3,
+    "retry_delay": 10,
+    "exponential_backoff": true
+  },
+  "multi_device.config.mode2_config.WEB_SELECTORS": {
+    "user_avatar": ".user-avatar",
+    "user_name": ".user-name",
+    "login_button": ".login-btn",
+    "upload_input": "input[type=\"file\"]",
+    "upload_progress": ".upload-progress",
+    "title_input": "input[placeholder*=\"标题\"]",
+    "description_textarea": "textarea[placeholder*=\"描述\"]",
+    "tag_input": "input[placeholder*=\"标签\"]",
+    "publish_button": "button[class*=\"publish\"]",
+    "success_message": "//*[contains(text(), \"发布成功\")]",
+    "private_checkbox": "input[type=\"checkbox\"][name=\"private\"]",
+    "scheduled_checkbox": "input[type=\"checkbox\"][name=\"scheduled\"]"
+  },
+  "multi_device.config.spark_entry_config.DEFAULT_INVITE_TEXT": "您有高收益商单待领取，现在加入星火达人变现扶持计划，快手平台将提供优质商单推荐、商单1v1培训、千万流量扶持。复制本短信##X8RKsV2Wt0A71FI##，打开『快手APP』即可开通星火变现功能。回T退订",
+  "multi_device.config.spark_entry_config.DEFAULT_SPARK_INTENT_URL": "https://creative.m.kuaishou.com/spark-plan-center/?layoutType=4&from=search_card&source=search_card&hyId=spark",
+  "multi_device.config.spark_entry_config.ENTRY_MODE_DIRECT_INVITE": "direct_invite",
+  "multi_device.config.spark_entry_config.ENTRY_MODE_INTENT_DIRECT": "intent_direct",
+  "multi_device.config.spark_entry_config.ENTRY_MODE_TRADITIONAL_SEARCH": "traditional_search",
+  "multi_device.core.kuaishou_drama_collector.DEFAULT_INVITE_TEXT": "您有高收益商单待领取，现在加入星火达人变现扶持计划，快手平台将提供优质商单推荐、商单1v1培训、千万流量扶持。复制本短信##X8RKsV2Wt0A71FI##，打开『快手APP』即可开通星火变现功能。回T退订",
+  "multi_device.core.kuaishou_drama_collector.DEFAULT_SPARK_INTENT_URL": "https://creative.m.kuaishou.com/spark-plan-center/?layoutType=4&from=search_card&source=search_card&hyId=spark",
+  "multi_device.core.kuaishou_drama_collector.ENTRY_MODE_DIRECT_INVITE": "direct_invite",
+  "multi_device.core.kuaishou_drama_collector.ENTRY_MODE_INTENT_DIRECT": "intent_direct",
+  "multi_device.core.kuaishou_drama_collector.ENTRY_MODE_TRADITIONAL_SEARCH": "traditional_search",
+  "multi_device.core.kuaishou_drama_collector.project_root": "C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1",
+  "MAIN.R": 

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}任务队列{% endblock %}
+{% block content %}
+<h1>任务队列</h1>
+
+<div class="grid grid-4" style="margin-bottom: 20px">
+  <div class="stat"><div class="label">Pending</div><div class="value">{{ status_counts.get('pending', 0) }}</div></div>
+  <div class="stat"><div class="label">Running</div><div class="value" style="color:#f2c28c">{{ status_counts.get('running', 0) }}</div></div>
+  <div class="stat"><div class="label">Success</div><div class="value">{{ status_counts.get('success', 0) }}</div></div>
+  <div class="stat"><div class="label">Failed</div><div class="value" style="color:#f28c8c">{{ status_counts.get('failed', 0) }}</div></div>
+</div>
+
+<div class="card">
+  <h3>最近 40 条任务</h3>
+  {% if recent %}
+  <table>
+    <thead>
+      <tr><th>ID</th><th>类型</th><th>账号</th><th>剧名</th><th>状态</th><th>重试</th><th>创建时间</th><th>错误</th></tr>
+    </thead>
+    <tbody>
+    {% for t in recent %}
+      <tr>
+        <td class="muted">{{ t.id[:8] }}</td>
+        <td><strong>{{ t.type }}</strong></td>
+        <td>{{ t.acct }}</td>
+        <td>{{ t.drama[:24] }}</td>
+        <td>
+          {% if t.status == 'success' %}<span class="badge badge-on">{{ t.status }}</span>
+          {% elif t.status in ('failed','dead_letter') %}<span class="badge badge-off">{{ t.status }}</span>
+          {% else %}<span class="badge badge-neutral">{{ t.status }}</span>{% endif %}
+        </td>
+        <td>{{ t.retry }}</td>
+        <td class="muted">{{ t.created[:19] }}</td>
+        <td class="muted">{{ (t.err or '')[:50] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="muted">task_queue 目前为空 — 还没有真实任务流入。
+    等 Phase 2 的 Agent 编排 / Orchestrator 接入后会开始写入。</p>
+  {% endif %}
+</div>
+{% endblock %}

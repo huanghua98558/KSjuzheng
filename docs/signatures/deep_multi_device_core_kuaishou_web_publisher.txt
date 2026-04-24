@@ -1,0 +1,475 @@
+# Deep inspection: multi_device.core.kuaishou_web_publisher
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\core\kuaishou_web_publisher.py
+
+VAR BROWSER_OPTIONS = {'headless': False, 'disable_gpu': True, 'no_sandbox': True, 'disable_dev_shm': True, 'window_size': '1920,1080'}
+
+CLASS By:
+  DEF clear_custom_finders(cls)  # line 98
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_finder(cls, name)  # line 94
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF register_custom_finder(cls, name, strategy)  # line 90
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+VAR CHROME_CONFIG = {'chrome_path': 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome\\chrome-win64\\chrome-win64\\chrome.exe', 'driver_path': 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe', 'user_data_base': 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\chrome_us
+
+CLASS ChromeDriverManager:
+  DEF __init__(self, driver_version, name, url, latest_release_url, chrome_type, download_manager, cache_manager, os_system_manager)  # line 12
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ('__class__',)
+    defaults: (None, 'chromedriver', 'https://chromedriver.storage.googleapis.com', 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE', 'google-chrome', None, None, None)
+  DEF _get_driver_binary_path(self, driver)  # line 34
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_os_type(self)  # line 44
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ('__class__',)
+  DEF install(self)  # line 39
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+VAR EC = <module 'selenium.webdriver.support.expected_conditions' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\selenium\\webdriver\\support\\expected_conditions.py'>
+VAR KUAISHOU_WEB_URLS = {'login_url': 'https://cp.kuaishou.com/', 'passport_login_url': 'https://passport.kuaishou.com/pc/account/login/?sid=kuaishou.web.cp.api&callback=https%3A%2F%2Fcp.kuaishou.com%2Frest%2Finfra%2Fsts%3FfollowUrl%3Dhttps%253A%252F%252Fcp.kuaishou.com%252Fprofile%26setRootDomain%3Dtrue', 'publish_url': '
+
+CLASS Keys:
+
+CLASS KuaishouWebPublisher:
+  DEF __init__(self, device_serial, device_repo, account_id, task_controller)  # line 60
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None, None)
+  DEF _check_login_status(self)  # line 1414
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _cleanup_browser_processes(self)  # line 339
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _cleanup_ports(self)  # line 405
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _cleanup_user_data_locks(self)  # line 370
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_cover_confirm_button(self)  # line 3111
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_element_safe(self, element, element_name)  # line 3664
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_publish_button(self)  # line 3540
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_service_type_dropdown(self)  # line 3688
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_smart_cover_second(self)  # line 2976
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_time_cell(self, column, value)  # line 2847
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_browser_for_retry(self)  # line 1754
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_first_upload_guide_popup(self)  # line 2163
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_popup_dialogs(self)  # line 2008
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _confirm_drama_selection(self)  # line 4336
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _debug_print_all_inputs(self)  # line 4436
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _debug_print_search_results(self)  # line 4398
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _do_publish_video(self, video_path, title, description, tags, is_private, drama_name, publish_settings, cover_path, plan_mode)  # line 1766
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, 'spark')
+  DEF _download_matching_chromedriver(self, chrome_version)  # line 230
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _extract_and_push_qrcode(self, device_serial)  # line 1274
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _extract_user_info(self, cookies)  # line 1658
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _fill_video_info(self, title, description, tags)  # line 2365
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_author_service_container(self)  # line 4121
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_drama_option_by_class(self)  # line 4180
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_drama_option_by_id(self)  # line 4148
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_drama_option_by_xpath(self)  # line 4215
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_drama_select_dropdown(self, author_service_container)  # line 4247
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_adb_path(self)  # line 1216
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_cached_driver_path(self)  # line 301
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_chrome_version(self)  # line 105
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_chromedriver_version(self, driver_path)  # line 158
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_kuaishou_username(self)  # line 1117
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _input_drama_name(self, drama_name)  # line 4263
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _is_chromedriver_compatible(self, driver_path)  # line 192
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _link_monetization_task(self, drama_name)  # line 4483
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _link_monetization_task_firefly(self, drama_name)  # line 4551
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _load_cookies(self)  # line 1609
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _load_elang_cookies(self)  # line 710
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _log_drama_option_not_found_error(self)  # line 4365
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _log_drama_search_failed_error(self, drama_name)  # line 4381
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mark_account_offline(self)  # line 1583
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _save_cached_driver_path(self, driver_path)  # line 329
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _save_cookies(self)  # line 1505
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _search_and_select_drama(self, drama_name, author_service_container)  # line 3867
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _select_drama_from_results(self, drama_name)  # line 4300
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _select_drama_service_option(self)  # line 3787
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_author_declaration(self, declaration_text)  # line 2594
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_interaction_settings(self, settings)  # line 2520
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_private_mode(self)  # line 2935
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_publish_settings(self, publish_settings, is_private)  # line 2471
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, False)
+  DEF _set_publish_time_setting(self, publish_time, schedule_datetime)  # line 2655
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _set_schedule_datetime(self, schedule_datetime)  # line 2719
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_smart_cover(self)  # line 2947
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_visibility_setting(self, visibility)  # line 2560
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _try_load_elang_cookies(self)  # line 803
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_login_status(self, status)  # line 1562
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('logged_in',)
+  DEF _upload_custom_cover(self, cover_path)  # line 3149
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _upload_video(self, video_path)  # line 2101
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _verify_publish_success(self, timeout)  # line 3640
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _wait_for_upload_complete(self)  # line 3445
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _wait_publish_page_ready(self, timeout)  # line 1942
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (30,)
+  DEF _wait_video_process(self, timeout)  # line 2309
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _wait_video_upload_complete(self, timeout)  # line 2235
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (3600,)
+  DEF init_browser(self, headless)  # line 444
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False,)
+  DEF init_browser_with_elang_cookies(self, headless)  # line 668
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False,)
+  DEF log(self, message, level)  # line 94
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF login_manual(self, device_serial)  # line 881
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF login_manual_and_get_username(self, device_serial)  # line 1008
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF login_with_elang_api(self, device_serial)  # line 569
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF publish_video(self, video_path, title, description, tags, is_private, drama_name, publish_settings, retry_count, cover_path, plan_mode)  # line 1669
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None, None, False, None, None, None, None, 'spark')
+
+CLASS Options:
+  DEF __init__(self)  # line 29
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ('__class__',)
+  DEF accept_insecure_certs: [error: 'NoneType' object has no attribute '_caps']
+  DEF add_argument(self, argument)  # line 497
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF add_encoded_extension(self, extension)  # line 114
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF add_experimental_option(self, name, value)  # line 134
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF add_extension(self, extension)  # line 98
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF browser_version: [error: 'NoneType' object has no attribute '_caps']
+  DEF enable_bidi: [error: 'NoneType' object has no attribute '_caps']
+  DEF enable_downloads: [error: 'NoneType' object has no attribute '_caps']
+  DEF enable_mobile(self, android_package, android_activity, device_serial)  # line 29
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ('__class__',)
+    defaults: ('com.android.chrome', None, None)
+  DEF ignore_local_proxy_environment_variables(self)  # line 508
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ('__class__',)
+  DEF page_load_strategy: [error: 'NoneType' object has no attribute '_caps']
+  DEF platform_name: [error: 'NoneType' object has no attribute '_caps']
+  DEF proxy: [error: 'NoneType' object has no attribute '_proxy']
+  DEF set_capability(self, name, value)  # line 440
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_window_rect: [error: 'NoneType' object has no attribute '_caps']
+  DEF strict_file_interactability: [error: 'NoneType' object has no attribute '_caps']
+  DEF timeouts: [error: 'NoneType' object has no attribute '_caps']
+  DEF to_capabilities(self)  # line 183
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF unhandled_prompt_behavior: [error: 'NoneType' object has no attribute '_caps']
+  DEF web_socket_url: [error: 'NoneType' object has no attribute '_caps']
+VAR PUBLISH_CONFIG = {'upload_timeout': 300, 'process_timeout': 600, 'publish_timeout': 30, 'verify_timeout': 30, 'error_retry_count': 1}
+
+CLASS Service:
+  DEF __init__(self, executable_path, port, service_args, log_output, env)  # line 43
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ('__class__',)
+    defaults: (None, 0, None, None, None)
+  DEF _start_process(self, path)  # line 202
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _terminate_process(self)  # line 160
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF assert_process_still_running(self)  # line 119
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF command_line_args(self)  # line 63
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF env_path(self)  # line 247
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF is_connectable(self)  # line 125
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF send_remote_shutdown_command(self)  # line 130
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF start(self)  # line 97
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF stop(self)  # line 143
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+CLASS SessionInvalidError:
+VAR WEB_SELECTORS = {'user_avatar': '.user-avatar', 'user_name': '.user-name', 'login_button': '.login-btn', 'upload_input': 'input[type="file"]', 'upload_progress': '.upload-progress', 'title_input': 'input[placeholder*="标题"]', 'description_textarea': 'textarea[placeholder*="描述"]', 'tag_input': 'input[placeholder*="标签
+
+CLASS WebDriverWait:
+  DEF __init__(self, driver, timeout, poll_frequency, ignored_exceptions)  # line 34
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0.5, None)
+  DEF until(self, method, message)  # line 87
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF until_not(self, method, message)  # line 140
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+
+CLASS datetime:
+
+DEF get_device_port(device_serial)  # line 236
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+
+DEF get_user_data_dir(device_serial, account_id)  # line 188
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+  defaults: (None,)
+VAR json = <module 'json' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\json\__init__.py)>
+VAR os = <module 'os' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\os\os.py)>
+VAR project_root = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1'
+VAR sys = <module 'sys' (built-in)>
+VAR time = <module 'time' (built-in)>
+
+CLASS timedelta:
+VAR webdriver = <module 'selenium.webdriver' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\selenium\\webdriver\\__init__.py'>

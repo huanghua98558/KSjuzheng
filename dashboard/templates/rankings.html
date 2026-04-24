@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}热榜中心{% endblock %}
+{% block content %}
+<h1>热榜中心</h1>
+
+<div class="card">
+  <h3>🔥 赛道热度排行（外部 · kuaishou_search）</h3>
+  <table>
+    <thead>
+      <tr><th>赛道</th><th class="right">样本</th><th class="right">平均分</th><th class="right">总播放</th><th class="right">峰值播放</th></tr>
+    </thead>
+    <tbody>
+    {% for kh in keyword_heat %}
+      <tr>
+        <td><strong>{{ kh.keyword }}</strong></td>
+        <td class="right">{{ kh.samples }}</td>
+        <td class="right">{{ "%.2f"|format(kh.avg_score) }}</td>
+        <td class="right">{{ "{:,}".format(kh.total_views) }}</td>
+        <td class="right">{{ "{:,}".format(kh.peak_views) }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>每赛道 Top 5</h2>
+<div class="grid grid-2">
+{% for kw, items in top_per_kw.items() %}
+  <div class="card">
+    <h3>🎬 {{ kw }}</h3>
+    <table>
+      <thead>
+        <tr><th>#</th><th>作者</th><th>剧名/描述</th><th class="right">播放</th><th class="right">评分</th></tr>
+      </thead>
+      <tbody>
+      {% for it in items %}
+        <tr>
+          <td>{{ it.rank }}</td>
+          <td class="muted">{{ (it.author or '-')[:10] }}</td>
+          <td>{{ it.caption[:30] }}</td>
+          <td class="right">{{ "{:,}".format(it.view) }}</td>
+          <td class="right">{{ "%.2f"|format(it.score) }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endfor %}
+</div>
+
+<div class="card">
+  <h3>🏆 矩阵 Top 20 作品（内部）</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Photo ID</th><th>UID</th><th>剧名</th><th class="right">播放</th><th class="right">点赞</th><th class="right">评论</th></tr>
+    </thead>
+    <tbody>
+    {% for w in matrix_top %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td class="muted">{{ w.photo_id[:15] }}</td>
+        <td>{{ w.uid[:14] }}</td>
+        <td>{{ (w.name or '')[:30] }}</td>
+        <td class="right">{{ w.plays }}</td>
+        <td class="right">{{ w.likes }}</td>
+        <td class="right">{{ w.comments }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

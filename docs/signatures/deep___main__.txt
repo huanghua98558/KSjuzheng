@@ -1,0 +1,922 @@
+# Deep inspection: __main__
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\kuaishou_multi_control.py
+
+
+CLASS MultiDeviceMainWindow:
+  DEF __init__(self, root)  # line 51
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _add_disabled_time_range(self, default_start, default_end)  # line 11025
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('00:00', '00:00')
+  DEF _adjust_time_for_disabled_ranges(target_time, disabled_time_ranges)  # line 13244
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _adjust_time_for_single_disabled_range(target_time, start_hour, start_minute, end_hour, end_minute)  # line 13202
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _apply_gpu_detection_result(self)  # line 172
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _apply_gpu_status(self)  # line 248
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _auto_scan_devices(self)  # line 5403
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _batch_clear_assignments(self)  # line 6673
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _browse_drama_save_path(self)  # line 3246
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _browse_firefly_save_path(self)  # line 16343
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _browse_prod_save_path(self)  # line 3223
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _browse_video_dir(self)  # line 12051
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _browse_wf_save_path(self)  # line 3213
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _clear_browser_data(self, device_serial)  # line 18880
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_kuaishou_app(self, device_serial, card)  # line 18565
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _config_device(self, device_serial)  # line 6443
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_device_list_component(self, parent, tab_name)  # line 2961
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_drama_scale34_card(self, parent)  # line 3712
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_drama_scale34_text_inputs(self, parent)  # line 3780
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_firefly_scale34_card(self, parent)  # line 16421
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_firefly_scale34_text_inputs(self, parent)  # line 16480
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_header(self)  # line 273
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_mode2_scale34_card(self, parent)  # line 11301
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_mode2_scale34_mode_select(self, parent)  # line 11335
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_mode2_scale34_text_inputs(self, parent)  # line 11378
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_tabs(self)  # line 449
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _create_ui(self)  # line 241
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _delete_kuaiying_mp4(self)  # line 4733
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _detect_gpu_on_startup(self)  # line 157
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _device_has_config_for_current_tab(self, device_serial, device_frame)  # line 6882
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _execute_task(self, device, task)  # line 6727
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _export_browser_data(self)  # line 4985
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _export_collections(self)  # line 5720
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _export_device_config(self)  # line 5604
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _filter_devices(self, tab_name)  # line 6984
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_cover_watermark_config(self)  # line 11679
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_disabled_time_ranges_str(self)  # line 11134
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_drama_overlay_animations(self)  # line 4081
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_mode2_config(self, device_serial, skip_link_assignment)  # line 12950
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False,)
+  DEF _get_mode2_overlay_animations(self)  # line 11282
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_mode2_schedule_datetime(self)  # line 13092
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_selected_devices(self, tab_name, return_objects)  # line 7084
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('drama', False)
+  DEF _get_template_name(self)  # line 3693
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _has_config_for_tab(self, device_config, tab_type)  # line 6902
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _import_browser_accounts(self)  # line 4834
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _import_collections(self)  # line 5781
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _import_device_config(self)  # line 5657
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _import_favorite_dramas(self)  # line 13920
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _init_database(self)  # line 5339
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _insert_high_income_titles(self, titles)  # line 14123
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _is_time_in_disabled_ranges(check_time, disabled_time_ranges)  # line 13180
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _is_time_in_single_disabled_range(check_time, start_hour, start_minute, end_hour, end_minute)  # line 13154
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _log(self, message, level)  # line 8833
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF _logout_and_return_to_login(self)  # line 8836
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_add_account_login(self, device_serial, account_id)  # line 18632
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_browse_save_path(self)  # line 3256
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_check_login(self)  # line 12087
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_clear_assignments(self)  # line 18691
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_device_web_login(self, device_serial)  # line 18619
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_login_fail_cleanup(self, device_serial, account_id)  # line 18675
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_smart_assign_from_manager(self)  # line 11738
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_start_collection(self)  # line 12109
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_start_publish(self)  # line 12149
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_switch_account(self)  # line 18702
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_toggle_schedule_time(self)  # line 10951
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_toggle_video_processing(self)  # line 11213
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_update_overlay_visibility(self)  # line 11226
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_view_assignments(self)  # line 18687
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _mode2_web_login(self)  # line 12057
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _monitor_device_status(self)  # line 5357
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_closing(self)  # line 8873
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_device_status_change(self, serial, status, info)  # line 6863
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_commerce_change(self)  # line 3636
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_double_template_change(self)  # line 3610
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_multi_segment_change(self)  # line 3556
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_private_change(self)  # line 3643
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_processing_method_change(self)  # line 4017
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_spark_entry_mode_change(self)  # line 14910
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_spark_wait_time_change(self)  # line 14972
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_template_change(self)  # line 3533
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_tongkuang_change(self)  # line 3576
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_drama_video_processing_toggle(self)  # line 3987
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_favorite_mode_change(self)  # line 15069
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_favorite_plan_mode_change(self)  # line 15020
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_favorite_spark_wait_time_change(self)  # line 14886
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_commerce_change(self)  # line 16414
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_double_template_change(self)  # line 16382
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_multi_segment_change(self)  # line 16368
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_private_change(self)  # line 3655
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_processing_method_change(self)  # line 16565
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_random_template_change(self)  # line 16407
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_template_change(self)  # line 16351
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_firefly_video_processing_toggle(self)  # line 16547
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_log(self, message, level)  # line 8830
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF _on_mode2_firefly_api_only_change(self)  # line 11199
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_mode2_plan_mode_change(self)  # line 11150
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_mode2_spark_entry_mode_change(self)  # line 14941
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_mode2_spark_wait_time_change(self)  # line 14996
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_pub_commerce_change(self)  # line 3240
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_random_template_change(self)  # line 3681
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_spark_entry_mode_change(self)  # line 14850
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_tab_changed(self, event)  # line 17911
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_task_complete(self, device_serial, success)  # line 6807
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_task_log(self, task_id, message, level, step, step_name)  # line 6782
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0, '')
+  DEF _on_task_progress(self, task_id, current, total, step_name)  # line 6793
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF _on_task_status(self, task_id, status)  # line 6804
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_tongkuang_border_change(self)  # line 3601
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _on_wf_commerce_change(self)  # line 3234
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _open_kadain_template_manager(self)  # line 3870
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _open_scale34_style_dialog(self)  # line 3844
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _parse_disabled_time_ranges(time_ranges_str)  # line 13103
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _preview_cover_watermark(self)  # line 11541
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_all_kadain_dropdowns(self)  # line 3863
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_browser_accounts_panel(self)  # line 17798
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_device_info(self)  # line 5843
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_font_list(self)  # line 11483
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_kadain_dropdown(self, menu_widget, var)  # line 3849
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_mode2_device_list(self)  # line 5078
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _refresh_mode2_devices(self)  # line 17931
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _remove_disabled_time_range(self, range_data)  # line 11106
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _run_favorite_task_for_device(self, device, drama_list, plan_mode, enable_account_switch)  # line 15579
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('spark', False)
+  DEF _run_filter_mode_favorite_task_for_device(self, device, sort_option, max_count, plan_mode, enable_account_switch)  # line 15385
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('spark', False)
+  DEF _save_douyin_cookie(self)  # line 5442
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _scan_devices(self)  # line 5407
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _set_status_filter(self, tab_name, status)  # line 6963
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _setup_panel_references(self)  # line 17807
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_db_status(self)  # line 6854
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_file_locks_dialog(self)  # line 3266
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_high_income_dialog(self)  # line 14098
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_high_income_title_picker(self)  # line 14112
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_public_collect_pool(self)  # line 14144
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_remote_collect_pool(self)  # line 13951
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_remote_data_list(self, remote_data, auth_code, server_url, total_count)  # line 14200
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0,)
+  DEF _show_template_manager(self)  # line 3667
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_video_cache_dialog(self)  # line 4725
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_all_workflow(self)  # line 5219
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_collection_device_single(self, device_serial)  # line 6314
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_device_single(self, device_serial)  # line 6159
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_favorite_device_single(self, device_serial)  # line 15282
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_favorite_task(self)  # line 15100
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_filter_mode_favorite_task(self)  # line 15162
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_firefly_device_single(self, device_serial)  # line 17210
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_firefly_task(self)  # line 17138
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_mode2_device_single(self, device_serial)  # line 18011
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_publish_single(self, device_serial)  # line 6262
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_search_mode_favorite_task(self)  # line 15111
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _start_workflow_single(self, device_serial)  # line 6219
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_all_devices(self)  # line 5287
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_all_favorite_tasks(self)  # line 15225
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_all_firefly_tasks(self)  # line 17204
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_all_mode2_tasks(self)  # line 18593
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_collection_device(self, device_serial)  # line 6371
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_device_single(self, device_serial)  # line 6378
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_favorite_device_single(self, device_serial)  # line 15335
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_firefly_device_single(self, device_serial)  # line 17642
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _stop_mode2_device_single(self, device_serial)  # line 18471
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_cover_watermark_config(self)  # line 11517
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_drama_name_desc(self)  # line 17904
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_drama_scale34(self)  # line 3980
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_drama_style_options(self)  # line 11525
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_firefly_scale34(self)  # line 16540
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_mode2_scale34(self)  # line 11476
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _toggle_select_all(self)  # line 6907
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_all_device_cards_busy_status(self, device_serial, is_busy, reason)  # line 17837
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_device_card_info(self, serial, device_info)  # line 5390
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_device_list(self)  # line 5881
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_disabled_time_range_labels(self)  # line 11125
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_drama_blend_visibility(self)  # line 4073
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_favorite_count(self, event)  # line 13945
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _update_mode2_blend_visibility(self)  # line 11274
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_statistics(self)  # line 6143
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _validate_login_status(self)  # line 208
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _validate_mode2_config(self, device_serial, config)  # line 13276
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _validate_mode2_schedule_time(self, event)  # line 10969
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _view_device_drama_links(self, device_serial)  # line 6645
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _view_firefly_device_links(self, device_serial)  # line 6658
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF add_product_to_shelf_batch(self)  # line 4581
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF batch_download_videos(self)  # line 4100
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF batch_fetch_product_info(self)  # line 4414
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF clean_cache_batch(self)  # line 4697
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF config_device_drama_wait(self)  # line 8459
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF config_global_drama_wait(self)  # line 8436
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_account_drama_mode_tab(self)  # line 17766
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_browser_accounts_tab(self)  # line 17777
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_drama_favorite_tab(self)  # line 13393
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_drama_mode2_tab(self)  # line 8978
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_drama_tab(self)  # line 1334
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_firefly_plan_tab(self)  # line 15778
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_income_query_tab(self)  # line 17789
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_product_tab(self)  # line 839
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_publish_tab(self)  # line 1075
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_task_history_tab(self)  # line 17752
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_task_queue_tab(self)  # line 17743
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_video_collection_tab(self)  # line 17716
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF create_workflow_tab(self)  # line 573
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF download_product_video(self)  # line 4551
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF drama_clear_camera_photos(self)  # line 8384
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF drama_clear_device_videos(self)  # line 8271
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF drama_clear_local_videos(self)  # line 8301
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF drama_clear_photo_cache(self)  # line 8241
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF fetch_product_info(self)  # line 4315
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF firefly_assign_drama_links(self)  # line 16821
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF firefly_clear_camera_photos(self)  # line 16735
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF firefly_clear_device_videos(self)  # line 16711
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF firefly_clear_local_videos(self)  # line 16628
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF firefly_clear_photo_cache(self)  # line 16604
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF firefly_delete_kuaiying_mp4(self)  # line 16768
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF refresh_all_device_cards_account(self, device_serial)  # line 17874
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_device_busy(self, device_serial, is_busy, reason)  # line 17817
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF smart_assign_drama_links(self)  # line 8513
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF start_drama_batch(self)  # line 7114
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF start_publish_batch(self)  # line 5138
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF upload_video_batch(self)  # line 4648
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+DEF _auto_init_local_database()  # line 194
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+
+DEF _check_port_in_use(port)  # line 225
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+
+DEF _setup_adb_path()  # line 49
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+
+DEF _start_adb_server()  # line 99
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+VAR all_mods = ['Crypto', 'Crypto.Cipher', 'Crypto.Cipher.AES', 'Crypto.Random', 'Crypto.Util', 'Crypto.Util.Padding', 'Crypto.Util._cpu_features', 'Crypto.Util._file_system', 'Crypto.Util._raw_api', 'Crypto.Util.py3compat', 'PIL', 'PIL.BmpImagePlugin', 'PIL.ExifTags', 'PIL.GifImagePlugin', 'PIL.GimpGradientFile',
+VAR attr_name = 'attr_name'
+VAR buf = <_io.StringIO object at 0x00000151328C62C0>
+VAR business = [('Crypto', 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\Crypto\\__init__.py'), ('Crypto.Cipher', 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\Crypto\\Cipher\\__init__.py'), ('Crypto.Cipher.AES', 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\Crypto\\Cipher\\AES.py'), ('Crypto.Random', 'C:\\PROGRA~1\\KUAISH~1\
+VAR co = <code object _start_adb_server at 0x000001512D7AF910, file "C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\kuaishou_multi_control.py", line 99>
+VAR dis = <module 'dis' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\dis\dis.py)>
+VAR dump_dir = 'C:\\Users\\Administrator\\Desktop\\ks_dump\\decompiled'
+VAR external_libs_path = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\external_libs'
+VAR f = <_io.TextIOWrapper name='C:\\Users\\Administrator\\Desktop\\ks_dump\\decompiled\\deep___main__.txt' mode='w' encoding='utf-8'>
+VAR fn = 'open'
+VAR inspect = <module 'inspect' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\inspect\inspect.py)>
+VAR io = <module 'io' (frozen)>
+VAR json = <module 'json' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\json\__init__.py)>
+
+DEF main()  # line 247
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+VAR marshal = <module 'marshal' (built-in)>
+VAR mn = 'upload_video_batch'
+VAR mod = <module '__main__' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\kuaishou_multi_control.py'>
+VAR mod_name = '__main__'
+VAR name = 'zstandard.backend_c'
+VAR obj = 'zstandard.backend_c'
+VAR os = <module 'os' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\os\os.py)>
+VAR out_path = 'C:\\Users\\Administrator\\Desktop\\ks_dump\\decompiled\\deep___main__.txt'
+VAR project_root = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1'
+VAR safe = '__main__'
+VAR src = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\zstandard\\backend_c.pyd'
+VAR src_file = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\zstandard\\backend_c.pyd'
+VAR subprocess = <module 'subprocess' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\subprocess\subprocess.py)>
+VAR sys = <module 'sys' (built-in)>
+VAR target_modules = ['__main__', 'ks_drama_api', 'config', 'config.api_config', 'multi_device.core.kuaishou_web_publisher', 'multi_device.core.kuaishou_drama_collector', 'multi_device.core.kuaishou_video_collector', 'multi_device.core.device_manager', 'multi_device.core.task_executor', 'multi_device.core.task_manager',
+VAR time = <module 'time' (built-in)>
+VAR tk = <module 'tkinter' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\tkinter\__init__.py)>
+VAR types = <module 'types' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\types\types.py)>

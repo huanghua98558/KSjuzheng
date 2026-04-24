@@ -1,0 +1,205 @@
+{
+  "generated_at": "2026-04-21T02:04:49.138227",
+  "rule": "Type A (不符合社区 SUM>=100) UNION Type C (空 reason SUM>=1000)",
+  "count": 22,
+  "dramas": [
+    {
+      "drama": "一代宗师之武神归来",
+      "total_violations": 468,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:09:15",
+      "last_seen": "2026-04-20 17:09:15",
+      "category": "type_A"
+    },
+    {
+      "drama": "一切从无敌开始",
+      "total_violations": 1023,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:09:02",
+      "last_seen": "2026-04-20 17:09:02",
+      "category": "type_A"
+    },
+    {
+      "drama": "八零飒妻要发家",
+      "total_violations": 136,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:09:38",
+      "last_seen": "2026-04-20 17:09:38",
+      "category": "type_A"
+    },
+    {
+      "drama": "前夫请自重",
+      "total_violations": 191,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 16:58:30",
+      "last_seen": "2026-04-20 16:58:30",
+      "category": "type_A"
+    },
+    {
+      "drama": "北境战神",
+      "total_violations": 115,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:10:39",
+      "last_seen": "2026-04-20 17:10:39",
+      "category": "type_A"
+    },
+    {
+      "drama": "只对她偏爱",
+      "total_violations": 165,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:08:49",
+      "last_seen": "2026-04-20 17:08:49",
+      "category": "type_A"
+    },
+    {
+      "drama": "天降碎嘴小青梅11",
+      "total_violations": 108,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-03-25 20:10:08",
+      "last_seen": "2026-03-25 20:10:08",
+      "category": "type_A"
+    },
+    {
+      "drama": "妻子的婚姻保卫战",
+      "total_violations": 415,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:08:05",
+      "last_seen": "2026-04-20 17:08:05",
+      "category": "type_A"
+    },
+    {
+      "drama": "宝鉴",
+      "total_violations": 193,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:09:08",
+      "last_seen": "2026-04-20 17:09:08",
+      "category": "type_A"
+    },
+    {
+      "drama": "寒门出贵子",
+      "total_violations": 402,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:09:02",
+      "last_seen": "2026-04-20 17:09:02",
+      "category": "type_A"
+    },
+    {
+      "drama": "帝君",
+      "total_violations": 2776,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:10:39",
+      "last_seen": "2026-04-20 17:10:39",
+      "category": "type_A"
+    },
+    {
+      "drama": "我不做大哥很多年",
+      "total_violations": 356,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:10:39",
+      "last_seen": "2026-04-20 17:10:39",
+      "category": "type_A"
+    },
+    {
+      "drama": "我是天师",
+      "total_violations": 115,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-03-25 20:10:11",
+      "last_seen": "2026-03-25 20:10:11",
+      "category": "type_A"
+    },
+    {
+      "drama": "我的危险老公",
+      "total_violations": 132,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 16:58:20",
+      "last_seen": "2026-04-20 16:58:20",
+      "category": "type_A"
+    },
+    {
+      "drama": "摊牌了我就是大小姐",
+      "total_violations": 227,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:08:05",
+      "last_seen": "2026-04-20 17:08:05",
+      "category": "type_A"
+    },
+    {
+      "drama": "最后的旅程",
+      "total_violations": 134,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-03-25 20:10:09",
+      "last_seen": "2026-03-25 20:10:09",
+      "category": "type_A"
+    },
+    {
+      "drama": "玄门老祖驾到",
+      "total_violations": 132,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-03-25 20:10:08",
+      "last_seen": "2026-03-25 20:10:08",
+      "category": "type_A"
+    },
+    {
+      "drama": "破晓时分",
+      "total_violations": 116,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:10:39",
+      "last_seen": "2026-04-20 17:10:39",
+      "category": "type_A"
+    },
+    {
+      "drama": "老婆大人别想逃",
+      "total_violations": 3108,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:10:39",
+      "last_seen": "2026-04-20 17:10:39",
+      "category": "type_A"
+    },
+    {
+      "drama": "花开盛夏正当时",
+      "total_violations": 171,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:07:39",
+      "last_seen": "2026-04-20 17:07:39",
+      "category": "type_A"
+    },
+    {
+      "drama": "雾起时请爱上我",
+      "total_violations": 191,
+      "unique_users": 1,
+      "reasons": "不符合社区规定",
+      "first_seen": "2026-04-20 17:07:59",
+      "last_seen": "2026-04-20 17:07:59",
+      "category": "type_A"
+    },
+    {
+      "drama": "陆总今天要离婚",
+      "total_violations": 1900,
+      "unique_users": 1,
+      "reasons": "(空)",
+      "first_seen": "2026-04-20 17:10:39",
+      "last_seen": "2026-04-20 17:10:39",
+      "category": "type_C"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+# Deep inspection: multi_device.services.kuaishou_search_service
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\services\kuaishou_search_service.py
+
+
+CLASS KuaishouSearchService:
+  DEF __init__(self)  # line 194
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _build_headers(self, cookie, kww, keyword)  # line 219
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _build_profile_data(self, user_id)  # line 279
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _build_search_data(self, keyword, pcursor, search_session_id)  # line 255
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('', '')
+  DEF _get_share_link(self, photo_id, author_name)  # line 415
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_video_detail(self, share_link)  # line 429
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _log(self, message, level)  # line 211
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF _parse_chinese_number(self, value)  # line 298
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _parse_video_info(self, feed)  # line 344
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_cookie_from_account(self, account_name)  # line 689
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_cookie_from_device(self, device_serial)  # line 729
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_user_profile(self, user_id, cookie)  # line 780
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF search_videos(self, keyword, cookie, max_pages, tag_filter, delay_seconds, get_detail)  # line 449
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (1, '', 1.0, False)
+  DEF search_videos_generator(self, keyword, cookie, max_pages, tag_filter, delay_seconds, get_detail)  # line 589
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (1, '', 0.5, False)
+  DEF set_log_callback(self, callback)  # line 207
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF validate_cookie(self, cookie)  # line 761
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+CLASS VideoInfo:
+  DEF __init__(self, photo_id, video_title, video_description, author_name, author_id, cover_url, video_url, share_link, play_count, like_count, comment_count, share_count, publish_time, duration, drama_title, is_tongkuang, has_drama, tag)  # line 2
+    co_names: ('photo_id', 'video_title', 'video_description', 'author_name', 'author_id', 'cover_url', 'video_url', 'share_link', 'play_count', 'like_count', 'comment_count', 'share_count', 'publish_time', 'duration', 'drama_title', 'is_tongkuang', 'has_drama', 'tag')
+    co_consts: (None,)
+    co_freevars: ()
+    defaults: ('', '', '', '', '', '', '', '', 0, 0, 0, 0, '', 0, '', '', False, '')
+  DEF to_dict(self)  # line 54
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+DEF dataclass(cls)  # line 1247
+  co_names: ()
+  co_consts: ('Add dunder methods based on the fields defined in the class.\n\n    Examines PEP 526 __annotations__ to determine fields.\n\n    If init is true, an __init__() method is added to the class. If repr\n    is true, a __repr__() method is added. If order is true, rich\n    comparison dunder methods are added. If unsafe_hash is true, a\n    __hash__() method is added. If frozen is true, fields may not be\n    assigned to after instance creation. If match_args is true, the\n    __match_args__ tuple 
+  defaults: (None,)
+
+DEF field()  # line 404
+  co_names: ('MISSING', 'ValueError', 'Field')
+  co_consts: ("Return an object to identify dataclass fields.\n\n    default is the default value of the field.  default_factory is a\n    0-argument function called to initialize a field's value.  If init\n    is true, the field will be a parameter to the class's __init__()\n    function.  If repr is true, the field will be included in the\n    object's repr().  If hash is true, the field will be included in the\n    object's hash().  If compare is true, the field will be used in\n    comparison functions. 
+
+DEF generate_kww()  # line 29
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+VAR json = <module 'json' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\json\__init__.py)>
+VAR kuaishou_search_service = <multi_device.services.kuaishou_search_service.KuaishouSearchService object at 0x000001512F301A60>
+VAR logger = <Logger multi_device.services.kuaishou_search_service (INFO)>
+VAR logging = <module 'logging' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\logging\__init__.py)>
+VAR requests = <module 'requests' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\requests\\__init__.py'>
+
+DEF search_kuaishou_videos(keyword, cookie, max_pages, tag_filter)  # line 855
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+  defaults: (1, '')
+VAR time = <module 'time' (built-in)>
+VAR urllib = <module 'urllib' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\urllib\__init__.py)>

@@ -1,0 +1,1 @@
+{"ok":true,"steps":[{"name":"MCN 绑定同步","ok":true,"count":844,"latency_ms":2254},{"name":"萤光成员同步 (含佣金率)","ok":true,"count":9,"latency_ms":145},{"name":"今日收入快照","ok":true,"count":9,"latency_ms":39958}],"total_latency_ms":42371,"operator":"smoke"}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}开关中心{% endblock %}
+{% block content %}
+<h1>开关、护栏与高级设置</h1>
+<p class="muted">点击按钮切换开关 · 每次操作写入 feature_switches 表并记录操作人 (dashboard) · 立即生效</p>
+
+<div class="card">
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>说明</th><th>状态</th><th>最近修改</th><th>操作</th></tr>
+  </thead>
+  <tbody>
+  {% for s in switches %}
+    <tr>
+      <td><code>{{ s.switch_code }}</code></td>
+      <td><strong>{{ s.switch_name }}</strong></td>
+      <td class="muted">{{ s.description }}</td>
+      <td>
+        {% if s.switch_value.lower() in ('true','1','yes','on') %}
+          <span class="badge badge-on">ON</span>
+        {% else %}
+          <span class="badge badge-off">OFF</span>
+        {% endif %}
+      </td>
+      <td class="muted">{{ s.updated_by }} · {{ s.updated_at[:16] }}</td>
+      <td>
+        <form class="inline" method="post" action="/switches/{{ s.switch_code }}/toggle">
+          {% if s.switch_value.lower() in ('true','1','yes','on') %}
+            <input type="hidden" name="value" value="off">
+            <button type="submit" class="off">关闭</button>
+          {% else %}
+            <input type="hidden" name="value" value="on">
+            <button type="submit">开启</button>
+          {% endif %}
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

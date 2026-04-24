@@ -1,0 +1,166 @@
+# Deep inspection: multi_device.core.kuaishou_drama_collector
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\core\kuaishou_drama_collector.py
+
+VAR DEFAULT_INVITE_TEXT = '您有高收益商单待领取，现在加入星火达人变现扶持计划，快手平台将提供优质商单推荐、商单1v1培训、千万流量扶持。复制本短信##X8RKsV2Wt0A71FI##，打开『快手APP』即可开通星火变现功能。回T退订'
+VAR DEFAULT_SPARK_INTENT_URL = 'https://creative.m.kuaishou.com/spark-plan-center/?layoutType=4&from=search_card&source=search_card&hyId=spark'
+VAR ENTRY_MODE_DIRECT_INVITE = 'direct_invite'
+VAR ENTRY_MODE_INTENT_DIRECT = 'intent_direct'
+VAR ENTRY_MODE_TRADITIONAL_SEARCH = 'traditional_search'
+
+CLASS KuaishouDramaCollector:
+  DEF __init__(self, device_serial)  # line 67
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _clear_kuaishou_from_recents(self)  # line 1222
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_enter_button_spark(self)  # line 1566
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_search_button_spark(self)  # line 1472
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_kuaishou_app_for_invite(self)  # line 1209
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_popup_once(self)  # line 2011
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _copy_text_to_clipboard(self, text)  # line 1230
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _ensure_collection_record(self)  # line 783
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _enter_firefly_platform_legacy(self)  # line 1767
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _enter_spark_via_intent(self)  # line 1038
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _enter_spark_via_invite_link(self)  # line 1130
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _enter_spark_via_search(self)  # line 1353
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _handle_invite_popups(self)  # line 1259
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _input_search_keyword_spark(self, keyword)  # line 1440
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _return_to_search_input_spark(self)  # line 1485
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _save_collection_record(self)  # line 817
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _show_page_texts(self, root)  # line 652
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _try_enter_drama_via_biz_id(self, drama_name)  # line 268
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _try_enter_spark_platform(self)  # line 1502
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _verify_drama_detail_page(self)  # line 338
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _verify_spark_platform_entry(self)  # line 1314
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF check_if_in_kuaishou_app(self)  # line 918
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF collect_drama(self)  # line 665
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF enter_drama_detail(self, drama_name)  # line 391
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF enter_firefly_platform(self)  # line 1714
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF enter_official_platform(self)  # line 2137
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF handle_popup(self)  # line 2347
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF log(self, message, level)  # line 85
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF open_kuaishou_app(self)  # line 939
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF return_to_home(self)  # line 898
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF run_collection_flow(self, drama_name, task_controller, kuaishou_uid, kuaishou_name, drama_url, plan_mode, spark_entry_mode, spark_wait_time)  # line 92
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, '', '', '', 'spark', None, None)
+  DEF search_drama_in_firefly(self, drama_name)  # line 2034
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF search_drama_in_platform(self, drama_name)  # line 2148
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF search_firefly_plan(self)  # line 1593
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF search_spark_plan(self)  # line 977
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF verify_collection_success(self)  # line 870
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+
+DEF get_spark_entry_config()  # line 113
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+VAR os = <module 'os' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\os\os.py)>
+VAR project_root = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1'
+VAR sys = <module 'sys' (built-in)>
+VAR time = <module 'time' (built-in)>
+VAR u2 = <module 'uiautomator2' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\uiautomator2\\__init__.py'>

@@ -1,0 +1,407 @@
+# Deep inspection: multi_device.business.multi_short_drama_manager
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\business\multi_short_drama_manager.py
+
+
+CLASS MultiShortDramaManager:
+  DEF __init__(self)  # line 32
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _cleanup_temp_files(self, download_dir, log_func)  # line 38
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF clear_local_videos(download_dir, log_func)  # line 992
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF clear_photo_cache(self, device, log_func)  # line 894
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF clear_uploaded_videos(self, device, log_func)  # line 925
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF run_drama_flow(self, device, config, task_controller, log_func, device_card_refresh_func)  # line 63
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+
+CLASS ShortDramaManager:
+  DEF __init__(self, device_serial, skip_device_connect)  # line 115
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, False)
+  DEF _check_task_ended(self)  # line 3986
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _check_video_cache(self, drama_url, processing_method)  # line 1895
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _clear_kuaishou_from_recents(self)  # line 3625
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_enter_button_spark(self)  # line 4181
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _click_search_button_spark(self)  # line 3871
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _close_kuaishou_app_for_invite(self)  # line 3612
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _copy_and_modify_md5(self, source_path, dest_path)  # line 1848
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _copy_text_to_clipboard(self, text)  # line 3633
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _detect_and_modify_cover_in_current_page(self, drama_name, use_drama_name_description, cover_mode)  # line 556
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, False, 'smart')
+  DEF _enter_spark_via_intent(self)  # line 3441
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _enter_spark_via_invite_link(self)  # line 3533
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _enter_spark_via_search(self)  # line 3756
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _execute_cover_modification(self, cover_mode)  # line 1029
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('smart',)
+  DEF _execute_scale34_preprocessing(self, video_path, drama_name, scale34_mode)  # line 2365
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _fallback_to_profile_detection(self, is_private)  # line 742
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False,)
+  DEF _find_ffmpeg(self)  # line 1706
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_ffmpeg_for_algorithm(self, relative_path)  # line 2815
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _find_ffprobe(self)  # line 2847
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _fix_video_pixel_format(self, video_path, temp_folder)  # line 1756
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_local_video_duration_ms(self, video_path)  # line 1511
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_mcn_account_name(self)  # line 2575
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _handle_invite_popups(self)  # line 3662
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _input_search_keyword_spark(self, keyword)  # line 3839
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _load_scale34_style_config(self)  # line 2460
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _process_with_enhanced_mode3(self, input_video_path)  # line 2142
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _process_with_interleave(self, input_video_path)  # line 2299
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _process_with_maker(self, input_video_path)  # line 2074
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _process_with_mode3(self, input_video_path)  # line 2001
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _process_with_overlay(self, input_video_path)  # line 2220
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _resolve_scale34_texts(self, config)  # line 2433
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _return_to_search_input_spark(self)  # line 3884
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _save_video_cache(self, drama_url, processing_method, processed_video_path, original_video_path)  # line 1913
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _simple_recovery(self)  # line 533
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _try_enter_drama_via_biz_id(self, drama_name, platform)  # line 3901
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (1,)
+  DEF _try_enter_spark_platform(self)  # line 4117
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _update_video_cache_usage(self, cache_id)  # line 1944
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _verify_drama_detail_page_biz_id(self)  # line 4065
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _verify_spark_platform_entry(self)  # line 3717
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF check_and_close_notice_dialog(self)  # line 5622
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF check_if_in_kuaishou_app(self)  # line 370
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF click_publish_button(self, auto_publish, delete_source, multi_segment)  # line 6578
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (True, False, False)
+  DEF click_publish_to_earn(self)  # line 4768
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF close_kuaishou_app(self)  # line 435
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF close_popup_if_exists(self)  # line 232
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF delete_camera_photos(self, keep_count)  # line 3200
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0,)
+  DEF download_video(self, video_url, filename, max_retries)  # line 1556
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, 3)
+  DEF enter_official_platform(self)  # line 4217
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF enter_official_platform_legacy(self)  # line 4231
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF execute_step_with_retry(self, step_name, step_func)  # line 473
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF extract_drama_name_from_caption(self, caption)  # line 1470
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF extract_kuaishou_url(self, text)  # line 1377
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF extract_video_url(self, text)  # line 1343
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF fetch_drama_info(self, url_text)  # line 1381
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_final_drama_title(self, product_info)  # line 1310
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_video_duration_from_device(self, video_path)  # line 5060
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF handle_popup(self)  # line 3191
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF log(self, message, level)  # line 222
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('INFO',)
+  DEF modify_work_duration(self, duration_ms, silent)  # line 5091
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False,)
+  DEF open_kuaishou_app(self)  # line 3324
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF process_downloaded_video(self, input_video_path)  # line 1952
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF process_video_with_interleave_enhanced(self, video_path)  # line 2619
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF process_video_with_kuaiying_on_phone(self, phone_video_path)  # line 2871
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF process_video_with_rongyu(self, video_path)  # line 2749
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF process_video_with_scale34(self, input_video_path, drama_name)  # line 2470
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF process_video_with_zhizun(self, video_path)  # line 2683
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF replace_video_in_publish_page(self, video_path, replace_mode)  # line 4845
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('delete_longest',)
+  DEF return_to_kuaishou_home(self)  # line 392
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF run_complete_flow(self, url_text, drama_name, template_name, description, auto_publish, is_private, commerce_mode, product_keyword, delete_source, use_template, enable_video_processing, video_processing_method, overlay_opacity, overlay_animations, interleave_crf, interleave_image_mode, interleave_use_gpu, use_device_ffmpeg, task_controller, replace_mode, hide_template_tag, hide_kuaiying_tag, enable_24h_visible, use_drama_name_description, drama_description_hashtag, skip_profile_detection, cover_mode, multi_segment, shooting_duration, auto_public, public_delay_minutes, modify_md5, cleanup_after_task, enable_scale34, scale34_mode, scale34_crop_strict, scale34_top_text, scale34_top_use_drama, scale34_watermark, scale34_watermark_use_mcn, scale34_opacity, scale34_bottom_text, scale34_bottom_use_default)  # line 6799
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None, '旅游4:3', '', True, False, False, '', False, True, False, 'mode3', 0.3, None, 20, 'random_shapes', True, False, None, 'delete_longest', False, False, False, False, '#快来看短剧', False, 'smart', False, 10, False, 5, False, True, False, 'crop', False, '', True, '', True, 30, '影视效果 请勿模仿', True)
+  DEF search_drama_in_platform(self, drama_name)  # line 4330
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('高冷爹地请接招',)
+  DEF search_spark_plan(self)  # line 3377
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF select_first_drama(self, drama_name)  # line 4539
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('高冷爹地请接招',)
+  DEF set_task_controller(self, task_controller)  # line 199
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_video_cover(self)  # line 6456
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_wait_config(self, wait_config)  # line 189
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF set_work_public(self)  # line 912
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF setup_publish_settings(self, description, is_private, commerce_mode, product_keyword, hide_template_tag, hide_kuaiying_tag, enable_24h_visible)  # line 5658
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('', False, False, '', False, False, False)
+  DEF should_stop(self)  # line 203
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF smart_wait(self, seconds, check_popup, check_interval)  # line 314
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (True, 1.0)
+  DEF take_photo_with_camera(self)  # line 3260
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF upload_video_to_device(self, local_path)  # line 3116
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF use_multi_segment_shooting(self, shooting_duration)  # line 1165
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (10,)
+  DEF use_template_and_select_photo(self, template_name)  # line 5185
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('旅游4:3',)
+  DEF wait(self, wait_type, default_seconds)  # line 211
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (1.0,)
+  DEF wait_for_publish_success(self, is_private, timeout, skip_profile_detection, multi_segment, drama_name, use_drama_name_description, cover_mode)  # line 5980
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (False, 600, False, False, None, False, 'smart')
+
+CLASS datetime:
+VAR kuaishou_uid_service = <multi_device.services.kuaishou_uid_service.KuaishouUIDService object at 0x000001512F75CF20>
+VAR local_account_service = <multi_device.services.local_account_service.LocalAccountService object at 0x000001512F931490>
+VAR os = <module 'os' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\os\os.py)>
+VAR remote_db_manager = <multi_device.database.remote_db_config.RemoteDBManager object at 0x000001512F4D2270>
+VAR sys = <module 'sys' (built-in)>
+VAR task_statistics_service = <multi_device.services.task_statistics_service.TaskStatisticsService object at 0x000001512F9303B0>
+VAR time = <module 'time' (built-in)>

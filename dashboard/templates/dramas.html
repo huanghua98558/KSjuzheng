@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}剧源中心{% endblock %}
+{% block content %}
+<h1>剧源中心</h1>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h3>drama_links 按状态</h3>
+    <table>
+      {% for s, n in by_status.items() %}
+      <tr><td>{{ s }}</td><td class="right"><strong>{{ n }}</strong></td></tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="card">
+    <h3>drama_links 按来源</h3>
+    <table>
+      {% for s, n in by_source.items() %}
+      <tr><td>{{ s }}</td><td class="right"><strong>{{ n }}</strong></td></tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h3>作者库 <span class="muted">({{ authors_total }} 个 active)</span></h3>
+    <table>
+      {% for s, n in authors_by_src.items() %}
+      <tr><td>{{ s }}</td><td class="right"><strong>{{ n }}</strong></td></tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="card">
+    <h3>bannerTask 缓存</h3>
+    <table>
+      <thead><tr><th>剧名</th><th>taskId</th><th>命中</th></tr></thead>
+      <tbody>
+      {% for b in banner_cache %}
+      <tr><td>{{ b.drama[:20] }}</td><td>{{ b.task_id }}</td><td>{{ b.hits }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>最近 30 条 drama_links</h3>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>剧名</th><th>链接</th><th>状态</th><th>use</th><th>来源</th></tr>
+    </thead>
+    <tbody>
+    {% for d in recent_dramas %}
+      <tr>
+        <td>{{ d.id }}</td>
+        <td>{{ d.name[:28] }}</td>
+        <td class="muted">{{ d.url[:50] }}</td>
+        <td>
+          {% if d.status == 'pending' %}<span class="badge badge-on">{{ d.status }}</span>
+          {% else %}<span class="badge badge-neutral">{{ d.status }}</span>{% endif %}
+        </td>
+        <td>{{ d.use_count }}</td>
+        <td class="muted">{{ d.src }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

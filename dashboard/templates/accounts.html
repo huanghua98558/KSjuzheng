@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}账号 — KS 矩阵{% endblock %}
+{% block content %}
+<h1>账号中心 <span class="muted" style="font-size:14px;margin-left:14px">{{ accounts|length }} 个已登录账号</span></h1>
+
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>账号名</th>
+      <th>快手 UID</th>
+      <th>登录</th>
+      <th>健康</th>
+      <th class="right">今日播放</th>
+      <th class="right">今日点赞</th>
+      <th>MCN</th>
+      <th>分佣率</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in accounts %}
+    <tr>
+      <td>{{ a.id }}</td>
+      <td><strong>{{ a.name }}</strong></td>
+      <td class="muted">{{ a.uid[:16] }}</td>
+      <td>
+        {% if a.login == 'logged_in' %}
+          <span class="badge badge-on">已登录</span>
+        {% else %}
+          <span class="badge badge-off">{{ a.login }}</span>
+        {% endif %}
+      </td>
+      <td>
+        {% if a.health %}
+          <span class="health-bar"><div style="width: {{ a.health }}%"></div></span>
+          {{ "%.0f"|format(a.health) }}
+        {% else %}
+          <span class="muted">-</span>
+        {% endif %}
+      </td>
+      <td class="right">{{ a.plays or 0 }}</td>
+      <td class="right">{{ a.likes or 0 }}</td>
+      <td>
+        {% if a.plan %}
+          <span class="badge badge-on">{{ a.plan }}</span>
+        {% else %}
+          <span class="badge badge-neutral">未绑定</span>
+        {% endif %}
+      </td>
+      <td>{% if a.rate %}{{ "%.0f"|format(a.rate) }} %{% else %}-{% endif %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

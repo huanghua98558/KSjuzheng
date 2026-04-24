@@ -1,0 +1,108 @@
+# Deep inspection: multi_device.services.account_works_service
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\services\account_works_service.py
+
+
+CLASS AccountWorksService:
+  DEF __init__(self, db_manager)  # line 144
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF _ensure_tables(self)  # line 152
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _save_work(self, device_serial, account_id, eid, photo_id, caption, share_url, view_count, like_count, comment_count)  # line 692
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (0, 0, 0)
+  DEF delete_work(self, photo_id, cp_cookie, ph)  # line 442
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF delete_work_from_db(self, eid, photo_id)  # line 795
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF fetch_and_save_works(self, device_serial, account_id, eid, cookie, progress_callback)  # line 624
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_all_works(self, eid, cookie, max_pages, progress_callback)  # line 275
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (50, None)
+  DEF get_profile_feed(self, eid, cookie, pcursor)  # line 187
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('',)
+  DEF get_share_link(self, photo_id, eid, cookie, caption, nickname, cover_url)  # line 327
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('', '', '')
+  DEF get_sig3(self, params, sig3_server)  # line 419
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: ('im.zhongxiangbao.com:50002',)
+  DEF get_tongkuang_info(self, share_url, max_retries)  # line 569
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (2,)
+  DEF get_works_count(self, eid)  # line 781
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF get_works_from_db(self, eid, limit, offset)  # line 763
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (100, 0)
+  DEF update_tongkuang_status(self, eid, photo_id, is_tongkuang, tongkuang_data)  # line 736
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+VAR _current_dir = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\multi_device\\services'
+VAR _login_dir = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\login'
+VAR _multi_device_dir = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\multi_device'
+VAR _project_root = 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1'
+VAR account_works_service = <multi_device.services.account_works_service.AccountWorksService object at 0x000001512F9C9D00>
+VAR base64 = <module 'base64' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\base64\base64.py)>
+
+CLASS datetime:
+VAR db_manager = <multi_device.database.db_manager.DatabaseManager object at 0x000001512F4D0E00>
+
+DEF generate_kww()  # line 29
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+
+DEF get_eid_from_cookie(cookie)  # line 89
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+
+DEF get_sig4(sig4_server)  # line 76
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+  defaults: ('im.zhongxiangbao.com:50003',)
+
+DEF identify_link_type(url)  # line 831
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+VAR json = <module 'json' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\json\__init__.py)>
+VAR logging = <module 'logging' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\logging\__init__.py)>
+VAR os = <module 'os' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\os\os.py)>
+
+DEF parse_video_link(url, sig3_server, timeout)  # line 893
+  co_names: ('RuntimeError',)
+  co_consts: (None, 'Compiled function bytecode used')
+  defaults: (None, 15)
+VAR requests = <module 'requests' from 'C:\\PROGRA~1\\KUAISH~1\\KS184.7z\\184-1\\requests\\__init__.py'>
+VAR sys = <module 'sys' (built-in)>
+VAR time = <module 'time' (built-in)>

@@ -1,0 +1,77 @@
+# Deep inspection: multi_device.database.drama_mode2_repository
+# File: C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\multi_device\database\drama_mode2_repository.py
+
+
+CLASS DramaMode2Repository:
+  DEF __init__(self)  # line 15
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF _get_task_start_time(self, task_id)  # line 286
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF clear_collections(self, device_serial)  # line 530
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF create_publish_task(self, device_serial, video_path, title, description, tags, cover_path, is_private)  # line 129
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None, False)
+  DEF delete_task(self, task_id)  # line 299
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+  DEF export_collections(self, device_serial)  # line 407
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_collection_records(self, device_serial, status)  # line 43
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+  DEF get_collection_stats(self, device_serial)  # line 322
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_publish_stats(self, device_serial)  # line 364
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF get_publish_tasks(self, device_serial, status)  # line 172
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+  DEF import_collections(self, records, device_mapping)  # line 456
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF save_collection_record(self, device_serial, drama_name, drama_url)  # line 23
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF update_collection_status(self, record_id, status, publish_url)  # line 92
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None,)
+  DEF update_task_status(self, task_id, status, error_message, publish_url)  # line 228
+    co_names: ('RuntimeError',)
+    co_consts: (None, 'Compiled function bytecode used')
+    co_freevars: ()
+    defaults: (None, None)
+
+CLASS datetime:
+VAR db_manager = <multi_device.database.db_manager.DatabaseManager object at 0x000001512F4D0E00>
+VAR drama_mode2_repo = <multi_device.database.drama_mode2_repository.DramaMode2Repository object at 0x00000151300601D0>
+VAR json = <module 'json' (C:\PROGRA~1\KUAISH~1\KS184.7z\184-1\json\__init__.py)>

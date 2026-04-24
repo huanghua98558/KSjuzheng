@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}KS 矩阵运营中台{% endblock %}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0f1419; color: #e8eaed; min-height: 100vh;
+    }
+    header {
+      background: #1a1f27; border-bottom: 1px solid #2d3440;
+      padding: 14px 28px; display: flex; align-items: center;
+      justify-content: space-between; position: sticky; top: 0; z-index: 10;
+    }
+    header .brand { font-weight: 700; font-size: 18px; color: #60d394; }
+    header .brand small { color: #8a929c; font-weight: 400; margin-left: 10px; }
+    nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    nav a {
+      color: #a8b2bd; text-decoration: none; padding: 8px 16px;
+      border-radius: 6px; font-size: 14px; transition: all .15s;
+    }
+    nav a:hover { background: #2d3440; color: #e8eaed; }
+    nav a.active { background: #60d394; color: #0f1419; font-weight: 600; }
+    main { padding: 28px; max-width: 1400px; margin: 0 auto; }
+    h1 { margin: 0 0 24px; color: #e8eaed; font-size: 24px; font-weight: 600; }
+    h2 { color: #c8d1db; font-size: 17px; margin: 28px 0 14px; font-weight: 500; }
+
+    .card {
+      background: #1a1f27; border: 1px solid #2d3440; border-radius: 10px;
+      padding: 20px; margin-bottom: 20px;
+    }
+    .card h3 { margin: 0 0 14px; color: #c8d1db; font-size: 15px; font-weight: 500; }
+    .grid { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-6 { grid-template-columns: repeat(6, 1fr); }
+    @media (max-width: 900px) {
+      .grid-3, .grid-4, .grid-6 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat {
+      background: linear-gradient(135deg, #1d2530 0%, #252e3b 100%);
+      border: 1px solid #2d3440; border-radius: 10px;
+      padding: 18px; text-align: center;
+    }
+    .stat .label { color: #8a929c; font-size: 12px; margin-bottom: 6px; }
+    .stat .value { font-size: 24px; color: #60d394; font-weight: 700; }
+    .stat .sub { color: #a8b2bd; font-size: 11px; margin-top: 4px; }
+
+    table {
+      width: 100%; border-collapse: collapse;
+      background: #1a1f27; border-radius: 8px; overflow: hidden;
+    }
+    th {
+      background: #252e3b; color: #a8b2bd; text-align: left; padding: 10px 14px;
+      font-size: 12px; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.05em; border-bottom: 1px solid #2d3440;
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid #242b35;
+      font-size: 13px; color: #c8d1db;
+    }
+    tr:hover td { background: #202733; }
+
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 10px;
+      font-size: 11px; font-weight: 500;
+    }
+    .badge-on { background: #1a3a2e; color: #60d394; }
+    .badge-off { background: #3a1f1f; color: #f28c8c; }
+    .badge-neutral { background: #2d3440; color: #a8b2bd; }
+
+    .health-bar {
+      display: inline-block; width: 60px; height: 6px; background: #2d3440;
+      border-radius: 3px; overflow: hidden; vertical-align: middle;
+    }
+    .health-bar > div {
+      height: 100%; background: linear-gradient(90deg, #f28c8c 0%, #f2c28c 50%, #60d394 100%);
+    }
+
+    form.inline { display: inline; }
+    button {
+      background: #60d394; color: #0f1419; border: none; padding: 6px 14px;
+      border-radius: 5px; cursor: pointer; font-weight: 500; font-size: 13px;
+    }
+    button:hover { background: #4ec080; }
+    button.off { background: #f28c8c; }
+    button.off:hover { background: #e06868; }
+
+    .muted { color: #8a929c; font-size: 12px; }
+    .right { text-align: right; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">⚡ KS 矩阵运营中台 <small>v0.1 · Phase 1</small></div>
+    <nav>
+      <a href="/" class="{% if nav=='home' %}active{% endif %}">总览</a>
+      <a href="/accounts" class="{% if nav=='accounts' %}active{% endif %}">账号</a>
+      <a href="/queue" class="{% if nav=='queue' %}active{% endif %}">任务</a>
+      <a href="/dramas" class="{% if nav=='dramas' %}active{% endif %}">剧源</a>
+      <a href="/rankings" class="{% if nav=='rankings' %}active{% endif %}">热榜</a>
+      <a href="/agents" class="{% if nav=='agents' %}active{% endif %}">Agents</a>
+      <a href="/switches" class="{% if nav=='switches' %}active{% endif %}">开关</a>
+    </nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

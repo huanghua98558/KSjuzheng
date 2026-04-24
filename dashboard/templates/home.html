@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}总览 — KS 矩阵{% endblock %}
+{% block content %}
+<h1>系统总览</h1>
+
+<div class="grid grid-6">
+  <div class="stat">
+    <div class="label">活跃账号</div>
+    <div class="value">{{ counts.accounts_active }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">作者库</div>
+    <div class="value">{{ counts.authors_pool }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">待发布剧</div>
+    <div class="value">{{ counts.drama_links_pending }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">bannerTask缓存</div>
+    <div class="value">{{ counts.banner_tasks_cached }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">今日总播放</div>
+    <div class="value">{{ matrix_summary.total_plays }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">今日总点赞</div>
+    <div class="value">{{ matrix_summary.total_likes }}</div>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h3>🔥 赛道热度排行（外部）</h3>
+    <table>
+      <thead>
+        <tr><th>赛道</th><th>样本</th><th>平均分</th><th class="right">总播放</th></tr>
+      </thead>
+      <tbody>
+        {% for kh in keyword_heat %}
+        <tr>
+          <td><strong>{{ kh.keyword }}</strong></td>
+          <td>{{ kh.samples }}</td>
+          <td>{{ "%.2f"|format(kh.avg_score) }}</td>
+          <td class="right">{{ "{:,}".format(kh.total_views) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>🏆 矩阵 Top 作品</h3>
+    {% if top_matrix_works %}
+    <table>
+      <thead>
+        <tr><th>账号</th><th class="right">播放</th><th class="right">点赞</th><th>剧名</th></tr>
+      </thead>
+      <tbody>
+        {% for w in top_matrix_works %}
+        <tr>
+          <td>{{ w.uid[:12] }}</td>
+          <td class="right">{{ w.plays }}</td>
+          <td class="right">{{ w.likes }}</td>
+          <td>{{ w.name[:30] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="muted">暂无数据（跑一次 <code>collect_daily_metrics</code> 后刷新）</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="card">
+  <h3>💰 今日收益快照（{{ income|length }} 成员）</h3>
+  {% if income %}
+  <table>
+    <thead>
+      <tr><th>成员 ID</th><th class="right">总收益</th><th class="right">分佣</th><th class="right">分佣率</th></tr>
+    </thead>
+    <tbody>
+      {% for row in income %}
+      <tr>
+        <td>{{ row.member_id }}</td>
+        <td class="right">¥ {{ "%.2f"|format(row.total_amount or 0) }}</td>
+        <td class="right">¥ {{ "%.2f"|format(row.commission or 0) }}</td>
+        <td class="right">{{ "%.0f"|format(row.rate or 0) }} %</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="muted">今日还未采集（<code>sync_mcn_business</code>）</p>
+  {% endif %}
+</div>
+{% endblock %}
