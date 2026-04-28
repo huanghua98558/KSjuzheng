@@ -92,6 +92,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '软件账号管理',
     endpoint: '/accounts',
     responseListKey: 'accounts',
+    sourceTabs: true,
     statsEndpoint: '/accounts/organization-stats',
     filters: [
       { key: 'search', placeholder: '搜索UID/昵称/真实UID' },
@@ -263,6 +264,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/wallet-info': {
     title: '钱包信息',
     endpoint: '/wallet-info',
+    sourceTabs: true,
     filters: [
       { key: 'alipay_name', placeholder: '请输入支付宝实名姓名' },
       { key: 'alipay_account', placeholder: '请输入支付宝账号（手机号或邮箱）' },
@@ -504,6 +506,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     subtitle: '短剧链接执行统计',
     endpoint: '/statistics/drama-links',
     responseListKey: 'list',
+    sourceTabs: true,
     filters: [
       { key: 'search', placeholder: '搜索短剧名称' },
       { key: 'start_date', placeholder: '开始日期', type: 'date' },
@@ -550,6 +553,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/external-url-stats': {
     title: '外部项目统计',
     endpoint: '/statistics/external-urls',
+    sourceTabs: true,
     responseListKey: 'list',
     filters: [{ key: 'search', placeholder: '搜索短剧名称/链接/用户' }],
     actions: [{ label: '刷新', type: 'primary' }, { label: '导出' }, ...commonActions, { label: '批量删除 (0)', type: 'danger' }, { label: '清空全部', type: 'danger' }],

@@ -1810,10 +1810,11 @@ async def wallet_info(
     page_size: int | None = None,
     size: int | None = None,
     search: str | None = None,
+    source: str | None = None,
 ):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
-        where = ["1=1"]
+        where: list[str] = []
         params: dict[str, Any] = {}
         if not user.is_superadmin:
             where.append("organization_access = :viewer_org_id")
@@ -1821,21 +1822,13 @@ async def wallet_info(
         if search:
             where.append("(username LIKE :search OR nickname LIKE :search OR phone LIKE :search OR alipay_info LIKE :search)")
             params["search"] = f"%{search}%"
-        sql_where = " AND ".join(where)
-        total = int(db.execute(text(f"SELECT COUNT(*) FROM admin_users WHERE {sql_where}"), params).scalar_one())
-        rows = db.execute(
-            text(
-                f"""
-                SELECT id, username, nickname, phone, alipay_info, created_at, updated_at
-                FROM admin_users
-                WHERE {sql_where}
-                ORDER BY id DESC
-                LIMIT :limit OFFSET :offset
-                """
-            ),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
-        return _success([_source_wallet_payload(dict(row)) for row in rows], total=total, pagination={"total": total, "page": page, "page_size": per_page})
+        rows, total = _dual_select(db, "admin_users", where, params, page, per_page, source)
+        data = []
+        for r in rows:
+            d = _source_wallet_payload(dict(r))
+            d["_src"] = r.get("_src")
+            data.append(d)
+        return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
 
     stmt = select(WalletProfile)
     if not user.is_superadmin:
@@ -3204,9 +3197,51 @@ async def accounts(
     org_id: int | None = None,
     group_id: int | None = None,
     owner_id: int | None = None,
+    source: str | None = None,
 ):
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size or pageSize, size)
+        if (source or "").lower() == "mcn":
+            # source=mcn: 跨表映射 mcn_kuaishou_accounts (无 mcn_accounts 镜像)
+            where: list[str] = []
+            params: dict[str, Any] = {}
+            term = search or keyword
+            if term:
+                where.append("(nickname LIKE :kw OR uid LIKE :kw OR device_serial LIKE :kw OR uid_real LIKE :kw)")
+                params["kw"] = f"%{term}%"
+            sql_where = " AND ".join(where) if where else "1=1"
+            total = int(db.execute(text(f"SELECT COUNT(*) FROM mcn_kuaishou_accounts WHERE {sql_where}"), params).scalar_one())
+            rows = db.execute(
+                text(f"SELECT id, uid, uid_real, nickname, device_serial, account_status, organization_id, group_id, owner_id, created_at, updated_at FROM mcn_kuaishou_accounts WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+                {**params, "limit": per_page, "offset": (page - 1) * per_page},
+            ).mappings().all()
+            data = {
+                "accounts": [
+                    {
+                        "id": r["id"],
+                        "account_id": r["uid"],
+                        "account_name": r["nickname"],
+                        "kuaishou_id": r["uid"],
+                        "real_uid": r["uid_real"] or r["uid"],
+                        "kuaishou_uid": r["uid"],
+                        "nickname": r["nickname"],
+                        "device_serial": r["device_serial"],
+                        "login_status": r["account_status"] or "normal",
+                        "organization_id": r["organization_id"],
+                        "group_id": r["group_id"],
+                        "owner_id": r["owner_id"],
+                        "created_at": _dt(r["created_at"]),
+                        "updated_at": _dt(r["updated_at"]),
+                        "_src": "MCN",
+                    }
+                    for r in rows
+                ],
+                "total": total,
+                "mcn_count": total,
+                "normal_count": 0,
+                "user_role": "super_admin" if user.is_superadmin else user.role,
+            }
+            return _success(data, total=total)
         rows, total, mcn_count = source_mysql_service.list_accounts(
             db,
             viewer=user,
@@ -3218,13 +3253,13 @@ async def accounts(
             owner_id=owner_id,
         )
         data = {
-            "accounts": [_account_payload(row) for row in rows],
+            "accounts": [{**_account_payload(row), "_src": "我的"} for row in rows],
             "total": total,
             "mcn_count": mcn_count,
             "normal_count": max(total - mcn_count, 0),
             "user_role": "super_admin" if user.is_superadmin else user.role,
         }
-        return _success(data)
+        return _success(data, total=total)
     page, per_page = _page_size(page, page_size or pageSize, size)
     term = search or keyword
     stmt = select(Account).where(Account.deleted_at.is_(None))
@@ -4889,6 +4924,7 @@ async def statistics_drama_links(
     start_date: str | None = None,
     end_date: str | None = None,
     export: bool = False,
+    source: str | None = None,
 ):
     page, per_page = _page_size(page, page_size, size)
     if export:
@@ -4909,9 +4945,21 @@ async def statistics_drama_links(
             where.append("created_at <= :end_date")
             params["end_date"] = end_date
         sql_where = " AND ".join(where) if where else "1=1"
+        # 选源表: self=task_statistics, mcn=mcn_task_statistics, 默认 all=两表 UNION
+        src = (source or "all").lower()
+        if src == "self":
+            src_sql = f"(SELECT id, drama_name, drama_link, task_type, status, uid, created_at, '我的' AS _src FROM task_statistics WHERE {sql_where})"
+        elif src == "mcn":
+            src_sql = f"(SELECT id, drama_name, drama_link, task_type, status, uid, created_at, 'MCN' AS _src FROM mcn_task_statistics WHERE {sql_where})"
+        else:
+            src_sql = (
+                f"(SELECT id, drama_name, drama_link, task_type, status, uid, created_at, '我的' AS _src FROM task_statistics WHERE {sql_where} "
+                f"UNION ALL "
+                f"SELECT id, drama_name, drama_link, task_type, status, uid, created_at, 'MCN' AS _src FROM mcn_task_statistics WHERE {sql_where})"
+            )
         total = int(
             db.execute(
-                text(f"SELECT COUNT(*) FROM (SELECT drama_link FROM task_statistics WHERE {sql_where} GROUP BY drama_link) t"),
+                text(f"SELECT COUNT(*) FROM (SELECT drama_link FROM {src_sql} u GROUP BY drama_link) t"),
                 params,
             ).scalar_one()
         )
@@ -4922,13 +4970,13 @@ async def statistics_drama_links(
                        drama_name,
                        drama_link AS drama_url,
                        task_type,
+                       MAX(_src) AS _src,
                        COUNT(*) AS execute_count,
                        SUM(CASE WHEN status IN ('success', 'completed', 'done', 'ok', '1') THEN 1 ELSE 0 END) AS success_count,
                        SUM(CASE WHEN status IN ('failed', 'fail', 'error', '0') THEN 1 ELSE 0 END) AS failed_count,
                        COUNT(DISTINCT uid) AS account_count,
                        MAX(created_at) AS last_executed_at
-                FROM task_statistics
-                WHERE {sql_where}
+                FROM {src_sql} u
                 GROUP BY drama_link, drama_name, task_type
                 ORDER BY execute_count DESC
                 LIMIT :limit OFFSET :offset
@@ -4957,6 +5005,7 @@ async def statistics_drama_links(
                 "task_type": row["task_type"],
                 "drama_link": row["drama_url"],
                 "drama_url": row["drama_url"],
+                "_src": row.get("_src"),
                 "total_count": int(row["execute_count"] or 0),
                 "execute_count": int(row["execute_count"] or 0),
                 "success_count": int(row["success_count"] or 0),
@@ -5121,34 +5170,40 @@ async def statistics_external_urls(
     page_size: int | None = None,
     size: int | None = None,
     search: str | None = None,
+    source: str | None = None,
 ):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
+        # 注意: 老 SQL 的 user.is_superadmin 分支用 EXISTS 子查询访问 ts 别名 — 直接 UNION
+        # 后丢失 ts 别名. 简化: 仅 superadmin 能看, 非 super 时跳过 source 筛选.
         where = ["drama_link IS NOT NULL", "drama_link <> ''"]
         params: dict[str, Any] = {}
         if search:
             where.append("drama_link LIKE :search")
             params["search"] = f"%{search}%"
+        # 非 superadmin 仍走老逻辑 (只看 self)
         if not user.is_superadmin:
-            where.append(
-                """
-                EXISTS (
-                    SELECT 1 FROM kuaishou_accounts ka
-                    WHERE ka.organization_id = :viewer_org_id
-                      AND (ka.uid = ts.uid OR ka.uid_real = ts.uid)
-                )
-                """
-            )
-            params["viewer_org_id"] = user.organization_id
+            source = "self"
         sql_where = " AND ".join(where)
+        src = (source or "all").lower()
+        if src == "self":
+            src_sql = f"(SELECT drama_link, created_at, '我的' AS _src FROM task_statistics WHERE {sql_where})"
+        elif src == "mcn":
+            src_sql = f"(SELECT drama_link, created_at, 'MCN' AS _src FROM mcn_task_statistics WHERE {sql_where})"
+        else:
+            src_sql = (
+                f"(SELECT drama_link, created_at, '我的' AS _src FROM task_statistics WHERE {sql_where} "
+                f"UNION ALL "
+                f"SELECT drama_link, created_at, 'MCN' AS _src FROM mcn_task_statistics WHERE {sql_where})"
+            )
         total = int(
             db.execute(
-                text(f"SELECT COUNT(*) FROM (SELECT drama_link FROM task_statistics ts WHERE {sql_where} GROUP BY drama_link) t"),
+                text(f"SELECT COUNT(*) FROM (SELECT drama_link FROM {src_sql} u GROUP BY drama_link) t"),
                 params,
             ).scalar_one()
         )
         summary_row = db.execute(
-            text(f"SELECT COUNT(*) AS ref_count FROM task_statistics ts WHERE {sql_where}"),
+            text(f"SELECT COUNT(*) AS ref_count FROM {src_sql} u"),
             params,
         ).mappings().one()
         rows = db.execute(
@@ -5156,9 +5211,9 @@ async def statistics_external_urls(
                 f"""
                 SELECT drama_link AS url,
                        COUNT(*) AS reference_count,
-                       MAX(created_at) AS last_seen_at
-                FROM task_statistics ts
-                WHERE {sql_where}
+                       MAX(created_at) AS last_seen_at,
+                       MAX(_src) AS _src
+                FROM {src_sql} u
                 GROUP BY drama_link
                 ORDER BY reference_count DESC, last_seen_at DESC
                 LIMIT :limit OFFSET :offset
@@ -5176,6 +5231,7 @@ async def statistics_external_urls(
                 "created_at": _dt(row["last_seen_at"]),
                 "updated_at": _dt(row["last_seen_at"]),
                 "source": "task_statistics.drama_link",
+                "_src": row.get("_src"),
             }
             for index, row in enumerate(rows)
         ]
