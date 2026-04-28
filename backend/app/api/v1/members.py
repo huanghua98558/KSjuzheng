@@ -50,10 +50,13 @@ def _member_dict(row, *, program: str) -> dict:
         "program_type": program,
         "created_at": row["created_at"],
         "updated_at": row["updated_at"],
+        "_src": row["_src"] if "_src" in row.keys() else None,
     }
 
 
-def _source_members(db, user, *, table: str, program: str, page: int, size: int, keyword: str | None):
+def _source_members(db, user, *, table: str, program: str, page: int, size: int,
+                     keyword: str | None, source: str = "all"):
+    """双表查询 (老表 + mcn_xxx 镜像). source: all=合并 / self=老表 / mcn=镜像."""
     where = []
     params = {}
     if not user.is_superadmin:
@@ -63,10 +66,31 @@ def _source_members(db, user, *, table: str, program: str, page: int, size: int,
         where.append("(CAST(member_id AS CHAR) LIKE :kw OR member_name LIKE :kw)")
         params["kw"] = f"%{keyword}%"
     sql_where = " AND ".join(where) if where else "1=1"
-    total = int(db.execute(text(f"SELECT COUNT(*) FROM {table} WHERE {sql_where}"), params).scalar_one())
     order_col = "id" if table == "spark_members" else "member_id"
+    mcn_table = f"mcn_{table}"
+
+    if source == "self":
+        count_sql = f"SELECT COUNT(*) FROM {table} WHERE {sql_where}"
+        list_sql = (f"SELECT *, '我的' AS _src FROM {table} WHERE {sql_where} "
+                    f"ORDER BY total_amount DESC, {order_col} DESC "
+                    f"LIMIT :limit OFFSET :offset")
+    elif source == "mcn":
+        count_sql = f"SELECT COUNT(*) FROM {mcn_table} WHERE {sql_where}"
+        list_sql = (f"SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where} "
+                    f"ORDER BY total_amount DESC, {order_col} DESC "
+                    f"LIMIT :limit OFFSET :offset")
+    else:  # all = 合并
+        count_sql = (f"SELECT (SELECT COUNT(*) FROM {table} WHERE {sql_where}) + "
+                     f"(SELECT COUNT(*) FROM {mcn_table} WHERE {sql_where})")
+        list_sql = (f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
+                    f"UNION ALL "
+                    f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
+                    f"ORDER BY total_amount DESC, {order_col} DESC "
+                    f"LIMIT :limit OFFSET :offset")
+
+    total = int(db.execute(text(count_sql), params).scalar_one())
     rows = db.execute(
-        text(f"SELECT * FROM {table} WHERE {sql_where} ORDER BY total_amount DESC, {order_col} DESC LIMIT :limit OFFSET :offset"),
+        text(list_sql),
         {**params, "limit": size, "offset": max(page - 1, 0) * size},
     ).mappings().all()
     return [_member_dict(row, program=program) for row in rows], total
@@ -109,7 +133,7 @@ async def list_spark_members(
     page: int = 1, size: int = 50, keyword: str | None = None,
 ):
     if source_mysql_service.is_source_mysql(db):
-        items, total = _source_members(db, user, table="spark_members", program="spark", page=page, size=size, keyword=keyword)
+        items, total = _source_members(db, user, table="spark_members", program="spark", page=page, size=size, keyword=keyword, source=source)
         return ok({"items": items, "pagination": make_pagination(total, page, size).model_dump()}, trace_id=_trace(request))
     items, total = member_service.list_spark_members(
         db, user, page=page, size=size, keyword=keyword,
@@ -133,9 +157,10 @@ async def list_firefly_members(
     db: DbSession,
     user: User = Depends(require_perm("firefly:view-monthly")),
     page: int = 1, size: int = 50, keyword: str | None = None,
+    source: str = "all",
 ):
     if source_mysql_service.is_source_mysql(db):
-        items, total = _source_members(db, user, table="fluorescent_members", program="firefly", page=page, size=size, keyword=keyword)
+        items, total = _source_members(db, user, table="fluorescent_members", program="firefly", page=page, size=size, keyword=keyword, source=source)
         return ok({"items": items, "pagination": make_pagination(total, page, size).model_dump()}, trace_id=_trace(request))
     items, total = member_service.list_firefly_members(
         db, user, page=page, size=size, keyword=keyword,
@@ -159,9 +184,10 @@ async def list_fluorescent_members(
     db: DbSession,
     user: User = Depends(require_perm("fluorescent:view")),
     page: int = 1, size: int = 50, keyword: str | None = None,
+    source: str = "all",
 ):
     if source_mysql_service.is_source_mysql(db):
-        items, total = _source_members(db, user, table="fluorescent_members", program="fluorescent", page=page, size=size, keyword=keyword)
+        items, total = _source_members(db, user, table="fluorescent_members", program="fluorescent", page=page, size=size, keyword=keyword, source=source)
         return ok({"items": items, "pagination": make_pagination(total, page, size).model_dump()}, trace_id=_trace(request))
     items, total = member_service.list_fluorescent_members(
         db, user, page=page, size=size, keyword=keyword,

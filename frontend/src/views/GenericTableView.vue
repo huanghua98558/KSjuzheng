@@ -256,9 +256,15 @@ const submitting = ref(false)
 const rows = ref<Record<string, any>[]>([])
 const selection = ref<Record<string, any>[]>([])
 const stats = ref<Record<string, any>>({})
+const SOURCE_OPTIONS: Array<{ label: string; value: string | number }> = [
+  { label: '全部', value: 'all' },
+  { label: '仅我的', value: 'self' },
+  { label: '仅 MCN', value: 'mcn' },
+]
 const selectOptions = reactive<Record<string, Array<{ label: string; value: string | number }>>>({
   users: [],
   organizations: [],
+  sources: SOURCE_OPTIONS,
 })
 const total = ref(0)
 const page = ref(1)
@@ -352,6 +358,9 @@ function numberValue(value: any) {
 
 function tagType(value: any) {
   const text = String(value)
+  // 数据来源标签 (_src)
+  if (text === '我的') return 'success'
+  if (text === 'MCN') return 'primary'
   if (['正常', '启用', 'active', 'success', '1', '是'].includes(text)) return 'success'
   if (['禁用', '失败', 'failed', '0', '否'].includes(text)) return 'danger'
   return 'info'

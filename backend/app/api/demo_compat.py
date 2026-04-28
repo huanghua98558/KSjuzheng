@@ -1233,6 +1233,7 @@ def _source_member_payload(row: dict[str, Any], *, program: str) -> dict[str, An
         "program": program,
         "created_at": _dt(row.get("created_at")),
         "updated_at": _dt(row.get("updated_at")),
+        "_src": row.get("_src"),
     }
 
 
@@ -1283,6 +1284,7 @@ def _source_income_payload(row: dict[str, Any], *, program: str) -> dict[str, An
         "archived_at": _dt(row.get("archived_at")),
         "program": program,
         "created_at": _dt(row.get("created_at")),
+        "_src": row.get("_src"),
     }
 
 
@@ -1322,8 +1324,14 @@ def _source_member_list(
     order_col = order_map.get(sort_field or "total_amount", "total_amount")
     direction = "ASC" if sort_order == "ascending" else "DESC"
     sql_where = " AND ".join(where) if where else "1=1"
+    mcn_table = f"mcn_{table}"
+    # 双轨合并: 老表 (我的) + mcn_xxx 镜像 (MCN)
+    total = total + _source_count(db, mcn_table, where, params)
     rows = db.execute(
-        text(f"SELECT * FROM {table} WHERE {sql_where} ORDER BY {order_col} {direction} LIMIT :limit OFFSET :offset"),
+        text(f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
+             f"UNION ALL "
+             f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
+             f"ORDER BY {order_col} {direction} LIMIT :limit OFFSET :offset"),
         {**params, "limit": per_page, "offset": (page - 1) * per_page},
     ).mappings().all()
     return [_source_member_payload(dict(row), program=program) for row in rows], total
@@ -1351,8 +1359,14 @@ def _source_income_list(
         params["task_name"] = f"%{task_name}%"
     total = _source_count(db, table, where, params)
     sql_where = " AND ".join(where) if where else "1=1"
+    mcn_table = f"mcn_{table}"
+    # 双轨合并: 老表 (我的) + mcn_xxx 镜像 (MCN)
+    total = total + _source_count(db, mcn_table, where, params)
     rows = db.execute(
-        text(f"SELECT * FROM {table} WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+        text(f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
+             f"UNION ALL "
+             f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
+             f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
         {**params, "limit": per_page, "offset": (page - 1) * per_page},
     ).mappings().all()
     return [_source_income_payload(dict(row), program=program) for row in rows], total
