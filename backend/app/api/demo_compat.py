@@ -3202,34 +3202,39 @@ async def accounts(
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size or pageSize, size)
         if (source or "").lower() == "mcn":
-            # source=mcn: 跨表映射 mcn_kuaishou_accounts (无 mcn_accounts 镜像)
+            # source=mcn: 直接查 mcn_accounts VIEW (字段已对齐 ksjuzheng accounts)
+            # VIEW 由 mcn_kuaishou_accounts 映射, sync_daemon 自动维护数据
             where: list[str] = []
             params: dict[str, Any] = {}
             term = search or keyword
             if term:
-                where.append("(nickname LIKE :kw OR uid LIKE :kw OR device_serial LIKE :kw OR uid_real LIKE :kw)")
+                where.append("(nickname LIKE :kw OR kuaishou_id LIKE :kw OR device_serial LIKE :kw OR real_uid LIKE :kw)")
                 params["kw"] = f"%{term}%"
             sql_where = " AND ".join(where) if where else "1=1"
-            total = int(db.execute(text(f"SELECT COUNT(*) FROM mcn_kuaishou_accounts WHERE {sql_where}"), params).scalar_one())
+            total = int(db.execute(text(f"SELECT COUNT(*) FROM mcn_accounts WHERE {sql_where}"), params).scalar_one())
             rows = db.execute(
-                text(f"SELECT id, uid, uid_real, nickname, device_serial, account_status, organization_id, group_id, owner_id, created_at, updated_at FROM mcn_kuaishou_accounts WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+                text(f"SELECT * FROM mcn_accounts WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
                 {**params, "limit": per_page, "offset": (page - 1) * per_page},
             ).mappings().all()
             data = {
                 "accounts": [
                     {
                         "id": r["id"],
-                        "account_id": r["uid"],
+                        "account_id": r["kuaishou_id"],
                         "account_name": r["nickname"],
-                        "kuaishou_id": r["uid"],
-                        "real_uid": r["uid_real"] or r["uid"],
-                        "kuaishou_uid": r["uid"],
+                        "kuaishou_id": r["kuaishou_id"],
+                        "real_uid": r["real_uid"],
+                        "kuaishou_uid": r["kuaishou_id"],
                         "nickname": r["nickname"],
                         "device_serial": r["device_serial"],
-                        "login_status": r["account_status"] or "normal",
+                        "login_status": r["status"],
+                        "mcn_status": r["mcn_status"],
+                        "sign_status": r["sign_status"],
+                        "commission_rate": float(r["commission_rate"] or 80.0),
                         "organization_id": r["organization_id"],
                         "group_id": r["group_id"],
-                        "owner_id": r["owner_id"],
+                        "assigned_user_id": r["assigned_user_id"],
+                        "remark": r["remark"],
                         "created_at": _dt(r["created_at"]),
                         "updated_at": _dt(r["updated_at"]),
                         "_src": "MCN",
