@@ -19,6 +19,16 @@
       </el-col>
     </el-row>
 
+    <el-tabs
+      v-if="config.sourceTabs"
+      v-model="sourceTab"
+      class="source-tabs"
+      @tab-change="handleSourceTabChange"
+    >
+      <el-tab-pane label="🟢 我的" name="self" />
+      <el-tab-pane label="🔵 MCN" name="mcn" />
+    </el-tabs>
+
     <el-card class="filter-card">
       <div class="filter-row">
         <template v-for="filter in config.filters" :key="filter.key">
@@ -270,6 +280,8 @@ const total = ref(0)
 const page = ref(1)
 const pageSize = ref(20)
 const filters = reactive<Record<string, any>>({})
+// 数据源 Tab 当前选中值. 默认 'self' (我的) — 用户切到 'mcn' 时调 ?source=mcn
+const sourceTab = ref<'self' | 'mcn'>('self')
 const sorter = reactive({ prop: '', order: '' })
 const dialog = reactive({
   visible: false,
@@ -378,7 +390,16 @@ function requestParams() {
   for (const filter of config.value.filters) {
     if (filters[filter.key]) params[filter.key] = filters[filter.key]
   }
+  // 双轨数据源 Tab — 把当前选中的 'self' / 'mcn' 加进 query
+  if (config.value.sourceTabs) {
+    params.source = sourceTab.value
+  }
   return params
+}
+
+function handleSourceTabChange(_name: string | number) {
+  page.value = 1
+  loadData()
 }
 
 function handleSort(payload: { prop: string; order: string | null }) {

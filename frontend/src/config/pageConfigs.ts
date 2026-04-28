@@ -41,6 +41,12 @@ export interface PageConfig {
   columns: PageColumn[]
   statCards?: StatCard[]
   rowActions?: PageAction[]
+  /**
+   * 双轨数据源 Tab 模式. 设为 true 时, 顶部显示 "我的" / "MCN" 两个 Tab,
+   * 切换 Tab 时把 source=self / source=mcn 加入 query (不显示合并视图).
+   * 用于收益类页 (firefly/spark/fluorescent members + income + archive).
+   */
+  sourceTabs?: boolean
 }
 
 const commonActions: PageAction[] = [
@@ -274,8 +280,8 @@ export const pageConfigs: Record<string, PageConfig> = {
     subtitle: '萤光计划本月收益数据',
     endpoint: '/firefly/members',
     statsEndpoint: '/firefly/members/stats',
+    sourceTabs: true,
     filters: [
-      { key: 'source', placeholder: '来源', type: 'select', source: 'sources' },
       { key: 'search', placeholder: '搜索成员ID/昵称' },
       { key: 'organization_id', placeholder: '选择机构', type: 'select', source: 'organizations' },
       { key: 'group_id', placeholder: '按分组筛选' },
@@ -300,7 +306,6 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'commission_amount', label: '扣除分成', money: true },
       { key: 'org_name', label: '所属机构' },
       { key: 'created_at', label: '创建时间', width: 180 },
-      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '查看详情', type: 'primary' }, { label: '编辑' }, { label: '删除', type: 'danger' }],
   },
@@ -308,8 +313,8 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '历史收益',
     endpoint: '/firefly/income',
     statsEndpoint: '/firefly/income/stats',
+    sourceTabs: true,
     filters: [
-      { key: 'source', placeholder: '来源', type: 'select', source: 'sources' },
       { key: 'search', placeholder: '搜索成员ID/昵称' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
       { key: 'broker_name', placeholder: '经纪人' },
@@ -334,7 +339,6 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'archive_year', label: '归档年份' },
       { key: 'archive_month', label: '归档月份' },
       { key: 'settlement_status', label: '结算状态', tag: true },
-      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '编辑' }, { label: '未结清', type: 'warning' }, { label: '删除', type: 'danger' }],
   },
@@ -342,8 +346,8 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '收益明细',
     endpoint: '/fluorescent/income',
     statsEndpoint: '/fluorescent/income/stats',
+    sourceTabs: true,
     filters: [
-      { key: 'source', placeholder: '来源', type: 'select', source: 'sources' },
       { key: 'search', placeholder: '搜索成员名称' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
       { key: 'task_name', placeholder: '搜索任务名称' },
@@ -364,7 +368,6 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'task_start_time', label: '任务开始时间', width: 180 },
       { key: 'total_amount', label: '收入金额', money: true },
       { key: 'created_at', label: '创建时间', width: 180 },
-      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '加入高转化', type: 'success' }],
   },
@@ -372,8 +375,8 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '星火成员',
     endpoint: '/spark/members',
     statsEndpoint: '/spark/members/stats',
+    sourceTabs: true,
     filters: [
-      { key: 'source', placeholder: '来源', type: 'select', source: 'sources' },
       { key: 'search', placeholder: '搜索成员ID/名称' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
     ],
@@ -396,7 +399,6 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'commission_amount', label: '扣除分成', money: true },
       { key: 'is_limited', label: '限流', tag: true },
       { key: 'created_at', label: '创建时间', width: 180 },
-      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '查看详情', type: 'primary' }, { label: '编辑' }, { label: '删除', type: 'danger' }],
   },
@@ -404,8 +406,8 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '星火归档',
     endpoint: '/spark/archive',
     statsEndpoint: '/spark/archive/stats',
+    sourceTabs: true,
     filters: [
-      { key: 'source', placeholder: '来源', type: 'select', source: 'sources' },
       { key: 'search', placeholder: '搜索成员ID/昵称/经纪人' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
       { key: 'broker_name', placeholder: '经纪人名称' },
@@ -430,15 +432,14 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'total_amount', label: '总金额', money: true },
       { key: 'commission_rate', label: '分成比例' },
       { key: 'commission_amount', label: '扣除分成', money: true },
-      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '编辑' }, { label: '标记未结清', type: 'warning' }],
   },
   '/spark-income': {
     title: '星火收益',
     endpoint: '/spark/income',
+    sourceTabs: true,
     filters: [
-      { key: 'source', placeholder: '来源', type: 'select', source: 'sources' },
       { key: 'search', placeholder: '搜索成员名称' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
       { key: 'task_name', placeholder: '搜索任务名称' },
@@ -457,7 +458,6 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'start_date', label: '开始日期' },
       { key: 'end_date', label: '结束日期' },
       { key: 'created_at', label: '创建时间', width: 180 },
-      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '加入高转化', type: 'success' }, { label: '编辑' }, { label: '删除', type: 'danger' }],
   },
@@ -477,6 +477,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'platform', label: '平台', tag: true },
       { key: 'auth_code', label: '授权码' },
       { key: 'created_at', label: '创建时间', width: 180 },
+      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '查看链接', type: 'primary' }, { label: '删除', type: 'danger' }],
   },
@@ -490,6 +491,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'id', label: 'ID', width: 90 },
       { key: 'drama_name', label: '短剧名称', width: 260 },
       { key: 'created_at', label: '创建时间', width: 180 },
+      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '查看链接', type: 'primary' }, { label: '删除', type: 'danger' }],
   },
@@ -537,6 +539,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       { key: 'spark_count', label: '星火计划' },
       { key: 'firefly_count', label: '萤火计划' },
       { key: 'last_collect_time', label: '最后收藏时间', width: 180 },
+      { key: '_src', label: '来源', tag: true, width: 80 },
     ],
     rowActions: [{ label: '查看详情', type: 'primary' }],
   },

@@ -4345,13 +4345,21 @@ async def collect_pool(
         if username:
             where.append("username = :username")
             params["username"] = username
-        total = _source_count(db, "wait_collect_videos", where, params)
+        total = (_source_count(db, "wait_collect_videos", where, params)
+                 + _source_count(db, "mcn_wait_collect_videos", where, params))
         sql_where = " AND ".join(where) if where else "1=1"
         rows = db.execute(
-            text(f"SELECT * FROM wait_collect_videos WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+            text(f"(SELECT *, '我的' AS _src FROM wait_collect_videos WHERE {sql_where}) "
+                 f"UNION ALL "
+                 f"(SELECT *, 'MCN' AS _src FROM mcn_wait_collect_videos WHERE {sql_where}) "
+                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
             {**params, "limit": per_page, "offset": (page - 1) * per_page},
         ).mappings().all()
-        return _success([_source_collect_pool_payload(dict(row)) for row in rows], total=total)
+        def _payload_with_src(r):
+            d = _source_collect_pool_payload(dict(r))
+            d["_src"] = r.get("_src")
+            return d
+        return _success([_payload_with_src(r) for r in rows], total=total)
     stmt = select(CollectPool).where(CollectPool.deleted_at.is_(None))
     stmt = _apply_org_scope(stmt, CollectPool, user)
     if search:
@@ -4372,10 +4380,17 @@ async def collect_pool_stats(db: DbSession, user: CurrentUser):
         row = db.execute(
             text(
                 """
-                SELECT COUNT(*) AS total,
-                       SUM(CASE WHEN url IS NOT NULL AND url <> '' THEN 1 ELSE 0 END) AS active,
-                       SUM(CASE WHEN url IS NULL OR url = '' THEN 1 ELSE 0 END) AS abnormal
-                FROM wait_collect_videos
+                SELECT SUM(total) AS total, SUM(active) AS active, SUM(abnormal) AS abnormal FROM (
+                  SELECT COUNT(*) AS total,
+                         SUM(CASE WHEN url IS NOT NULL AND url <> '' THEN 1 ELSE 0 END) AS active,
+                         SUM(CASE WHEN url IS NULL OR url = '' THEN 1 ELSE 0 END) AS abnormal
+                  FROM wait_collect_videos
+                  UNION ALL
+                  SELECT COUNT(*),
+                         SUM(CASE WHEN url IS NOT NULL AND url <> '' THEN 1 ELSE 0 END),
+                         SUM(CASE WHEN url IS NULL OR url = '' THEN 1 ELSE 0 END)
+                  FROM mcn_wait_collect_videos
+                ) u
                 """
             )
         ).mappings().one()
@@ -4633,10 +4648,14 @@ async def high_income_dramas(
         if keyword:
             where.append("title LIKE :keyword")
             params["keyword"] = f"%{keyword}%"
-        total = _source_count(db, "spark_highincome_dramas", where, params)
+        total = (_source_count(db, "spark_highincome_dramas", where, params)
+                 + _source_count(db, "mcn_spark_highincome_dramas", where, params))
         sql_where = " AND ".join(where) if where else "1=1"
         rows = db.execute(
-            text(f"SELECT * FROM spark_highincome_dramas WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+            text(f"(SELECT *, '我的' AS _src FROM spark_highincome_dramas WHERE {sql_where}) "
+                 f"UNION ALL "
+                 f"(SELECT *, 'MCN' AS _src FROM mcn_spark_highincome_dramas WHERE {sql_where}) "
+                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
             {**params, "limit": per_page, "offset": (page - 1) * per_page},
         ).mappings().all()
         data = [
@@ -4652,6 +4671,7 @@ async def high_income_dramas(
                 "notes": None,
                 "organization_id": None,
                 "created_at": _dt(row["created_at"]),
+                "_src": row.get("_src"),
             }
             for row in rows
         ]
@@ -4947,12 +4967,27 @@ async def collection_accounts(db: DbSession, user: CurrentUser):
                        kuaishou_uid,
                        kuaishou_name,
                        device_serial,
-                       COUNT(*) AS total_count,
-                       SUM(CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END) AS spark_count,
-                       SUM(CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END) AS firefly_count,
+                       MAX(_src) AS _src,
+                       SUM(_count) AS total_count,
+                       SUM(_spark) AS spark_count,
+                       SUM(_firefly) AS firefly_count,
                        MAX(collected_at) AS last_collected_at,
                        MAX(updated_at) AS updated_at
-                FROM drama_collections
+                FROM (
+                  SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at,
+                         '我的' AS _src,
+                         1 AS _count,
+                         CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END AS _spark,
+                         CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END AS _firefly
+                  FROM drama_collections
+                  UNION ALL
+                  SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at,
+                         'MCN' AS _src,
+                         1 AS _count,
+                         CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END AS _spark,
+                         CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END AS _firefly
+                  FROM mcn_drama_collections
+                ) u
                 GROUP BY kuaishou_uid, kuaishou_name, device_serial
                 ORDER BY total_count DESC
                 LIMIT 1000
@@ -4974,6 +5009,7 @@ async def collection_accounts(db: DbSession, user: CurrentUser):
                     "fluorescent_count": int(row["firefly_count"] or 0),
                     "last_collected_at": _dt(row["last_collected_at"]),
                     "updated_at": _dt(row["updated_at"]),
+                    "_src": row.get("_src"),
                 }
                 for row in rows
             ]
