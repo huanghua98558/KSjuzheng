@@ -1301,6 +1301,7 @@ def _source_member_list(
     org_id: int | None = None,
     sort_field: str | None = None,
     sort_order: str | None = None,
+    source: str | None = None,
 ) -> tuple[list[dict[str, Any]], int]:
     where, params = _source_org_clause(user, "org_id")
     if org_id and user.is_superadmin:
@@ -1312,7 +1313,6 @@ def _source_member_list(
     if broker_name:
         where.append("broker_name = :broker_name")
         params["broker_name"] = broker_name
-    total = _source_count(db, table, where, params)
     order_map = {
         "member_id": "member_id",
         "member_name": "member_name",
@@ -1325,15 +1325,31 @@ def _source_member_list(
     direction = "ASC" if sort_order == "ascending" else "DESC"
     sql_where = " AND ".join(where) if where else "1=1"
     mcn_table = f"mcn_{table}"
-    # 双轨合并: 老表 (我的) + mcn_xxx 镜像 (MCN)
-    total = total + _source_count(db, mcn_table, where, params)
-    rows = db.execute(
-        text(f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
-             f"UNION ALL "
-             f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
-             f"ORDER BY {order_col} {direction} LIMIT :limit OFFSET :offset"),
-        {**params, "limit": per_page, "offset": (page - 1) * per_page},
-    ).mappings().all()
+    src = (source or "all").lower()
+    if src == "self":
+        total = _source_count(db, table, where, params)
+        rows = db.execute(
+            text(f"SELECT *, '我的' AS _src FROM {table} WHERE {sql_where} "
+                 f"ORDER BY {order_col} {direction} LIMIT :limit OFFSET :offset"),
+            {**params, "limit": per_page, "offset": (page - 1) * per_page},
+        ).mappings().all()
+    elif src == "mcn":
+        total = _source_count(db, mcn_table, where, params)
+        rows = db.execute(
+            text(f"SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where} "
+                 f"ORDER BY {order_col} {direction} LIMIT :limit OFFSET :offset"),
+            {**params, "limit": per_page, "offset": (page - 1) * per_page},
+        ).mappings().all()
+    else:  # all = 合并
+        total = (_source_count(db, table, where, params)
+                 + _source_count(db, mcn_table, where, params))
+        rows = db.execute(
+            text(f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
+                 f"UNION ALL "
+                 f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
+                 f"ORDER BY {order_col} {direction} LIMIT :limit OFFSET :offset"),
+            {**params, "limit": per_page, "offset": (page - 1) * per_page},
+        ).mappings().all()
     return [_source_member_payload(dict(row), program=program) for row in rows], total
 
 
@@ -1347,6 +1363,7 @@ def _source_income_list(
     per_page: int,
     task_name: str | None = None,
     org_column: str | None = "org_id",
+    source: str | None = None,
 ) -> tuple[list[dict[str, Any]], int]:
     where: list[str] = []
     params: dict[str, Any] = {}
@@ -1357,18 +1374,33 @@ def _source_income_list(
         name_column = "member_name" if table in {"spark_income_archive", "fluorescent_income_archive"} else "task_name"
         where.append(f"{name_column} LIKE :task_name")
         params["task_name"] = f"%{task_name}%"
-    total = _source_count(db, table, where, params)
     sql_where = " AND ".join(where) if where else "1=1"
     mcn_table = f"mcn_{table}"
-    # 双轨合并: 老表 (我的) + mcn_xxx 镜像 (MCN)
-    total = total + _source_count(db, mcn_table, where, params)
-    rows = db.execute(
-        text(f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
-             f"UNION ALL "
-             f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
-             f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-        {**params, "limit": per_page, "offset": (page - 1) * per_page},
-    ).mappings().all()
+    src = (source or "all").lower()
+    if src == "self":
+        total = _source_count(db, table, where, params)
+        rows = db.execute(
+            text(f"SELECT *, '我的' AS _src FROM {table} WHERE {sql_where} "
+                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+            {**params, "limit": per_page, "offset": (page - 1) * per_page},
+        ).mappings().all()
+    elif src == "mcn":
+        total = _source_count(db, mcn_table, where, params)
+        rows = db.execute(
+            text(f"SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where} "
+                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+            {**params, "limit": per_page, "offset": (page - 1) * per_page},
+        ).mappings().all()
+    else:  # all = 合并
+        total = (_source_count(db, table, where, params)
+                 + _source_count(db, mcn_table, where, params))
+        rows = db.execute(
+            text(f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
+                 f"UNION ALL "
+                 f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
+                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+            {**params, "limit": per_page, "offset": (page - 1) * per_page},
+        ).mappings().all()
     return [_source_income_payload(dict(row), program=program) for row in rows], total
 
 
@@ -3871,6 +3903,7 @@ async def firefly_members(
     broker_name: str | None = None,
     sort_field: str | None = None,
     sort_order: str | None = None,
+    source: str | None = None,
 ):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
@@ -3886,6 +3919,7 @@ async def firefly_members(
             org_id=org_id or organization_id,
             sort_field=sort_field,
             sort_order=sort_order,
+            source=source,
         )
         return _success(data, total=total)
     # The demo labels this page "firefly", but its real data source is fluorescent_members.
@@ -4031,22 +4065,26 @@ async def firefly_income_operators(db: DbSession, user: CurrentUser):
 
 
 @router.get("/spark/members")
-async def spark_members(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, search: str | None = None, broker_name: str | None = None):
+async def spark_members(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, search: str | None = None, broker_name: str | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
-        source_total = _source_count(db, "spark_members", *_source_org_clause(user, "org_id"))
-        if source_total:
-            data, total = _source_member_list(
-                db,
-                user,
-                table="spark_members",
-                program="spark",
-                page=page,
-                per_page=per_page,
-                search=search,
-                broker_name=broker_name,
-                sort_field="org_task_num",
-            )
+        # spark: 总是查双轨, 不再短路 (老逻辑只 _source_count 一表会漏)
+        data, total = _source_member_list(
+            db,
+            user,
+            table="spark_members",
+            program="spark",
+            page=page,
+            per_page=per_page,
+            search=search,
+            broker_name=broker_name,
+            sort_field="org_task_num",
+            source=source,
+        )
+        if total:
+            return _success(data, total=total)
+        # 都空时 fallback 到 spark_org_members 老逻辑
+        if False:
             return _success(data, total=total)
         where, params = _source_org_clause(user, "org_id")
         if search:
@@ -4158,11 +4196,11 @@ async def fluorescent_operators(db: DbSession, user: CurrentUser):
 
 
 @router.get("/firefly/income")
-async def firefly_income(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, task_name: str | None = None):
+async def firefly_income(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, task_name: str | None = None, source: str | None = None):
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size, size)
         data, total = _source_income_list(
-            db, user, table="fluorescent_income_archive", program="firefly", page=page, per_page=per_page, task_name=task_name, org_column="org_id"
+            db, user, table="fluorescent_income_archive", program="firefly", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source,
         )
         return _success(data, total=total)
     data, total = _income_list(db, user, FireflyIncome, page, page_size, size, task_name)
@@ -4170,11 +4208,11 @@ async def firefly_income(db: DbSession, user: CurrentUser, page: int = 1, page_s
 
 
 @router.get("/spark/income")
-async def spark_income(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, task_name: str | None = None):
+async def spark_income(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, task_name: str | None = None, source: str | None = None):
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size, size)
         data, total = _source_income_list(
-            db, user, table="spark_income", program="spark", page=page, per_page=per_page, task_name=task_name, org_column="org_id"
+            db, user, table="spark_income", program="spark", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source,
         )
         return _success(data, total=total)
     data, total = _income_list(db, user, SparkIncome, page, page_size, size, task_name)
@@ -4182,11 +4220,11 @@ async def spark_income(db: DbSession, user: CurrentUser, page: int = 1, page_siz
 
 
 @router.get("/fluorescent/income")
-async def fluorescent_income(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, task_name: str | None = None):
+async def fluorescent_income(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, task_name: str | None = None, source: str | None = None):
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size, size)
         data, total = _source_income_list(
-            db, user, table="fluorescent_income_archive", program="fluorescent", page=page, per_page=per_page, task_name=task_name, org_column="org_id"
+            db, user, table="fluorescent_income_archive", program="fluorescent", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source,
         )
         return _success(data, total=total)
     data, total = _income_list(db, user, FluorescentIncome, page, page_size, size, task_name)
@@ -4242,11 +4280,11 @@ def _sum_income(db: Session, user: User, model) -> dict[str, Any]:
 
 
 @router.get("/spark/archive")
-async def spark_archive(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None):
+async def spark_archive(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
         data, total = _source_income_list(
-            db, user, table="spark_income_archive", program="spark", page=page, per_page=per_page, org_column="org_id"
+            db, user, table="spark_income_archive", program="spark", page=page, per_page=per_page, org_column="org_id", source=source,
         )
         return _success(data, total=total)
     stmt = select(IncomeArchive).where(IncomeArchive.program_type == "spark")
