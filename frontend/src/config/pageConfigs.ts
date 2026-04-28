@@ -143,6 +143,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/ks-accounts': {
     title: 'KS账号管理',
     endpoint: '/ks-accounts',
+    sourceTabs: true,
     filters: [{ key: 'keyword', placeholder: '账号名称/快手UID/设备码' }],
     actions: [...queryActions, { label: '批量删除 (0)', type: 'danger' }],
     columns: [
@@ -156,6 +157,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/org-members': {
     title: '机构成员管理',
     endpoint: '/org-members',
+    sourceTabs: true,
     filters: [
       { key: 'search', placeholder: '搜索成员ID/用户ID/昵称' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
@@ -183,6 +185,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/account-violation': {
     title: '账号违规信息',
     endpoint: '/spark/violation-photos',
+    sourceTabs: true,
     filters: [
       { key: 'search', placeholder: '搜索作品ID/用户名/描述' },
       { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
@@ -210,6 +213,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/users': {
     title: '用户管理',
     endpoint: '/auth/users',
+    sourceTabs: true,
     filters: [{ key: 'search', placeholder: '用户名/昵称' }],
     actions: [
       { label: '🔮 数据更新', type: 'success' },
@@ -563,6 +567,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '橙星推用户',
     endpoint: '/cxt-user',
     responseListKey: 'list',
+    sourceTabs: true,
     filters: [{ key: 'search', placeholder: 'UID / 备注' }],
     actions: [{ label: '批量上传UID', type: 'primary' }, { label: '批量UID修改' }, { label: '批量删除', type: 'danger' }, ...queryActions],
     columns: [
@@ -578,6 +583,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: '橙星推剧集',
     endpoint: '/cxt-videos',
     responseListKey: 'list',
+    sourceTabs: true,
     filters: [
       { key: 'title', placeholder: '剧名' },
       { key: 'author', placeholder: '作者' },
@@ -607,6 +613,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/cloud-cookies': {
     title: '云端Cookie管理',
     endpoint: '/cloud-cookies',
+    sourceTabs: true,
     filters: [{ key: 'search', placeholder: '账号名称/快手昵称/UID' }],
     actions: [...queryActions, { label: '批量删除 (0)', type: 'danger' }, { label: '批量修改标识码' }],
     columns: [
@@ -625,6 +632,7 @@ export const pageConfigs: Record<string, PageConfig> = {
   '/spark-photos': {
     title: '星火作品',
     endpoint: '/spark/photos',
+    sourceTabs: true,
     filters: [{ key: 'search', placeholder: '搜索作品ID/标题/成员' }],
     actions: [...commonActions],
     columns: [

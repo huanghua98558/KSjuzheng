@@ -1198,6 +1198,35 @@ def _source_count(db: Session, table: str, where: list[str], params: dict[str, A
     return int(db.execute(text(f"SELECT COUNT(*) FROM {table} WHERE {sql_where}"), params).scalar_one())
 
 
+def _dual_select(db: Session, table: str, where: list[str], params: dict[str, Any],
+                 page: int, per_page: int, source: str | None,
+                 order_by: str = "id DESC") -> tuple[list, int]:
+    """双轨数据源通用查询 — source: 'self'/'mcn'/None(默认 all 合并)."""
+    sql_where = " AND ".join(where) if where else "1=1"
+    mcn_table = f"mcn_{table}"
+    src = (source or "all").lower()
+    base = {**params, "limit": per_page, "offset": (page - 1) * per_page}
+    if src == "self":
+        total = _source_count(db, table, where, params)
+        rows = db.execute(text(
+            f"SELECT *, '我的' AS _src FROM {table} WHERE {sql_where} "
+            f"ORDER BY {order_by} LIMIT :limit OFFSET :offset"), base).mappings().all()
+    elif src == "mcn":
+        total = _source_count(db, mcn_table, where, params)
+        rows = db.execute(text(
+            f"SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where} "
+            f"ORDER BY {order_by} LIMIT :limit OFFSET :offset"), base).mappings().all()
+    else:
+        total = (_source_count(db, table, where, params)
+                 + _source_count(db, mcn_table, where, params))
+        rows = db.execute(text(
+            f"(SELECT *, '我的' AS _src FROM {table} WHERE {sql_where}) "
+            f"UNION ALL "
+            f"(SELECT *, 'MCN' AS _src FROM {mcn_table} WHERE {sql_where}) "
+            f"ORDER BY {order_by} LIMIT :limit OFFSET :offset"), base).mappings().all()
+    return list(rows), total
+
+
 def _source_member_payload(row: dict[str, Any], *, program: str) -> dict[str, Any]:
     member_id = row.get("member_id") or row.get("author_id") or row.get("id")
     name = row.get("member_name") or row.get("author_name") or row.get("nickname") or ""
@@ -1847,6 +1876,7 @@ async def users(
     has_parent: str | None = None,
     cooperation_type: str | None = None,
     include_all: int | None = None,
+    source: str | None = None,
 ):
     if source_mysql_service.is_source_mysql(db):
         explicit_page_size = pageSize or page_size or size
@@ -1854,6 +1884,22 @@ async def users(
             per_page = 100000
         else:
             page, per_page = _page_size(page, pageSize or page_size, size)
+        if (source or "").lower() == "mcn":
+            # source=mcn: 直接查 mcn_admin_users 镜像
+            where: list[str] = []
+            params: dict[str, Any] = {}
+            if search:
+                where.append("(username LIKE :s OR nickname LIKE :s OR phone LIKE :s)")
+                params["s"] = f"%{search}%"
+            if role:
+                where.append("role = :role")
+                params["role"] = role
+            if is_active is not None:
+                where.append("is_active = :is_active")
+                params["is_active"] = int(is_active)
+            rows, total = _dual_select(db, "admin_users", where, params, page, per_page, "mcn")
+            data = [{**dict(r), "_src": r.get("_src")} for r in rows]
+            return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
         rows, total = source_mysql_service.list_users(
             db,
             viewer=user,
@@ -1866,7 +1912,7 @@ async def users(
             parent_user_id=parent_user_id,
             has_parent=has_parent,
         )
-        data = [_user_payload(row) for row in rows]
+        data = [{**_user_payload(row), "_src": "我的"} for row in rows]
         return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
     stmt = select(User).where(User.deleted_at.is_(None)).order_by(User.id.asc())
     if not user.is_superadmin:
@@ -3672,9 +3718,20 @@ async def ks_accounts(
     page_size: int | None = None,
     size: int | None = None,
     keyword: str | None = None,
+    source: str | None = None,
 ):
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size or pageSize, size)
+        if (source or "").lower() == "mcn":
+            # source=mcn: 直接查 mcn_kuaishou_accounts 镜像
+            where: list[str] = []
+            params: dict[str, Any] = {}
+            if keyword:
+                where.append("(account_name LIKE :kw OR kuaishou_uid LIKE :kw OR device_code LIKE :kw)")
+                params["kw"] = f"%{keyword}%"
+            rows, total = _dual_select(db, "kuaishou_accounts", where, params, page, per_page, "mcn")
+            data = [{**dict(r), "_src": r.get("_src")} for r in rows]
+            return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
         rows, total = source_mysql_service.list_ks_accounts(
             db,
             viewer=user,
@@ -3683,7 +3740,8 @@ async def ks_accounts(
             keyword=keyword,
         )
         return _success(
-            [_ks_account_payload(row) for row in rows],
+            [{**_ks_account_payload(row), "_src": "我的"} for row in rows],
+            total=total,
             pagination={"total": total, "page": page, "page_size": per_page},
         )
     page, per_page = _page_size(page, page_size or pageSize, size)
@@ -3738,6 +3796,7 @@ async def org_members(
     broker_name: str | None = None,
     contract_renew_status: str | None = None,
     agreement_type: str | None = None,
+    source: str | None = None,
 ):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
@@ -3754,13 +3813,12 @@ async def org_members(
         if agreement_type:
             where.append("agreement_types LIKE :agreement_type")
             params["agreement_type"] = f"%{agreement_type}%"
-        total = _source_count(db, "spark_org_members", where, params)
-        sql_where = " AND ".join(where) if where else "1=1"
-        rows = db.execute(
-            text(f"SELECT * FROM spark_org_members WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
-        return _success([_source_org_member_payload(dict(row)) for row in rows], total=total)
+        rows, total = _dual_select(db, "spark_org_members", where, params, page, per_page, source)
+        def _p(r):
+            d = _source_org_member_payload(dict(r))
+            d["_src"] = r.get("_src")
+            return d
+        return _success([_p(r) for r in rows], total=total)
     stmt = select(OrgMember)
     stmt = _apply_org_scope(stmt, OrgMember, user)
     if search:
@@ -3812,6 +3870,7 @@ async def spark_violation_photos(
     search: str | None = None,
     sub_biz: str | None = None,
     broker_name: str | None = None,
+    source: str | None = None,
 ):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
@@ -3825,12 +3884,7 @@ async def spark_violation_photos(
         if broker_name:
             where.append("broker_name = :broker_name")
             params["broker_name"] = broker_name
-        total = _source_count(db, "spark_violation_photos", where, params)
-        sql_where = " AND ".join(where) if where else "1=1"
-        rows = db.execute(
-            text(f"SELECT * FROM spark_violation_photos WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
+        rows, total = _dual_select(db, "spark_violation_photos", where, params, page, per_page, source)
         return _success(
             [
                 {
@@ -3871,6 +3925,7 @@ async def spark_violation_photos(
                     "org_id": row["org_id"],
                     "created_at": _dt(row["created_at"]),
                     "updated_at": _dt(row["updated_at"]),
+                    "_src": row.get("_src"),
                 }
                 for row in rows
             ],
@@ -5138,14 +5193,10 @@ async def statistics_external_urls(
 
 
 @router.get("/cloud-cookies")
-async def cloud_cookies(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None):
+async def cloud_cookies(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
-        total = _source_count(db, "cloud_cookie_accounts", [], {})
-        rows = db.execute(
-            text("SELECT * FROM cloud_cookie_accounts ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-            {"limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
+        rows, total = _dual_select(db, "cloud_cookie_accounts", [], {}, page, per_page, source)
         data = [
             {
                 "id": row["id"],
@@ -5159,10 +5210,11 @@ async def cloud_cookies(db: DbSession, user: CurrentUser, page: int = 1, page_si
                 "fail_count": row["fail_count"],
                 "created_at": _dt(row["created_at"]),
                 "updated_at": _dt(row["updated_at"]),
+                "_src": row.get("_src"),
             }
             for row in rows
         ]
-        return _success(data, pagination={"total": total, "page": page, "page_size": per_page})
+        return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
     stmt = select(CloudCookieAccount)
     stmt = _apply_org_scope(stmt, CloudCookieAccount, user)
     total = _count(db, stmt)
@@ -5194,10 +5246,10 @@ async def cloud_cookie_owner_codes(db: DbSession):
 
 
 @router.get("/cxt-user")
-async def cxt_users(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, search: str | None = None, status: str | None = None):
+async def cxt_users(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, search: str | None = None, status: str | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     try:
-        where = ["1=1"]
+        where: list[str] = []
         params: dict[str, Any] = {}
         if search:
             where.append("(uid LIKE :search OR note LIKE :search OR auth_code LIKE :search)")
@@ -5205,20 +5257,7 @@ async def cxt_users(db: DbSession, user: CurrentUser, page: int = 1, page_size: 
         if status not in (None, ""):
             where.append("status = :status")
             params["status"] = status
-        where_sql = " AND ".join(where)
-        total = int(db.execute(text(f"SELECT COUNT(*) FROM cxt_user WHERE {where_sql}"), params).scalar() or 0)
-        rows = db.execute(
-            text(
-                f"""
-                SELECT id, uid, note, auth_code, status
-                FROM cxt_user
-                WHERE {where_sql}
-                ORDER BY id DESC
-                LIMIT :limit OFFSET :offset
-                """
-            ),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
+        rows, total = _dual_select(db, "cxt_user", where, params, page, per_page, source)
         data = [
             {
                 "id": row["id"],
@@ -5228,6 +5267,7 @@ async def cxt_users(db: DbSession, user: CurrentUser, page: int = 1, page_size: 
                 "note": row["note"],
                 "auth_code": row["auth_code"],
                 "status": row["status"],
+                "_src": row.get("_src"),
             }
             for row in rows
         ]
@@ -5351,7 +5391,7 @@ async def batch_delete_cxt_users_by_uid(request: Request, db: DbSession):
 
 
 @router.get("/cxt-videos")
-async def cxt_videos(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, title: str | None = None, author: str | None = None, aweme_id: str | None = None):
+async def cxt_videos(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, title: str | None = None, author: str | None = None, aweme_id: str | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
         where: list[str] = []
@@ -5365,12 +5405,7 @@ async def cxt_videos(db: DbSession, user: CurrentUser, page: int = 1, page_size:
         if aweme_id:
             where.append("aweme_id LIKE :aweme_id")
             params["aweme_id"] = f"%{aweme_id}%"
-        total = _source_count(db, "cxt_videos", where, params)
-        sql_where = " AND ".join(where) if where else "1=1"
-        rows = db.execute(
-            text(f"SELECT * FROM cxt_videos WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
+        rows, total = _dual_select(db, "cxt_videos", where, params, page, per_page, source)
         data = [
             {
                 "id": row["id"],
@@ -5392,6 +5427,7 @@ async def cxt_videos(db: DbSession, user: CurrentUser, page: int = 1, page_size:
                 "platform": row["platform"],
                 "status": "active",
                 "created_at": _dt(row["created_at"]),
+                "_src": row.get("_src"),
             }
             for row in rows
         ]
@@ -6718,20 +6754,16 @@ async def batch_archive_commission(request: Request, db: DbSession):
 
 
 @router.get("/spark/photos")
-async def spark_photos(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, search: str | None = None):
+async def spark_photos(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, search: str | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
         where, params = _source_org_clause(user, "org_id")
         if search:
             where.append("(photo_id LIKE :search OR title LIKE :search OR member_name LIKE :search)")
             params["search"] = f"%{search}%"
-        total = _source_count(db, "spark_photos", where, params)
-        sql_where = " AND ".join(where) if where else "1=1"
+        rows, total = _dual_select(db, "spark_photos", where, params, page, per_page, source)
         if total:
-            rows = db.execute(
-                text(f"SELECT * FROM spark_photos WHERE {sql_where} ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-                {**params, "limit": per_page, "offset": (page - 1) * per_page},
-            ).mappings().all()
+            pass
             data = [
                     {
                         "id": row["id"],
@@ -6758,6 +6790,7 @@ async def spark_photos(db: DbSession, user: CurrentUser, page: int = 1, page_siz
                         "account_id": None,
                         "created_at": _dt(row["created_at"]),
                         "updated_at": _dt(row["updated_at"]),
+                        "_src": row.get("_src"),
                     }
                     for row in rows
                 ]
