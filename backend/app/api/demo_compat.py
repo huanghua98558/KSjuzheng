@@ -1200,8 +1200,14 @@ def _source_count(db: Session, table: str, where: list[str], params: dict[str, A
 
 def _dual_select(db: Session, table: str, where: list[str], params: dict[str, Any],
                  page: int, per_page: int, source: str | None,
-                 order_by: str = "id DESC") -> tuple[list, int]:
-    """双轨数据源通用查询 — source: 'self'/'mcn'/None(默认 all 合并)."""
+                 order_by: str = "id DESC", viewer: Any = None) -> tuple[list, int]:
+    """双轨数据源通用查询 — source: 'self'/'mcn'/None(默认 all 合并).
+
+    权限隔离 (按用户铁令):
+      非 super_admin viewer 强制 source='self' (只看老表/读写库).
+    """
+    if viewer is not None and not getattr(viewer, "is_superadmin", False):
+        source = "self"
     sql_where = " AND ".join(where) if where else "1=1"
     mcn_table = f"mcn_{table}"
     src = (source or "all").lower()
@@ -1331,7 +1337,10 @@ def _source_member_list(
     sort_field: str | None = None,
     sort_order: str | None = None,
     source: str | None = None,
+    viewer: Any = None,
 ) -> tuple[list[dict[str, Any]], int]:
+    if viewer is not None and not getattr(viewer, "is_superadmin", False):
+        source = "self"
     where, params = _source_org_clause(user, "org_id")
     if org_id and user.is_superadmin:
         where.append("org_id = :org_id")
@@ -1393,7 +1402,10 @@ def _source_income_list(
     task_name: str | None = None,
     org_column: str | None = "org_id",
     source: str | None = None,
+    viewer: Any = None,
 ) -> tuple[list[dict[str, Any]], int]:
+    if viewer is not None and not getattr(viewer, "is_superadmin", False):
+        source = "self"
     where: list[str] = []
     params: dict[str, Any] = {}
     if org_column and not user.is_superadmin:
@@ -1822,7 +1834,7 @@ async def wallet_info(
         if search:
             where.append("(username LIKE :search OR nickname LIKE :search OR phone LIKE :search OR alipay_info LIKE :search)")
             params["search"] = f"%{search}%"
-        rows, total = _dual_select(db, "admin_users", where, params, page, per_page, source)
+        rows, total = _dual_select(db, "admin_users", where, params, page, per_page, source, viewer=user)
         data = []
         for r in rows:
             d = _source_wallet_payload(dict(r))
@@ -1878,6 +1890,8 @@ async def users(
         else:
             page, per_page = _page_size(page, pageSize or page_size, size)
         if (source or "").lower() == "mcn":
+            if not user.is_superadmin:
+                return _success([], total=0, pagination={"total": 0, "page": page, "page_size": per_page})
             # source=mcn: 直接查 mcn_admin_users 镜像
             where: list[str] = []
             params: dict[str, Any] = {}
@@ -1890,7 +1904,7 @@ async def users(
             if is_active is not None:
                 where.append("is_active = :is_active")
                 params["is_active"] = int(is_active)
-            rows, total = _dual_select(db, "admin_users", where, params, page, per_page, "mcn")
+            rows, total = _dual_select(db, "admin_users", where, params, page, per_page, "mcn", viewer=user)
             data = [{**dict(r), "_src": r.get("_src")} for r in rows]
             return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
         rows, total = source_mysql_service.list_users(
@@ -3202,6 +3216,10 @@ async def accounts(
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size or pageSize, size)
         if (source or "").lower() == "mcn":
+            # 权限保护: 非 super_admin 不允许查 mcn 镜像
+            if not user.is_superadmin:
+                return _success({"accounts": [], "total": 0, "mcn_count": 0, "normal_count": 0,
+                                  "user_role": user.role, "_perm": "mcn_blocked"}, total=0)
             # source=mcn: 直接查 mcn_accounts VIEW (字段已对齐 ksjuzheng accounts)
             # VIEW 由 mcn_kuaishou_accounts 映射, sync_daemon 自动维护数据
             where: list[str] = []
@@ -3763,13 +3781,15 @@ async def ks_accounts(
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size or pageSize, size)
         if (source or "").lower() == "mcn":
+            if not user.is_superadmin:
+                return _success([], total=0, pagination={"total": 0, "page": page, "page_size": per_page})
             # source=mcn: 直接查 mcn_kuaishou_accounts 镜像
             where: list[str] = []
             params: dict[str, Any] = {}
             if keyword:
                 where.append("(account_name LIKE :kw OR kuaishou_uid LIKE :kw OR device_code LIKE :kw)")
                 params["kw"] = f"%{keyword}%"
-            rows, total = _dual_select(db, "kuaishou_accounts", where, params, page, per_page, "mcn")
+            rows, total = _dual_select(db, "kuaishou_accounts", where, params, page, per_page, "mcn", viewer=user)
             data = [{**dict(r), "_src": r.get("_src")} for r in rows]
             return _success(data, total=total, pagination={"total": total, "page": page, "page_size": per_page})
         rows, total = source_mysql_service.list_ks_accounts(
@@ -3853,7 +3873,7 @@ async def org_members(
         if agreement_type:
             where.append("agreement_types LIKE :agreement_type")
             params["agreement_type"] = f"%{agreement_type}%"
-        rows, total = _dual_select(db, "spark_org_members", where, params, page, per_page, source)
+        rows, total = _dual_select(db, "spark_org_members", where, params, page, per_page, source, viewer=user)
         def _p(r):
             d = _source_org_member_payload(dict(r))
             d["_src"] = r.get("_src")
@@ -3924,7 +3944,7 @@ async def spark_violation_photos(
         if broker_name:
             where.append("broker_name = :broker_name")
             params["broker_name"] = broker_name
-        rows, total = _dual_select(db, "spark_violation_photos", where, params, page, per_page, source)
+        rows, total = _dual_select(db, "spark_violation_photos", where, params, page, per_page, source, viewer=user)
         return _success(
             [
                 {
@@ -4015,6 +4035,7 @@ async def firefly_members(
             sort_field=sort_field,
             sort_order=sort_order,
             source=source,
+            viewer=user,
         )
         return _success(data, total=total)
     # The demo labels this page "firefly", but its real data source is fluorescent_members.
@@ -4175,6 +4196,7 @@ async def spark_members(db: DbSession, user: CurrentUser, page: int = 1, page_si
             broker_name=broker_name,
             sort_field="org_task_num",
             source=source,
+            viewer=user,
         )
         if total:
             return _success(data, total=total)
@@ -4295,7 +4317,7 @@ async def firefly_income(db: DbSession, user: CurrentUser, page: int = 1, page_s
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size, size)
         data, total = _source_income_list(
-            db, user, table="fluorescent_income_archive", program="firefly", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source,
+            db, user, table="fluorescent_income_archive", program="firefly", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source, viewer=user,
         )
         return _success(data, total=total)
     data, total = _income_list(db, user, FireflyIncome, page, page_size, size, task_name)
@@ -4307,7 +4329,7 @@ async def spark_income(db: DbSession, user: CurrentUser, page: int = 1, page_siz
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size, size)
         data, total = _source_income_list(
-            db, user, table="spark_income", program="spark", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source,
+            db, user, table="spark_income", program="spark", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source, viewer=user,
         )
         return _success(data, total=total)
     data, total = _income_list(db, user, SparkIncome, page, page_size, size, task_name)
@@ -4319,7 +4341,7 @@ async def fluorescent_income(db: DbSession, user: CurrentUser, page: int = 1, pa
     if source_mysql_service.is_source_mysql(db):
         page, per_page = _page_size(page, page_size, size)
         data, total = _source_income_list(
-            db, user, table="fluorescent_income_archive", program="fluorescent", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source,
+            db, user, table="fluorescent_income_archive", program="fluorescent", page=page, per_page=per_page, task_name=task_name, org_column="org_id", source=source, viewer=user,
         )
         return _success(data, total=total)
     data, total = _income_list(db, user, FluorescentIncome, page, page_size, size, task_name)
@@ -4379,7 +4401,7 @@ async def spark_archive(db: DbSession, user: CurrentUser, page: int = 1, page_si
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
         data, total = _source_income_list(
-            db, user, table="spark_income_archive", program="spark", page=page, per_page=per_page, org_column="org_id", source=source,
+            db, user, table="spark_income_archive", program="spark", page=page, per_page=per_page, org_column="org_id", source=source, viewer=user,
         )
         return _success(data, total=total)
     stmt = select(IncomeArchive).where(IncomeArchive.program_type == "spark")
@@ -4440,16 +4462,26 @@ async def collect_pool(
         if username:
             where.append("username = :username")
             params["username"] = username
-        total = (_source_count(db, "wait_collect_videos", where, params)
-                 + _source_count(db, "mcn_wait_collect_videos", where, params))
         sql_where = " AND ".join(where) if where else "1=1"
-        rows = db.execute(
-            text(f"(SELECT *, '我的' AS _src FROM wait_collect_videos WHERE {sql_where}) "
-                 f"UNION ALL "
-                 f"(SELECT *, 'MCN' AS _src FROM mcn_wait_collect_videos WHERE {sql_where}) "
-                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
+        if user.is_superadmin:
+            # 超管: 合并显示
+            total = (_source_count(db, "wait_collect_videos", where, params)
+                     + _source_count(db, "mcn_wait_collect_videos", where, params))
+            rows = db.execute(
+                text(f"(SELECT *, '我的' AS _src FROM wait_collect_videos WHERE {sql_where}) "
+                     f"UNION ALL "
+                     f"(SELECT *, 'MCN' AS _src FROM mcn_wait_collect_videos WHERE {sql_where}) "
+                     f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+                {**params, "limit": per_page, "offset": (page - 1) * per_page},
+            ).mappings().all()
+        else:
+            # 非超管: 只看老表
+            total = _source_count(db, "wait_collect_videos", where, params)
+            rows = db.execute(
+                text(f"SELECT *, '我的' AS _src FROM wait_collect_videos WHERE {sql_where} "
+                     f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+                {**params, "limit": per_page, "offset": (page - 1) * per_page},
+            ).mappings().all()
         def _payload_with_src(r):
             d = _source_collect_pool_payload(dict(r))
             d["_src"] = r.get("_src")
@@ -4743,16 +4775,24 @@ async def high_income_dramas(
         if keyword:
             where.append("title LIKE :keyword")
             params["keyword"] = f"%{keyword}%"
-        total = (_source_count(db, "spark_highincome_dramas", where, params)
-                 + _source_count(db, "mcn_spark_highincome_dramas", where, params))
         sql_where = " AND ".join(where) if where else "1=1"
-        rows = db.execute(
-            text(f"(SELECT *, '我的' AS _src FROM spark_highincome_dramas WHERE {sql_where}) "
-                 f"UNION ALL "
-                 f"(SELECT *, 'MCN' AS _src FROM mcn_spark_highincome_dramas WHERE {sql_where}) "
-                 f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
-            {**params, "limit": per_page, "offset": (page - 1) * per_page},
-        ).mappings().all()
+        if user.is_superadmin:
+            total = (_source_count(db, "spark_highincome_dramas", where, params)
+                     + _source_count(db, "mcn_spark_highincome_dramas", where, params))
+            rows = db.execute(
+                text(f"(SELECT *, '我的' AS _src FROM spark_highincome_dramas WHERE {sql_where}) "
+                     f"UNION ALL "
+                     f"(SELECT *, 'MCN' AS _src FROM mcn_spark_highincome_dramas WHERE {sql_where}) "
+                     f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+                {**params, "limit": per_page, "offset": (page - 1) * per_page},
+            ).mappings().all()
+        else:
+            total = _source_count(db, "spark_highincome_dramas", where, params)
+            rows = db.execute(
+                text(f"SELECT *, '我的' AS _src FROM spark_highincome_dramas WHERE {sql_where} "
+                     f"ORDER BY id DESC LIMIT :limit OFFSET :offset"),
+                {**params, "limit": per_page, "offset": (page - 1) * per_page},
+            ).mappings().all()
         data = [
             {
                 "id": row["id"],
@@ -5069,38 +5109,37 @@ async def statistics_drama_links(
 @router.get("/collections/accounts")
 async def collection_accounts(db: DbSession, user: CurrentUser):
     if source_mysql_service.is_source_mysql(db):
+        if user.is_superadmin:
+            sub_sql = (
+                "SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at, "
+                "'我的' AS _src, 1 AS _count, "
+                "CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END AS _spark, "
+                "CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END AS _firefly "
+                "FROM drama_collections "
+                "UNION ALL "
+                "SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at, "
+                "'MCN' AS _src, 1, "
+                "CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END, "
+                "CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END "
+                "FROM mcn_drama_collections"
+            )
+        else:
+            sub_sql = (
+                "SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at, "
+                "'我的' AS _src, 1 AS _count, "
+                "CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END AS _spark, "
+                "CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END AS _firefly "
+                "FROM drama_collections"
+            )
         rows = db.execute(
             text(
-                """
-                SELECT MIN(id) AS id,
-                       kuaishou_uid,
-                       kuaishou_name,
-                       device_serial,
-                       MAX(_src) AS _src,
-                       SUM(_count) AS total_count,
-                       SUM(_spark) AS spark_count,
-                       SUM(_firefly) AS firefly_count,
-                       MAX(collected_at) AS last_collected_at,
-                       MAX(updated_at) AS updated_at
-                FROM (
-                  SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at,
-                         '我的' AS _src,
-                         1 AS _count,
-                         CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END AS _spark,
-                         CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END AS _firefly
-                  FROM drama_collections
-                  UNION ALL
-                  SELECT id, kuaishou_uid, kuaishou_name, device_serial, plan_mode, collected_at, updated_at,
-                         'MCN' AS _src,
-                         1 AS _count,
-                         CASE WHEN plan_mode = 'spark' THEN 1 ELSE 0 END AS _spark,
-                         CASE WHEN plan_mode IN ('firefly', 'fluorescent', 'yingguang') THEN 1 ELSE 0 END AS _firefly
-                  FROM mcn_drama_collections
-                ) u
-                GROUP BY kuaishou_uid, kuaishou_name, device_serial
-                ORDER BY total_count DESC
-                LIMIT 1000
-                """
+                f"SELECT MIN(id) AS id, kuaishou_uid, kuaishou_name, device_serial, "
+                f"MAX(_src) AS _src, SUM(_count) AS total_count, SUM(_spark) AS spark_count, "
+                f"SUM(_firefly) AS firefly_count, MAX(collected_at) AS last_collected_at, "
+                f"MAX(updated_at) AS updated_at "
+                f"FROM ({sub_sql}) u "
+                f"GROUP BY kuaishou_uid, kuaishou_name, device_serial "
+                f"ORDER BY total_count DESC LIMIT 1000"
             )
         ).mappings().all()
         return _success(
@@ -5257,7 +5296,7 @@ async def statistics_external_urls(
 async def cloud_cookies(db: DbSession, user: CurrentUser, page: int = 1, page_size: int | None = None, size: int | None = None, source: str | None = None):
     page, per_page = _page_size(page, page_size, size)
     if source_mysql_service.is_source_mysql(db):
-        rows, total = _dual_select(db, "cloud_cookie_accounts", [], {}, page, per_page, source)
+        rows, total = _dual_select(db, "cloud_cookie_accounts", [], {}, page, per_page, source, viewer=user)
         data = [
             {
                 "id": row["id"],
@@ -5318,7 +5357,7 @@ async def cxt_users(db: DbSession, user: CurrentUser, page: int = 1, page_size: 
         if status not in (None, ""):
             where.append("status = :status")
             params["status"] = status
-        rows, total = _dual_select(db, "cxt_user", where, params, page, per_page, source)
+        rows, total = _dual_select(db, "cxt_user", where, params, page, per_page, source, viewer=user)
         data = [
             {
                 "id": row["id"],
@@ -5466,7 +5505,7 @@ async def cxt_videos(db: DbSession, user: CurrentUser, page: int = 1, page_size:
         if aweme_id:
             where.append("aweme_id LIKE :aweme_id")
             params["aweme_id"] = f"%{aweme_id}%"
-        rows, total = _dual_select(db, "cxt_videos", where, params, page, per_page, source)
+        rows, total = _dual_select(db, "cxt_videos", where, params, page, per_page, source, viewer=user)
         data = [
             {
                 "id": row["id"],
@@ -6822,7 +6861,7 @@ async def spark_photos(db: DbSession, user: CurrentUser, page: int = 1, page_siz
         if search:
             where.append("(photo_id LIKE :search OR title LIKE :search OR member_name LIKE :search)")
             params["search"] = f"%{search}%"
-        rows, total = _dual_select(db, "spark_photos", where, params, page, per_page, source)
+        rows, total = _dual_select(db, "spark_photos", where, params, page, per_page, source, viewer=user)
         if total:
             pass
             data = [

@@ -20,7 +20,7 @@
     </el-row>
 
     <el-tabs
-      v-if="config.sourceTabs"
+      v-if="config.sourceTabs && isSuperAdmin"
       v-model="sourceTab"
       class="source-tabs"
       @tab-change="handleSourceTabChange"
@@ -244,6 +244,7 @@ import { useRoute } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { apiDelete, apiGet, apiPost, apiPut } from '@/api/http'
 import { getPageConfig } from '@/config/pageConfigs'
+import { useAuthStore } from '@/stores/auth'
 
 interface DialogField {
   key: string
@@ -261,6 +262,9 @@ interface ActionPlan {
 }
 
 const route = useRoute()
+const auth = useAuthStore()
+// 权限判断: 只有 super_admin 才能切换数据源 Tab (看 MCN 镜像)
+const isSuperAdmin = computed(() => Boolean(auth.user?.is_superadmin) || auth.user?.role === 'super_admin')
 const loading = ref(false)
 const submitting = ref(false)
 const rows = ref<Record<string, any>[]>([])
@@ -391,8 +395,9 @@ function requestParams() {
     if (filters[filter.key]) params[filter.key] = filters[filter.key]
   }
   // 双轨数据源 Tab — 把当前选中的 'self' / 'mcn' 加进 query
+  // 非 super_admin 强制 source='self' (后端也校验, 双重保护)
   if (config.value.sourceTabs) {
-    params.source = sourceTab.value
+    params.source = isSuperAdmin.value ? sourceTab.value : 'self'
   }
   return params
 }
