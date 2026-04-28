@@ -1,0 +1,638 @@
+export interface PageAction {
+  label: string
+  type?: 'primary' | 'success' | 'warning' | 'danger' | 'info'
+}
+
+export interface PageFilter {
+  key: string
+  placeholder: string
+  type?: 'input' | 'date' | 'select'
+  source?: 'users' | 'organizations'
+}
+
+export interface PageColumn {
+  key: string
+  label: string
+  width?: number
+  money?: boolean
+  tag?: boolean
+  image?: boolean
+  link?: boolean
+  sortable?: boolean
+  fixed?: 'left' | 'right'
+}
+
+export interface StatCard {
+  label: string
+  key: string
+  icon?: string
+  money?: boolean
+  color?: string
+}
+
+export interface PageConfig {
+  title: string
+  subtitle?: string
+  endpoint: string
+  statsEndpoint?: string
+  responseListKey?: string
+  filters: PageFilter[]
+  actions: PageAction[]
+  columns: PageColumn[]
+  statCards?: StatCard[]
+  rowActions?: PageAction[]
+}
+
+const commonActions: PageAction[] = [
+  { label: '搜索', type: 'primary' },
+  { label: '重置' },
+]
+
+const queryActions: PageAction[] = [
+  { label: '查询', type: 'primary' },
+  { label: '重置' },
+]
+
+export const pageConfigs: Record<string, PageConfig> = {
+  '/statistics': {
+    title: '执行统计',
+    subtitle: '统计详情',
+    endpoint: '/statistics/drama',
+    filters: [
+      { key: 'start_date', placeholder: '开始日期', type: 'date' },
+      { key: 'end_date', placeholder: '结束日期', type: 'date' },
+      { key: 'uid', placeholder: '筛选UID' },
+    ],
+    actions: [{ label: '刷新', type: 'primary' }],
+    statCards: [
+      { label: '总执行次数', key: 'total_executions', icon: '总', color: '#2f8dfb' },
+      { label: '成功次数', key: 'success_count', icon: '成', color: '#31b56a' },
+      { label: '失败次数', key: 'failed_count', icon: '败', color: '#ff5a5f' },
+      { label: '成功率', key: 'success_rate', icon: '%', color: '#ff9f28' },
+    ],
+    columns: [
+      { key: 'date', label: '统计时间', width: 160 },
+      { key: 'uid', label: 'UID', width: 140 },
+      { key: 'task_name', label: '任务名称', width: 180 },
+      { key: 'total_count', label: '执行次数' },
+      { key: 'success_count', label: '成功次数' },
+      { key: 'failed_count', label: '失败次数' },
+      { key: 'success_rate', label: '成功率' },
+      { key: 'avg_duration', label: '平均时长' },
+    ],
+    rowActions: [{ label: '查看详情', type: 'primary' }],
+  },
+  '/accounts': {
+    title: '软件账号管理',
+    endpoint: '/accounts',
+    responseListKey: 'accounts',
+    statsEndpoint: '/accounts/organization-stats',
+    filters: [
+      { key: 'search', placeholder: '搜索UID/昵称/真实UID' },
+      { key: 'owner_id', placeholder: '所属用户', type: 'select', source: 'users' },
+      { key: 'exclude_user_id', placeholder: '排除用户' },
+    ],
+    actions: [
+      { label: '机构统计' },
+      { label: '添加账号', type: 'primary' },
+      { label: '批量导入', type: 'success' },
+      { label: '分组管理' },
+      ...commonActions,
+      { label: '高级筛选' },
+      { label: '批量授权MCN (0)', type: 'warning' },
+      { label: '取消授权 (0)', type: 'danger' },
+      { label: '更新授权 (0)' },
+      { label: '更新收益 (0)' },
+      { label: '设置分组 (0)' },
+      { label: '取消分组' },
+      { label: '批量修改分成比例 (0)' },
+      { label: '批量修改机构 (0)' },
+      { label: '分配用户 (0)' },
+      { label: '账号管控' },
+      { label: '删除 (0)', type: 'danger' },
+      { label: '刷新' },
+      { label: '邀请账号' },
+      { label: '开通星火' },
+      { label: '刷新签约状态' },
+      { label: '文件批量' },
+      { label: '任务记录' },
+    ],
+    columns: [
+      { key: 'id', label: 'ID', width: 80 },
+      { key: 'uid', label: '快手号', width: 130 },
+      { key: 'real_uid', label: '真实UID', width: 130 },
+      { key: 'nickname', label: '昵称', width: 160 },
+      { key: 'sign_status', label: '签约状态', tag: true },
+      { key: 'invitation_success_count', label: '邀约成功' },
+      { key: 'remark', label: '备注', width: 160 },
+      { key: 'organization_name', label: '所属机构', width: 150 },
+      { key: 'owner_name', label: '所属用户', width: 120 },
+      { key: 'status', label: '状态', tag: true },
+      { key: 'group_name', label: '分组' },
+      { key: 'mcn_status', label: 'MCN状态', tag: true },
+      { key: 'commission_rate', label: '分成比例(%)' },
+    ],
+    rowActions: [{ label: '编辑' }, { label: '删除', type: 'danger' }],
+  },
+  '/ks-accounts': {
+    title: 'KS账号管理',
+    endpoint: '/ks-accounts',
+    filters: [{ key: 'keyword', placeholder: '账号名称/快手UID/设备码' }],
+    actions: [...queryActions, { label: '批量删除 (0)', type: 'danger' }],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'account_name', label: '账号名称', width: 180 },
+      { key: 'kuaishou_uid', label: '快手UID', width: 160 },
+      { key: 'device_code', label: '设备码', width: 220 },
+    ],
+    rowActions: [{ label: '编辑' }, { label: '删除', type: 'danger' }],
+  },
+  '/org-members': {
+    title: '机构成员管理',
+    endpoint: '/org-members',
+    filters: [
+      { key: 'search', placeholder: '搜索成员ID/用户ID/昵称' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+      { key: 'remark', placeholder: '搜索备注' },
+    ],
+    actions: [{ label: '添加成员', type: 'primary' }, ...commonActions],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'member_id', label: '成员ID', width: 140 },
+      { key: 'user_id', label: '用户ID', width: 140 },
+      { key: 'avatar', label: '头像', image: true, width: 80 },
+      { key: 'member_name', label: '成员昵称', width: 160 },
+      { key: 'org_name', label: '所属机构', width: 160 },
+      { key: 'account_name', label: '所属账号', width: 140 },
+      { key: 'fans_count', label: '粉丝数', width: 110 },
+      { key: 'broker_name', label: '经纪人姓名', width: 130 },
+      { key: 'cooperation_type', label: '合作类型' },
+      { key: 'broker_type', label: '经纪人类型' },
+      { key: 'content_category', label: '内容分类' },
+      { key: 'mcn_level', label: 'MCN等级' },
+      { key: 'renewal_status', label: '续约状态', tag: true },
+    ],
+    rowActions: [{ label: '编辑' }, { label: '删除', type: 'danger' }],
+  },
+  '/account-violation': {
+    title: '账号违规信息',
+    endpoint: '/spark/violation-photos',
+    filters: [
+      { key: 'search', placeholder: '搜索作品ID/用户名/描述' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+      { key: 'sub_biz', placeholder: '业务类型' },
+    ],
+    actions: [...commonActions],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'user_id', label: 'User ID', width: 120 },
+      { key: 'photo_id', label: '作品ID', width: 160 },
+      { key: 'thumbnail', label: '缩略图', image: true, width: 90 },
+      { key: 'username', label: '用户名', width: 140 },
+      { key: 'org_name', label: '所属机构', width: 140 },
+      { key: 'owner_name', label: '所属用户' },
+      { key: 'account_name', label: '所属软件账号' },
+      { key: 'caption', label: '描述', width: 220 },
+      { key: 'view_count', label: '播放量' },
+      { key: 'like_count', label: '点赞数' },
+      { key: 'sub_biz', label: '业务类型', tag: true },
+      { key: 'status_desc', label: '状态', tag: true },
+      { key: 'reason', label: '违规原因', width: 260 },
+    ],
+    rowActions: [{ label: '查看详情' }],
+  },
+  '/users': {
+    title: '用户管理',
+    endpoint: '/auth/users',
+    filters: [{ key: 'search', placeholder: '用户名/昵称' }],
+    actions: [
+      { label: '🔮 数据更新', type: 'success' },
+      { label: '📊 支付宝统计' },
+      { label: '更新机构Cookie' },
+      { label: '✅ 允许查询', type: 'success' },
+      { label: '创建用户', type: 'primary' },
+      ...commonActions,
+    ],
+    columns: [
+      { key: 'id', label: 'ID', width: 80 },
+      { key: 'children_count', label: '下属' },
+      { key: 'username', label: '用户名', width: 150 },
+      { key: 'nickname', label: '昵称', width: 150 },
+      { key: 'commission_rate', label: '分成比例' },
+      { key: 'parent_name', label: '上级' },
+      { key: 'role_label', label: '角色', tag: true },
+      { key: 'organization_name', label: '所属机构', width: 160 },
+      { key: 'alipay_info', label: '支付宝信息', width: 160 },
+      { key: 'cooperation_type', label: '合作类型' },
+      { key: 'is_oem', label: '是否贴牌', tag: true },
+      { key: 'oem_name', label: '贴牌名称' },
+      { key: 'is_active', label: '状态', tag: true },
+      { key: 'user_level', label: '等级', tag: true },
+    ],
+    rowActions: [
+      { label: '点击查看', type: 'primary' },
+      { label: '刷新' },
+      { label: '编辑' },
+      { label: '禁用', type: 'warning' },
+      { label: '更多', type: 'primary' },
+      { label: '重置密码' },
+      { label: '🏷️ 贴牌设置' },
+      { label: '授权码' },
+      { label: '合作类型' },
+      { label: '💰 编辑分成' },
+      { label: '💳 支付宝信息' },
+      { label: '删除', type: 'danger' },
+      { label: '📱 客户端页面权限' },
+      { label: '👥 用户页面按钮权限' },
+      { label: '👁 分成可见' },
+      { label: '🔄 修改角色' },
+      { label: '🏢 设置机构' },
+      { label: '📌 分配给团长' },
+    ],
+  },
+  '/wallet-info': {
+    title: '钱包信息',
+    endpoint: '/wallet-info',
+    filters: [
+      { key: 'alipay_name', placeholder: '请输入支付宝实名姓名' },
+      { key: 'alipay_account', placeholder: '请输入支付宝账号（手机号或邮箱）' },
+    ],
+    actions: [{ label: '查看收益统计' }, { label: '保存', type: 'primary' }, { label: '重置' }],
+    columns: [
+      { key: 'username', label: '用户名', width: 150 },
+      { key: 'nickname', label: '昵称', width: 150 },
+      { key: 'real_name', label: '实名姓名', width: 140 },
+      { key: 'alipay_account', label: '支付宝账号', width: 180 },
+      { key: 'bank_name', label: '银行名称' },
+      { key: 'bank_account', label: '银行卡号', width: 180 },
+      { key: 'updated_at', label: '更新时间', width: 180 },
+    ],
+    rowActions: [{ label: '保存', type: 'primary' }],
+  },
+  '/firefly-members': {
+    title: '萤光本月收益',
+    subtitle: '萤光计划本月收益数据',
+    endpoint: '/firefly/members',
+    statsEndpoint: '/firefly/members/stats',
+    filters: [
+      { key: 'search', placeholder: '搜索成员ID/昵称' },
+      { key: 'organization_id', placeholder: '选择机构', type: 'select', source: 'organizations' },
+      { key: 'group_id', placeholder: '按分组筛选' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+    ],
+    actions: [{ label: '上传表格', type: 'primary' }, { label: '同步数据', type: 'success' }, ...commonActions],
+    statCards: [
+      { label: '成员总数', key: 'total_members', icon: 'user', color: '#6b5eea' },
+      { label: '本月金额', key: 'total_amount', icon: 'money', money: true, color: '#26c6f9' },
+    ],
+    columns: [
+      { key: 'member_id', label: '成员ID', width: 140 },
+      { key: 'member_name', label: '成员昵称', width: 160 },
+      { key: 'owner_name', label: '所属用户' },
+      { key: 'avatar', label: '头像', image: true, width: 80 },
+      { key: 'fans_count', label: '粉丝数' },
+      { key: 'is_limited', label: '是否限额', tag: true },
+      { key: 'broker_name', label: '经纪人' },
+      { key: 'org_task_num', label: '机构任务数' },
+      { key: 'total_amount', label: '总金额', money: true },
+      { key: 'commission_rate', label: '分成比例' },
+      { key: 'commission_amount', label: '扣除分成', money: true },
+      { key: 'org_name', label: '所属机构' },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '查看详情', type: 'primary' }, { label: '编辑' }, { label: '删除', type: 'danger' }],
+  },
+  '/firefly-income': {
+    title: '历史收益',
+    endpoint: '/firefly/income',
+    statsEndpoint: '/firefly/income/stats',
+    filters: [
+      { key: 'search', placeholder: '搜索成员ID/昵称' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+      { key: 'broker_name', placeholder: '经纪人' },
+    ],
+    actions: [{ label: '团长汇总' }, { label: '批量UID操作' }, ...commonActions, { label: '未结清', type: 'warning' }],
+    statCards: [
+      { label: '记录总数', key: 'total', icon: 'list', color: '#6b5eea' },
+      { label: '收益金额', key: 'total_amount', icon: 'money', money: true, color: '#26c6f9' },
+    ],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'member_id', label: '成员ID', width: 140 },
+      { key: 'avatar', label: '头像', image: true, width: 80 },
+      { key: 'member_name', label: '成员昵称', width: 160 },
+      { key: 'owner_name', label: '所属用户' },
+      { key: 'fans_count', label: '粉丝数' },
+      { key: 'broker_name', label: '经纪人' },
+      { key: 'org_task_num', label: '机构任务数' },
+      { key: 'total_amount', label: '收益金额', money: true },
+      { key: 'commission_rate', label: '分成比例' },
+      { key: 'commission_amount', label: '扣除分成', money: true },
+      { key: 'archive_year', label: '归档年份' },
+      { key: 'archive_month', label: '归档月份' },
+      { key: 'settlement_status', label: '结算状态', tag: true },
+    ],
+    rowActions: [{ label: '编辑' }, { label: '未结清', type: 'warning' }, { label: '删除', type: 'danger' }],
+  },
+  '/fluorescent-income': {
+    title: '收益明细',
+    endpoint: '/fluorescent/income',
+    statsEndpoint: '/fluorescent/income/stats',
+    filters: [
+      { key: 'search', placeholder: '搜索成员名称' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+      { key: 'task_name', placeholder: '搜索任务名称' },
+      { key: 'start_date', placeholder: '开始日期', type: 'date' },
+      { key: 'end_date', placeholder: '结束日期', type: 'date' },
+    ],
+    actions: [...commonActions, { label: '加入高转化', type: 'success' }],
+    statCards: [
+      { label: '记录总数', key: 'total', icon: 'list', color: '#6b5eea' },
+      { label: '收入金额', key: 'total_amount', icon: 'money', money: true, color: '#26c6f9' },
+    ],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'member_name', label: '成员名称', width: 160 },
+      { key: 'org_name', label: '所属机构', width: 160 },
+      { key: 'task_id', label: '任务ID', width: 140 },
+      { key: 'task_name', label: '任务名称', width: 220 },
+      { key: 'task_start_time', label: '任务开始时间', width: 180 },
+      { key: 'total_amount', label: '收入金额', money: true },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '加入高转化', type: 'success' }],
+  },
+  '/spark-members': {
+    title: '星火成员',
+    endpoint: '/spark/members',
+    statsEndpoint: '/spark/members/stats',
+    filters: [
+      { key: 'search', placeholder: '搜索成员ID/名称' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+    ],
+    actions: [...commonActions],
+    statCards: [
+      { label: '成员总数', key: 'total_members', icon: 'user', color: '#6b5eea' },
+      { label: '周期收益', key: 'period_income', icon: 'money', money: true, color: '#26c6f9' },
+    ],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'member_id', label: '成员ID', width: 140 },
+      { key: 'member_name', label: '成员名称', width: 160 },
+      { key: 'account_name', label: '所属账号' },
+      { key: 'org_name', label: '所属机构' },
+      { key: 'fans_count', label: '粉丝数' },
+      { key: 'broker_name', label: '经纪人' },
+      { key: 'org_task_num', label: '任务数' },
+      { key: 'total_amount', label: '累计收入', money: true },
+      { key: 'commission_rate', label: '分成比例' },
+      { key: 'commission_amount', label: '扣除分成', money: true },
+      { key: 'is_limited', label: '限流', tag: true },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '查看详情', type: 'primary' }, { label: '编辑' }, { label: '删除', type: 'danger' }],
+  },
+  '/spark-archive': {
+    title: '星火归档',
+    endpoint: '/spark/archive',
+    statsEndpoint: '/spark/archive/stats',
+    filters: [
+      { key: 'search', placeholder: '搜索成员ID/昵称/经纪人' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+      { key: 'broker_name', placeholder: '经纪人名称' },
+    ],
+    actions: [{ label: '同步分成比例' }, { label: '团长汇总' }, { label: '批量UID操作' }, ...commonActions, { label: '标记未结清', type: 'warning' }],
+    statCards: [
+      { label: '归档记录', key: 'total', icon: 'list', color: '#6b5eea' },
+      { label: '归档金额', key: 'total_amount', icon: 'money', money: true, color: '#26c6f9' },
+    ],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'archive_year', label: '年份' },
+      { key: 'archive_month', label: '月份' },
+      { key: 'member_id', label: '成员ID', width: 140 },
+      { key: 'member_name', label: '成员昵称', width: 160 },
+      { key: 'account_name', label: '所属账号' },
+      { key: 'org_name', label: '所属机构' },
+      { key: 'avatar', label: '头像', image: true, width: 80 },
+      { key: 'fans_count', label: '粉丝数' },
+      { key: 'broker_name', label: '经纪人' },
+      { key: 'org_task_num', label: '任务数' },
+      { key: 'total_amount', label: '总金额', money: true },
+      { key: 'commission_rate', label: '分成比例' },
+      { key: 'commission_amount', label: '扣除分成', money: true },
+    ],
+    rowActions: [{ label: '编辑' }, { label: '标记未结清', type: 'warning' }],
+  },
+  '/spark-income': {
+    title: '星火收益',
+    endpoint: '/spark/income',
+    filters: [
+      { key: 'search', placeholder: '搜索成员名称' },
+      { key: 'owner_id', placeholder: '选择用户', type: 'select', source: 'users' },
+      { key: 'task_name', placeholder: '搜索任务名称' },
+      { key: 'start_date', placeholder: '开始日期', type: 'date' },
+      { key: 'end_date', placeholder: '结束日期', type: 'date' },
+    ],
+    actions: [...commonActions, { label: '加入高转化', type: 'success' }],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'member_name', label: '成员名称', width: 160 },
+      { key: 'org_name', label: '所属机构' },
+      { key: 'task_id', label: '任务ID' },
+      { key: 'task_name', label: '任务名称', width: 220 },
+      { key: 'task_period', label: '任务周期' },
+      { key: 'total_amount', label: '收入金额', money: true },
+      { key: 'start_date', label: '开始日期' },
+      { key: 'end_date', label: '结束日期' },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '加入高转化', type: 'success' }, { label: '编辑' }, { label: '删除', type: 'danger' }],
+  },
+  '/collect-pool': {
+    title: '短剧收藏池',
+    endpoint: '/collect-pool',
+    filters: [
+      { key: 'search', placeholder: '搜索短剧名称' },
+      { key: 'start_date', placeholder: '开始日期', type: 'date' },
+      { key: 'end_date', placeholder: '结束日期', type: 'date' },
+    ],
+    actions: [{ label: '添加短剧', type: 'primary' }, { label: '刷新' }, ...commonActions, { label: '🔗 URL为空' }, { label: '🔴 链接有中文', type: 'warning' }],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'drama_name', label: '短剧名称', width: 220 },
+      { key: 'drama_url', label: '短剧URL', link: true, width: 260 },
+      { key: 'platform', label: '平台', tag: true },
+      { key: 'auth_code', label: '授权码' },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '查看链接', type: 'primary' }, { label: '删除', type: 'danger' }],
+  },
+  '/high-income-dramas': {
+    title: '高转化短剧管理',
+    endpoint: '/high-income-dramas',
+    responseListKey: 'list',
+    filters: [{ key: 'search', placeholder: '搜索短剧名称' }],
+    actions: [{ label: '添加短剧', type: 'primary' }, { label: '刷新' }, ...commonActions],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'drama_name', label: '短剧名称', width: 260 },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '查看链接', type: 'primary' }, { label: '删除', type: 'danger' }],
+  },
+  '/drama-statistics': {
+    title: '短剧链接统计',
+    subtitle: '短剧链接执行统计',
+    endpoint: '/statistics/drama-links',
+    responseListKey: 'list',
+    filters: [
+      { key: 'search', placeholder: '搜索短剧名称' },
+      { key: 'start_date', placeholder: '开始日期', type: 'date' },
+      { key: 'end_date', placeholder: '结束日期', type: 'date' },
+    ],
+    actions: [{ label: '刷新', type: 'primary' }, { label: '导出' }, ...commonActions, { label: '批量删除 (0)', type: 'danger' }, { label: '清空全部', type: 'danger' }],
+    statCards: [
+      { label: '短剧总数', key: 'drama_count', icon: 'drama', color: '#2f8dfb' },
+      { label: '总执行次数', key: 'execute_count', icon: 'run', color: '#6b5eea' },
+      { label: '成功次数', key: 'success_count', icon: 'ok', color: '#45b854' },
+      { label: '失败次数', key: 'failed_count', icon: 'fail', color: '#ff5b62' },
+    ],
+    columns: [
+      { key: 'index', label: '#', width: 70 },
+      { key: 'drama_name', label: '短剧名称', width: 220 },
+      { key: 'drama_link', label: '短剧链接', link: true, width: 280 },
+      { key: 'execute_count', label: '执行次数' },
+      { key: 'success_count', label: '成功次数' },
+      { key: 'failed_count', label: '失败次数' },
+      { key: 'success_rate', label: '成功率' },
+      { key: 'account_count', label: '账号数' },
+      { key: 'last_execute_time', label: '最后执行时间', width: 180 },
+    ],
+    rowActions: [{ label: '删除', type: 'danger' }],
+  },
+  '/drama-collections': {
+    title: '短剧收藏记录',
+    endpoint: '/collections/accounts',
+    filters: [{ key: 'search', placeholder: '搜索账号UID或名称' }],
+    actions: [{ label: '刷新' }, ...commonActions],
+    columns: [
+      { key: 'kuaishou_uid', label: '账号UID', width: 150 },
+      { key: 'kuaishou_name', label: '账号名称', width: 160 },
+      { key: 'group_name', label: '分组' },
+      { key: 'owner_name', label: '所属用户' },
+      { key: 'total_count', label: '收藏总数' },
+      { key: 'spark_count', label: '星火计划' },
+      { key: 'firefly_count', label: '萤火计划' },
+      { key: 'last_collect_time', label: '最后收藏时间', width: 180 },
+    ],
+    rowActions: [{ label: '查看详情', type: 'primary' }],
+  },
+  '/external-url-stats': {
+    title: '外部项目统计',
+    endpoint: '/statistics/external-urls',
+    responseListKey: 'list',
+    filters: [{ key: 'search', placeholder: '搜索短剧名称/链接/用户' }],
+    actions: [{ label: '刷新', type: 'primary' }, { label: '导出' }, ...commonActions, { label: '批量删除 (0)', type: 'danger' }, { label: '清空全部', type: 'danger' }],
+    columns: [
+      { key: 'index', label: '#', width: 70 },
+      { key: 'drama_name', label: '短剧名称', width: 220 },
+      { key: 'url', label: '短剧链接', link: true, width: 300 },
+      { key: 'reference_count', label: '执行次数' },
+      { key: 'account_count', label: '账号数' },
+      { key: 'operator_name', label: '执行用户' },
+    ],
+    rowActions: [{ label: '删除', type: 'danger' }],
+  },
+  '/cxt-user': {
+    title: '橙星推用户',
+    endpoint: '/cxt-user',
+    responseListKey: 'list',
+    filters: [{ key: 'search', placeholder: 'UID / 备注' }],
+    actions: [{ label: '批量上传UID', type: 'primary' }, { label: '批量UID修改' }, { label: '批量删除', type: 'danger' }, ...queryActions],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'uid', label: 'UID', width: 180 },
+      { key: 'remark', label: '备注', width: 220 },
+      { key: 'auth_code', label: '授权码' },
+      { key: 'audit_status', label: '审核状态', tag: true },
+    ],
+    rowActions: [{ label: '修改' }, { label: '删除', type: 'danger' }],
+  },
+  '/cxt-videos': {
+    title: '橙星推剧集',
+    endpoint: '/cxt-videos',
+    responseListKey: 'list',
+    filters: [
+      { key: 'title', placeholder: '剧名' },
+      { key: 'author', placeholder: '作者' },
+      { key: 'sec_user_id', placeholder: 'sec_user_id' },
+      { key: 'aweme_id', placeholder: 'aweme_id' },
+      { key: 'start_date', placeholder: '开始日期', type: 'date' },
+      { key: 'end_date', placeholder: '结束日期', type: 'date' },
+    ],
+    actions: [{ label: '批量导入', type: 'primary' }, { label: '批量删除', type: 'danger' }, ...queryActions],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'title', label: '剧名', width: 220 },
+      { key: 'author', label: '作者', width: 150 },
+      { key: 'sec_user_id', label: 'sec_user_id', width: 180 },
+      { key: 'aweme_id', label: 'aweme_id', width: 180 },
+      { key: 'duration', label: '时长(秒)' },
+      { key: 'play_count', label: '播放量' },
+      { key: 'digg_count', label: '点赞数' },
+      { key: 'comment_count', label: '评论数' },
+      { key: 'collect_count', label: '收藏数' },
+      { key: 'recommend_count', label: '推荐数' },
+      { key: 'share_count', label: '分享数' },
+      { key: 'created_at', label: '创建时间', width: 180 },
+    ],
+    rowActions: [{ label: '详情', type: 'primary' }, { label: '删除', type: 'danger' }],
+  },
+  '/cloud-cookies': {
+    title: '云端Cookie管理',
+    endpoint: '/cloud-cookies',
+    filters: [{ key: 'search', placeholder: '账号名称/快手昵称/UID' }],
+    actions: [...queryActions, { label: '批量删除 (0)', type: 'danger' }, { label: '批量修改标识码' }],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'owner_code', label: '所有者标识码', width: 140 },
+      { key: 'account_name', label: '账号名称', width: 150 },
+      { key: 'nickname', label: '快手昵称', width: 150 },
+      { key: 'uid', label: '快手UID', width: 150 },
+      { key: 'device_serial', label: '设备序列号', width: 220 },
+      { key: 'login_status', label: '状态', tag: true },
+      { key: 'remark', label: '备注' },
+      { key: 'updated_at', label: '更新时间', width: 180 },
+    ],
+    rowActions: [{ label: '编辑' }, { label: '查看Cookie', type: 'primary' }, { label: '删除', type: 'danger' }],
+  },
+  '/spark-photos': {
+    title: '星火作品',
+    endpoint: '/spark/photos',
+    filters: [{ key: 'search', placeholder: '搜索作品ID/标题/成员' }],
+    actions: [...commonActions],
+    columns: [
+      { key: 'id', label: 'ID', width: 90 },
+      { key: 'photo_id', label: '作品ID', width: 160 },
+      { key: 'thumbnail', label: '封面', image: true, width: 90 },
+      { key: 'member_name', label: '成员名称', width: 160 },
+      { key: 'title', label: '标题', width: 220 },
+      { key: 'view_count', label: '播放量' },
+      { key: 'like_count', label: '点赞数' },
+      { key: 'comment_count', label: '评论数' },
+      { key: 'publish_date', label: '发布时间', width: 180 },
+    ],
+    rowActions: [{ label: '查看详情', type: 'primary' }],
+  },
+}
+
+export function getPageConfig(path: string, fallbackTitle: string, fallbackEndpoint?: string): PageConfig {
+  return pageConfigs[path] || {
+    title: fallbackTitle,
+    endpoint: fallbackEndpoint || '',
+    filters: [{ key: 'search', placeholder: '搜索关键词' }],
+    actions: commonActions,
+    columns: [],
+  }
+}
